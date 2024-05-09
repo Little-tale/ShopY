@@ -11,12 +11,12 @@ import Combine
 final class SearchViewModel: CombineViewModelType {
     
     @Published
-    var input: Input = .init()
+    var input: Input = Input()
     
     @Published
-    var output: Output = .init()
+    var output: Output = Output()
     
-    var cancellabel: Set<AnyCancellable> = .init()
+    var cancellabel: Set<AnyCancellable> = []
     
     init(){
         transform()

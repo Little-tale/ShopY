@@ -31,7 +31,8 @@ struct SearchView: View {
             .navigationTitle("떠나고 싶은 재형이의 쇼핑~")
             .navigationBarTitleDisplayMode(.inline)
             
-            List(viewModel.output.searchList.indices, id: \.self) { index in
+            List(viewModel.output.searchList
+                .indices, id: \.self) { index in
                 SearchListHView(text: viewModel.output.searchList[index], xButtonTap: {
                     viewModel.input.deleteButtonTap.send(index)
                 }, tag: index)
