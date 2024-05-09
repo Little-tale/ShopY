@@ -47,6 +47,13 @@ extension TargetType {
         var urlRequest = URLRequest(url: lastURL)
         print(method.rawValue)
         urlRequest.httpMethod = method.rawValue
+        
+        let headers = APIKey.getHeader()
+        
+        headers.forEach { key, value in
+            urlRequest.addValue(value, forHTTPHeaderField: key)
+        }
+        
         return .success(urlRequest)
         
     }

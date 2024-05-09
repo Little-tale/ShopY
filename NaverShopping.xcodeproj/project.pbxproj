@@ -24,6 +24,7 @@
 		7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A362BECFD28003BE504 /* SearchQueryItems.swift */; };
 		7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A382BED1F3F003BE504 /* TargetType.swift */; };
 		7BC21A3B2BED2039003BE504 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A3A2BED2039003BE504 /* .gitignore */; };
+		7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A3D2BED20B7003BE504 /* ApiKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		7BC21A362BECFD28003BE504 /* SearchQueryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryItems.swift; sourceTree = "<group>"; };
 		7BC21A382BED1F3F003BE504 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		7BC21A3A2BED2039003BE504 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7BC21A3D2BED20B7003BE504 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		7BC21A3C2BED2072003BE504 /* Secret */ = {
 			isa = PBXGroup;
 			children = (
+				7BC21A3D2BED20B7003BE504 /* ApiKey.swift */,
 			);
 			path = Secret;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */,
 				7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */,
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
+				7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */,
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
@@ -419,9 +423,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.NaverShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,9 +456,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.NaverShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
