@@ -9,13 +9,9 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @State
-    var searchText = ""
-    
-    @State
-    var searchList:[String] = ["asda"]
+    @StateObject private
+    var viewModel = SearchViewModel()
 
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -25,7 +21,7 @@ struct SearchView: View {
                         .bold()
                     Spacer()
                     Text("모두 지우기").asButton {
-                        searchList.removeAll()
+                        viewModel.input.allDeleteButtonTap.send(())
                     }
                     .bold()
                     .foregroundStyle(.green)
@@ -35,20 +31,26 @@ struct SearchView: View {
             .navigationTitle("떠나고 싶은 재형이의 쇼핑~")
             .navigationBarTitleDisplayMode(.inline)
             
-            List(searchList.indices, id: \.self) { index in
-                SearchListHView(text: searchList[index], xButtonTap: {
-                    searchList.remove(at: index)
+            List(viewModel.output.searchList.indices, id: \.self) { index in
+                SearchListHView(text: viewModel.output.searchList[index], xButtonTap: {
+                    viewModel.input.deleteButtonTap.send(index)
                 }, tag: index)
             }
             .listStyle(.plain)
             Spacer()
         }
-        .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always))
+        .searchable(
+            text: $viewModel.input.currentText,
+            placement: .navigationBarDrawer(
+                displayMode: .always
+            )
+        )
         .onSubmit(of: .search) {
-            searchList.insert(searchText, at: 0)
+            viewModel.input.searchButtonTap.send(())
         }
-        
-        
+        .task {
+            viewModel.input.viewOnAppear.send(())
+        }
     }
 }
 

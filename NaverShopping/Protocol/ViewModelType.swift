@@ -22,3 +22,8 @@ protocol ViewModelType: AnyObject, ObservableObject {
 
 }
 
+protocol CombineViewModelType: ViewModelType {
+    
+    var cancellabel: Set<AnyCancellable> { get set }
+    
+}
