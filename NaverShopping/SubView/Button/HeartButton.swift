@@ -11,7 +11,9 @@ struct HeartButton: View {
     
     @Binding
     var isSelected: Bool
+    
     let tag: Int
+    
     let action: () -> Void
     
     var body: some View {

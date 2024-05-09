@@ -11,7 +11,7 @@ import SwiftUI
 struct NaverShoppingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchView()
         }
     }
 }

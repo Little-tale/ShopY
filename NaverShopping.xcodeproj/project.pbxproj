@@ -12,6 +12,11 @@
 		7BC21A0D2BECCBA6003BE504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */; };
 		7BC21A102BECCBA6003BE504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A0F2BECCBA6003BE504 /* Preview Assets.xcassets */; };
 		7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A182BECCBD8003BE504 /* HeartButton.swift */; };
+		7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A1B2BECCC23003BE504 /* SearchView.swift */; };
+		7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */; };
+		7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A202BECD18E003BE504 /* SearchListHView.swift */; };
+		7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */; };
+		7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A252BECE04B003BE504 /* ViewModelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC21A0F2BECCBA6003BE504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BC21A182BECCBD8003BE504 /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
+		7BC21A1B2BECCC23003BE504 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
+		7BC21A202BECD18E003BE504 /* SearchListHView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListHView.swift; sourceTree = "<group>"; };
+		7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7BC21A252BECE04B003BE504 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,8 @@
 		7BC21A072BECCBA5003BE504 /* NaverShopping */ = {
 			isa = PBXGroup;
 			children = (
+				7BC21A242BECE042003BE504 /* Protocol */,
+				7BC21A1A2BECCC0E003BE504 /* View */,
 				7BC21A162BECCBBD003BE504 /* SubView */,
 				7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */,
 				7BC21A0A2BECCBA5003BE504 /* ContentView.swift */,
@@ -73,6 +85,7 @@
 		7BC21A162BECCBBD003BE504 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				7BC21A1F2BECD164003BE504 /* Search */,
 				7BC21A172BECCBC7003BE504 /* Button */,
 			);
 			path = SubView;
@@ -84,6 +97,32 @@
 				7BC21A182BECCBD8003BE504 /* HeartButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		7BC21A1A2BECCC0E003BE504 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
+				7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BC21A1F2BECD164003BE504 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A202BECD18E003BE504 /* SearchListHView.swift */,
+				7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7BC21A242BECE042003BE504 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A252BECE04B003BE504 /* ViewModelType.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,9 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */,
+				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A0B2BECCBA5003BE504 /* ContentView.swift in Sources */,
+				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
+				7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */,
 				7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */,
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
+				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
