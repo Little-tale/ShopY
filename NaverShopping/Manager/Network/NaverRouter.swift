@@ -9,7 +9,7 @@ import Foundation
 
 
 enum NaverRouter {
-    case search(searchText: String, query: SearchQueryItems)
+    case search(query: SearchQueryItems)
 }
 
 extension NaverRouter: TargetType {
@@ -39,9 +39,14 @@ extension NaverRouter: TargetType {
 
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .search(_, let query):
-            return query.urlItems()
+        case .search(let query):
+            let edcoding = query.searchText.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? "none"
+            return [
+                URLQueryItem(name: "query", value: edcoding),
+                URLQueryItem(name: "display", value: String(query.display)),
+                URLQueryItem(name: "start", value: String(query.start)),
+                URLQueryItem(name: "sort", value: query.sort)
+            ]
         }
     }
-
 }

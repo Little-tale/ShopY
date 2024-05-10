@@ -22,23 +22,32 @@ extension NetworkManager {
             Task {
                 do {
                     let urlRequest =  router.asURLRequest()
+                    
                     guard case .success(let success) = urlRequest else {
                         return promiss(.failure(NetworkError.failRequest))
                     }
+                    
+                    print("@ \(success)")
+                    
                     let (data, response) = try await URLSession.shared.data(for: success)
                     
                     guard let response = response as? HTTPURLResponse else {
+                        print( "Response Error ")
                         return promiss(.failure(.noResponse))
                     }
                     
                     if !(200..<300).contains(response.statusCode) {
-                        promiss(.failure(.cantStatusCoding))
+                        return promiss(.failure(.cantStatusCoding))
                     }
+                    do {
+                        let decoding = try JSONDecoder().decode(T.self, from: data)
+                        promiss(.success(decoding))
+                    } catch {
+                        promiss(.failure(.errorDecoding))
+                    }
+                
+                } catch (let error ) {
                     
-                    let decoding = try JSONDecoder().decode(T.self, from: data)
-                    promiss(.success(decoding))
-                    
-                } catch {
                     promiss(.failure(.unknownError))
                 }
             }

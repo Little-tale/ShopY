@@ -12,8 +12,8 @@ struct VirticalResultRowView: View {
     @Binding
     var model: ShopItem
     
-    @Binding
-    var isModelLike: Bool
+    @State
+    var isModelLike: Bool = false
     
     var heartButtonTapped: (Int) -> Void
     
