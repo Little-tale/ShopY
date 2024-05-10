@@ -20,4 +20,11 @@ enum NetworkError: Error {
 
 extension NetworkError {
     
+    
+    var errorMessgae: String {
+        switch self {
+        default:
+            return "에러가 나따"
+        }
+    }
 }

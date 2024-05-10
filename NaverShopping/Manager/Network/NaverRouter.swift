@@ -40,9 +40,8 @@ extension NaverRouter: TargetType {
     var queryItems: [URLQueryItem]? {
         switch self {
         case .search(let query):
-            let edcoding = query.searchText.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? "none"
             return [
-                URLQueryItem(name: "query", value: edcoding),
+                URLQueryItem(name: "query", value: query.searchText),
                 URLQueryItem(name: "display", value: String(query.display)),
                 URLQueryItem(name: "start", value: String(query.start)),
                 URLQueryItem(name: "sort", value: query.sort)

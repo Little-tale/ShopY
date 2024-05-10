@@ -31,6 +31,7 @@
 		7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A472BED2ED5003BE504 /* ImageLoader.swift */; };
 		7BC21A4F2BEDEC08003BE504 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A4E2BEDEC08003BE504 /* SearchResultViewModel.swift */; };
 		7BC21A512BEDEF7C003BE504 /* SortCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A502BEDEF7C003BE504 /* SortCase.swift */; };
+		7BC21A542BEE0FE8003BE504 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC21A532BEE0FE8003BE504 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC21A542BEE0FE8003BE504 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +249,9 @@
 			dependencies = (
 			);
 			name = NaverShopping;
+			packageProductDependencies = (
+				7BC21A532BEE0FE8003BE504 /* Kingfisher */,
+			);
 			productName = NaverShopping;
 			productReference = 7BC21A052BECCBA5003BE504 /* NaverShopping.app */;
 			productType = "com.apple.product-type.application";
@@ -275,6 +280,9 @@
 				Base,
 			);
 			mainGroup = 7BC219FC2BECCBA5003BE504;
+			packageReferences = (
+				7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7BC21A062BECCBA5003BE504 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -536,6 +544,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7BC21A532BEE0FE8003BE504 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7BC219FD2BECCBA5003BE504 /* Project object */;
 }

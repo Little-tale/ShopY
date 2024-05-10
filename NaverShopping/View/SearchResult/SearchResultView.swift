@@ -25,21 +25,32 @@ struct SearchResultView: View {
     @State
     var likeState = true
     
+   
+    
     var body: some View {
         VStack {
             ScrollView {
                 LazyVGrid(columns: gridItem, content: {
                     ForEach($viewModel.output.drawRowViewModel, id: \.productId) { model in
+    
                         VirticalResultRowView(model: model) { num in
-                            print("그려주세요...")
                             print(num)
                         }
+                        .padding(.horizontal, 10)
                     }
                 })
             }
         }
         .task {
             viewModel.input.searchText.send(searchText)
+        }
+        .alert(isPresented: $viewModel.output.isError) {
+            Alert(
+                title: Text("에러"),
+                message: Text(viewModel.output.ifNetworkError.value?.errorMessgae ?? "none"),
+                primaryButton: .destructive(Text("확인")),
+                secondaryButton: .cancel()
+            )
         }
         .navigationTitle(searchText)
     }

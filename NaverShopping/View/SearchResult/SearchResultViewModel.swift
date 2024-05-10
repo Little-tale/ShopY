@@ -30,13 +30,15 @@ extension SearchResultViewModel {
     }
     
     struct Output {
-        var ifNetworkError = PassthroughSubject<NetworkError, Never> ()
+        var ifNetworkError = CurrentValueSubject<NetworkError?, Never> (nil)
         var drawRowViewModel: [ShopItem] = []
         var total = CurrentValueSubject<Int,Never> (0)
+        var isError = false
     }
 }
 
 extension SearchResultViewModel {
+    
     
     func transform() {
         
@@ -73,6 +75,7 @@ extension SearchResultViewModel {
                 dump(queryItems)
                 return result
             })
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {[weak self] result in
                 switch result {
                 case .finished:
@@ -80,6 +83,7 @@ extension SearchResultViewModel {
                     break
                 case .failure(let error):
                     print("에러가 나요",error)
+                    self?.output.isError = true
                     self?.output.ifNetworkError.send(error)
                 }
             }, receiveValue: { [weak self] shop in

@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import Kingfisher
+/*
+ Invalid frame dimension (negative or non-finite).
+ */
 
 struct VirticalResultRowView: View {
     
@@ -15,24 +19,34 @@ struct VirticalResultRowView: View {
     @State
     var isModelLike: Bool = false
     
-    var heartButtonTapped: (Int) -> Void
+    var heartButtonTapped: (ShopItem) -> Void
     
     var body: some View {
-        VStack {
+        LazyVStack(alignment: .leading) {
             ZStack(alignment: .topTrailing, content: {
-                CustomLazyImage(imageURL: model.imageProcess)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
-                    .clipped()
+                
+                KFImage(model.imageProcess)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .clipShape(.rect(cornerRadius: 12))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(.black, lineWidth: 1)
+                    }
                 
                 HeartButton(
                     isSelected: $isModelLike,
                     tag: model.currentTag) {
-                        heartButtonTapped(model.currentTag)
+                        heartButtonTapped(model)
                     }
+                    .padding(.top, 2)
+                    .padding(.trailing, 2)
             })
+            
             Text(model.mallNameProcess)
             Text(model.productNameProcess)
+                .lineLimit(2)
             Text(model.priceProcess)
         }
     }
