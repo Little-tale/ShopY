@@ -70,8 +70,6 @@ extension SearchResultViewModel {
             })
             .debounce(for: 0.1, scheduler: RunLoop.main)
             .sink { combined in
-                print("검색 시작!",combined)
-                print("이게 ? \(combined.sort.rawValue)")
                 let query = SearchQueryItems(
                     searchText: combined.text,
                     display: combined.display,
@@ -107,8 +105,6 @@ extension SearchResultViewModel {
                 }
             }, receiveValue: { [weak self] shop in
                 print("성공한 모델이에여")
-                dump(shop)
-                
                 var datas = self?.output.drawRowViewModel
                 datas?.append(contentsOf: shop.items)
                 currentTotal = datas?.count ?? 0
