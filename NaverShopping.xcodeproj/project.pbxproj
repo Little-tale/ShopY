@@ -25,6 +25,10 @@
 		7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A382BED1F3F003BE504 /* TargetType.swift */; };
 		7BC21A3B2BED2039003BE504 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A3A2BED2039003BE504 /* .gitignore */; };
 		7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A3D2BED20B7003BE504 /* ApiKey.swift */; };
+		7BC21A402BED2A7E003BE504 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A3F2BED2A7E003BE504 /* SearchResultView.swift */; };
+		7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A422BED2AF5003BE504 /* VirticalResultRowView.swift */; };
+		7BC21A462BED2BBA003BE504 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A452BED2BBA003BE504 /* ShopModel.swift */; };
+		7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A472BED2ED5003BE504 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		7BC21A382BED1F3F003BE504 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		7BC21A3A2BED2039003BE504 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7BC21A3D2BED20B7003BE504 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
+		7BC21A3F2BED2A7E003BE504 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		7BC21A422BED2AF5003BE504 /* VirticalResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirticalResultRowView.swift; sourceTree = "<group>"; };
+		7BC21A452BED2BBA003BE504 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		7BC21A472BED2ED5003BE504 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 		7BC21A072BECCBA5003BE504 /* NaverShopping */ = {
 			isa = PBXGroup;
 			children = (
+				7BC21A442BED2BAB003BE504 /* Model */,
 				7BC21A3C2BED2072003BE504 /* Secret */,
 				7BC21A272BECF0A7003BE504 /* Manager */,
 				7BC21A242BECE042003BE504 /* Protocol */,
@@ -104,6 +113,7 @@
 		7BC21A162BECCBBD003BE504 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				7BC21A412BED2AC7003BE504 /* Result */,
 				7BC21A1F2BECD164003BE504 /* Search */,
 				7BC21A172BECCBC7003BE504 /* Button */,
 			);
@@ -123,6 +133,7 @@
 			children = (
 				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
 				7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */,
+				7BC21A3F2BED2A7E003BE504 /* SearchResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +173,7 @@
 				7BC21A2B2BECF2C6003BE504 /* HTTPMethod.swift */,
 				7BC21A2D2BECF833003BE504 /* NaverRouter.swift */,
 				7BC21A2F2BECF928003BE504 /* NetworkError.swift */,
+				7BC21A472BED2ED5003BE504 /* ImageLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -187,6 +199,22 @@
 				7BC21A3D2BED20B7003BE504 /* ApiKey.swift */,
 			);
 			path = Secret;
+			sourceTree = "<group>";
+		};
+		7BC21A412BED2AC7003BE504 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A422BED2AF5003BE504 /* VirticalResultRowView.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		7BC21A442BED2BAB003BE504 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,14 +289,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC21A2A2BECF0C5003BE504 /* NetworkManager.swift in Sources */,
+				7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */,
+				7BC21A402BED2A7E003BE504 /* SearchResultView.swift in Sources */,
 				7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */,
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A0B2BECCBA5003BE504 /* ContentView.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
 				7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */,
+				7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */,
 				7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */,
 				7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */,
+				7BC21A462BED2BBA003BE504 /* ShopModel.swift in Sources */,
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
 				7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */,
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
