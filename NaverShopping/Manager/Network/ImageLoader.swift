@@ -26,14 +26,51 @@ final class ImageLoader: ObservableObject {
             .map { Image(uiImage: $0) }
             .receive(on: DispatchQueue.main)
             .sink {[weak self] complite in
-                if case .failure(let error) = complite {
+                if case .failure = complite {
                     self?.image = nil
                 }
             } receiveValue: {[unowned self] img in
                 image = img
             }
             .store(in: &cancellables)
+    }
+    deinit {
+        cancellables.forEach { $0.cancel() }
+    }
+    
+}
 
-
+struct CustomLazyImage: View {
+    
+    @StateObject private
+    var imageLoader = ImageLoader()
+    
+    private
+    let imageURL: URL?
+    
+    init(imageURL: URL?) {
+        self.imageURL = imageURL
+    }
+    
+    var body: some View {
+        content
+            .task {
+                imageLoader.loadImage(from: imageURL)
+            }
+    }
+    
+    private
+    var content: some View {
+        Group {
+            if let image = imageLoader.image {
+                image.resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else {
+                ProgressView()
+                    .scaleEffect(1.0, anchor: .center)
+                    .progressViewStyle(.circular)
+                    .tint(.gray)
+            }
+        }
     }
 }

@@ -10,15 +10,13 @@ import SwiftUI
 struct VirticalResultRowView: View {
     
     @Binding
-    var setModel: ShopItem
+    var model: ShopItem
     
     var body: some View {
         ZStack(alignment: .topTrailing, content: {
-            
+            ImageLoader().loadImage(from: model.imageProcess)
         })
     }
 }
 
-#Preview {
-    VirticalResultRowView()
-}
+
