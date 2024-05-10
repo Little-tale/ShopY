@@ -22,11 +22,10 @@ struct VirticalResultRowView: View {
     var heartButtonTapped: (ShopItem) -> Void
     
     var body: some View {
-        LazyVStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing, content: {
                 
-                KFImage(model.imageProcess)
-                    .resizable()
+                DownSamplingImageView(url: model.imageProcess)
                     .aspectRatio(1, contentMode: .fit)
                     .frame(maxWidth: .infinity)
                     .clipShape(.rect(cornerRadius: 12))
@@ -34,7 +33,6 @@ struct VirticalResultRowView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(.black, lineWidth: 1)
                     }
-                
                 HeartButton(
                     isSelected: $isModelLike,
                     tag: model.currentTag) {
@@ -45,8 +43,11 @@ struct VirticalResultRowView: View {
             })
             
             Text(model.mallNameProcess)
+                .font(.footnote)
             Text(model.productNameProcess)
                 .lineLimit(2)
+                .font(.subheadline)
+                .padding(.bottom, 4)
             Text(model.priceProcess)
         }
     }

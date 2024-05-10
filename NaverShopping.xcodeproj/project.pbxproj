@@ -32,6 +32,7 @@
 		7BC21A4F2BEDEC08003BE504 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A4E2BEDEC08003BE504 /* SearchResultViewModel.swift */; };
 		7BC21A512BEDEF7C003BE504 /* SortCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A502BEDEF7C003BE504 /* SortCase.swift */; };
 		7BC21A542BEE0FE8003BE504 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC21A532BEE0FE8003BE504 /* Kingfisher */; };
+		7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A592BEE332B003BE504 /* DownSamplingImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		7BC21A472BED2ED5003BE504 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		7BC21A4E2BEDEC08003BE504 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		7BC21A502BEDEF7C003BE504 /* SortCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCase.swift; sourceTree = "<group>"; };
+		7BC21A592BEE332B003BE504 /* DownSamplingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownSamplingImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,8 @@
 		7BC21A1A2BECCC0E003BE504 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BC21A582BEE32F3003BE504 /* ViewWrepper */,
+				7BC21A552BEE31D0003BE504 /* Modifier */,
 				7BC21A4D2BEDEBE7003BE504 /* SearchResult */,
 				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
 				7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */,
@@ -231,6 +235,21 @@
 				7BC21A4E2BEDEC08003BE504 /* SearchResultViewModel.swift */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		7BC21A552BEE31D0003BE504 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		7BC21A582BEE32F3003BE504 /* ViewWrepper */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A592BEE332B003BE504 /* DownSamplingImageView.swift */,
+			);
+			path = ViewWrepper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +350,7 @@
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
+				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
