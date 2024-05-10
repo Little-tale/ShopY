@@ -34,8 +34,13 @@ struct VirticalResultRowView: View {
                     tag: model.currentTag) {
                         var before = model
                         before.likeState = !before.likeState
-                        print("토글후",before)
                         heartButtonTapped(before)
+                        
+                        if before.likeState {
+                            UserDefaultManager.productId.insert(before.productId)
+                        } else {
+                            UserDefaultManager.productId.remove(before.productId)
+                        }
                     }
                     .padding(.top, 2)
                     .padding(.trailing, 2)
