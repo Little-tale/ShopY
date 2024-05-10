@@ -52,10 +52,13 @@ extension SearchResultViewModel {
         
         let start = CurrentValueSubject<Int, Never> (1)
         
+        // distinctUntilChanged
         let sort = input.inputSort
-            .removeDuplicates() // distinctUntilChanged
+            .removeDuplicates(by: { lcase, rcase in
+                lcase.name == rcase.name
+            })
             .map {[weak self] sort in
-                self?.output.drawRowViewModel = []
+                self?.output.drawRowViewModel.removeAll()
                 start.send(1)
                 return sort
             }
@@ -65,8 +68,10 @@ extension SearchResultViewModel {
             .map({ (text, sort, start, display) in
                 return (text: text, sort: sort, start: start, display: display)
             })
+            .debounce(for: 0.1, scheduler: RunLoop.main)
             .sink { combined in
                 print("검색 시작!",combined)
+                print("이게 ? \(combined.sort.rawValue)")
                 let query = SearchQueryItems(
                     searchText: combined.text,
                     display: combined.display,

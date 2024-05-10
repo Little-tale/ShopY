@@ -42,7 +42,7 @@ struct SearchResultView: View {
                             }
                             .padding(.horizontal, 10)
                             .onAppear {
-                                print(model)
+                                // print(model)
                                 viewModel.input.inputCurrentIndex.send(index)
                             }
                         }
@@ -52,6 +52,7 @@ struct SearchResultView: View {
                                 Text( sort.name)
                                     .asButton {
                                         viewModel.input.inputSort.send(sort)
+                                        print("이게눌림",sort.name)
                                     }
                                     .padding(4)
                                     .background(Color.purple)
