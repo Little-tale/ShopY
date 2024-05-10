@@ -8,5 +8,15 @@
 import Foundation
 
 
-
+enum UserDefaultManager {
+    
+    enum Key: String {
+        case productId
+    }
+    
+    @UserDefaultWrapper(key: Key.productId.rawValue, placeValue: [])
+    static var productId: Set<String>
+    
+    
+}
 

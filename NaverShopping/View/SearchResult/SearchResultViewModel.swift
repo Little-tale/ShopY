@@ -29,6 +29,7 @@ extension SearchResultViewModel {
         var searchText = PassthroughSubject<String, Never> ()
         var inputSort = CurrentValueSubject<SortCase,Never> (.sim)
         var inputCurrentIndex = CurrentValueSubject<Int,Never> (0)
+        var likeStateChange = PassthroughSubject<(ShopItem,Int),Never> ()
     }
     
     struct Output {
@@ -51,6 +52,8 @@ extension SearchResultViewModel {
         let display = CurrentValueSubject<Int, Never>(30)
         
         let start = CurrentValueSubject<Int, Never> (1)
+        
+        let userLikeList = CurrentValueSubject<Set<String>, Never> (UserDefaultManager.productId)
         
         // distinctUntilChanged
         let sort = input.inputSort
@@ -106,13 +109,19 @@ extension SearchResultViewModel {
             }, receiveValue: { [weak self] shop in
                 print("성공한 모델이에여")
                 var datas = self?.output.drawRowViewModel
-                datas?.append(contentsOf: shop.items)
+                datas?.append(contentsOf: shop.items.map({ item in
+                    var new = item
+                    new.likeState = userLikeList.value.contains(item.productId)
+                    return new
+                }))
+                
                 currentTotal = datas?.count ?? 0
                 dump(datas)
                 DispatchQueue.main.async {
                     self?.output.drawRowViewModel = datas ?? []
                     self?.output.total.send(shop.total)
                 }
+                
                 print("전체 : ",shop.total)
             })
             .store(in: &cancellabel)
@@ -126,6 +135,16 @@ extension SearchResultViewModel {
                 var value = start.value
                 value += 1
                 start.send(value)
+            }
+            .store(in: &cancellabel)
+        
+        input.likeStateChange
+            .sink {[weak self] item, index in
+               var models = self?.output.drawRowViewModel
+                models?[index] = item
+                if let models {
+                    self?.output.drawRowViewModel = models
+                }
             }
             .store(in: &cancellabel)
         

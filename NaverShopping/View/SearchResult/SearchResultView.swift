@@ -38,7 +38,8 @@ struct SearchResultView: View {
                             VirticalResultRowView(
                                 model: .constant(model)
                             ) { item in // heartButtonTapped
-                                print(item)
+                                print(item, index)
+                                viewModel.input.likeStateChange.send((item,index))
                             }
                             .padding(.horizontal, 10)
                             .onAppear {

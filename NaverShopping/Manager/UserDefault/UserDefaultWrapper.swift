@@ -7,15 +7,16 @@
 
 import Foundation
 
-
+@propertyWrapper
 struct UserDefaultWrapper<T> {
+    
     let key: String
     let placeValue: T
     
     private
     let US = UserDefaults.standard
     
-    var wrapperValue: T {
+    var wrappedValue: T {
         get {
             US.object(forKey: key) as? T ?? placeValue
         }

@@ -16,9 +16,6 @@ struct VirticalResultRowView: View {
     @Binding
     var model: ShopItem
     
-    @State
-    var isModelLike: Bool = false
-    
     var heartButtonTapped: (ShopItem) -> Void
     
     var body: some View {
@@ -33,14 +30,16 @@ struct VirticalResultRowView: View {
                             .stroke(.black, lineWidth: 1)
                     }
                 HeartButton(
-                    isSelected: $isModelLike,
+                    isSelected: $model.likeState,
                     tag: model.currentTag) {
-                        heartButtonTapped(model)
+                        var before = model
+                        before.likeState = !before.likeState
+                        print("토글후",before)
+                        heartButtonTapped(before)
                     }
                     .padding(.top, 2)
                     .padding(.trailing, 2)
             })
-            
             Text(model.mallNameProcess)
                 .font(.footnote)
             Text(model.productNameProcess)
@@ -48,6 +47,9 @@ struct VirticalResultRowView: View {
                 .font(.subheadline)
                 .padding(.bottom, 4)
             Text(model.priceProcess)
+        }
+        .onAppear {
+            print("토글전",model.likeState)
         }
     }
 }

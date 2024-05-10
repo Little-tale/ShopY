@@ -22,6 +22,8 @@ struct ShopItem: Decodable, Hashable, Identifiable{
     let mallName: String
     let productId: String
     
+    var likeState = false
+    
     var currentTag: Int = 0
     
     var mallNameProcess: String {
