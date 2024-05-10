@@ -20,6 +20,8 @@ struct ShopItem: Decodable {
     let mallName: String
     let productId: String
     
+    var currentTag: Int = 0
+    
     var mallNameProcess: String {
         return mallName + " 판매자"
     }

@@ -35,6 +35,7 @@ extension SearchViewModel {
     
     struct Output {
         var searchList: [String] = []
+        var searchText: String = ""
     }
 }
 
@@ -65,7 +66,10 @@ extension SearchViewModel {
             })
             .sink {[weak self] text in
                 self?.output.searchList.insert(text, at: 0)
+                self?.output.searchText = text
             }
             .store(in: &cancellabel)
+        
+        
     }
 }

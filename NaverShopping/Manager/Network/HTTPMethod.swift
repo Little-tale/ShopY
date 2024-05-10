@@ -19,7 +19,7 @@ struct HTTPMethod {
     let rawValue: String
     
     init(rawValue: String) {
-        self.init(rawValue: rawValue)
+        self.rawValue = rawValue
     }
 }
 

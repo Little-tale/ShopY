@@ -9,15 +9,28 @@ import SwiftUI
 
 struct SearchResultView: View {
     
+    private
+    let gridItem: [GridItem] = Array(
+        repeating: GridItem(.flexible(), alignment: .center),
+        count: 2
+    )
+    
+    
+    var searchText: String
+    
+    @State
+    var likeState = true
+    
     var body: some View {
         VStack {
             
         }
+        .navigationTitle(searchText)
     }
     
 }
 
 
-#Preview {
-    SearchResultView()
-}
+//#Preview {
+//    SearchResultView()
+//}
