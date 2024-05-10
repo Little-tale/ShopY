@@ -44,7 +44,7 @@ struct SearchResultView: View {
                             ForEach(SortCase.allCases, id: \.name) { sort in
                                 Text( sort.name)
                                     .asButton {
-                                        
+                                        viewModel.input.inputSort.send(sort)
                                     }
                                     .padding(4)
                                     .background(Color.purple)

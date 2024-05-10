@@ -26,7 +26,8 @@ final class SearchResultViewModel: CombineViewModelType {
 
 extension SearchResultViewModel {
     struct Input {
-        let searchText = PassthroughSubject<String, Never> ()
+        var searchText = PassthroughSubject<String, Never> ()
+        var inputSort = CurrentValueSubject<SortCase,Never> (.sim)
     }
     
     struct Output {
@@ -48,16 +49,25 @@ extension SearchResultViewModel {
         
         let start = CurrentValueSubject<Int, Never> (1)
         
-        let sort = CurrentValueSubject<SortCase, Never> (.sim)
+        let sort = input.inputSort
+            .removeDuplicates() // distinctUntilChanged
+            .map {[weak self] sort in
+                self?.output.drawRowViewModel = []
+                return sort
+            }
         
         input.searchText
-            .sink { text in
-                print("검색 시작!",text)
+            .combineLatest(sort, start, display)
+            .map({ (text, sort, start, display) in
+                return (text: text, sort: sort, start: start, display: display)
+            })
+            .sink { combined in
+                print("검색 시작!",combined)
                 let query = SearchQueryItems(
-                    searchText: text,
-                    display: display.value,
-                    start: start.value,
-                    sort: sort.value.rawValue
+                    searchText: combined.text,
+                    display: combined.display,
+                    start: combined.start,
+                    sort: combined.sort.rawValue
                 )
                 searchQueryItems.send(query)
             }
