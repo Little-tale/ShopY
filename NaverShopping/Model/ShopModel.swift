@@ -12,7 +12,9 @@ struct Shop: Decodable {
     let items: [ShopItem]
 }
 
-struct ShopItem: Decodable {
+struct ShopItem: Decodable, Hashable, Identifiable{
+    var id = UUID()
+    
     let title: String
     let link: String
     let image: String

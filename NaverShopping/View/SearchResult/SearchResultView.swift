@@ -32,12 +32,19 @@ struct SearchResultView: View {
             ScrollView(.vertical) {
                 LazyVGrid(columns: gridItem, pinnedViews: [.sectionHeaders], content: {
                     Section {
-                        ForEach($viewModel.output.drawRowViewModel, id: \.productId) { model in
-                            
-                            VirticalResultRowView(model: model) { num in
-                                print(num)
+                        ForEach( Array(
+                            viewModel.output.drawRowViewModel.enumerated()),
+                                 id: \.element.id) {index, model in
+                            VirticalResultRowView(
+                                model: .constant(model)
+                            ) { item in // heartButtonTapped
+                                print(item)
                             }
                             .padding(.horizontal, 10)
+                            .onAppear {
+                                print(model)
+                                viewModel.input.inputCurrentIndex.send(index)
+                            }
                         }
                     } header: {
                         HStack(spacing: 12) {
@@ -54,11 +61,12 @@ struct SearchResultView: View {
                         }
                         .padding(.all, 6)
                         .background(Color.teal)
-                    }
-                    
-                })
-            }
-        }
+                    } // header
+                } // content
+                ) // LazyVGrid
+            } // ScrollView
+            
+        } // VStack
         .task {
             viewModel.input.searchText.send(searchText)
         }

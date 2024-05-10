@@ -28,6 +28,7 @@ extension SearchResultViewModel {
     struct Input {
         var searchText = PassthroughSubject<String, Never> ()
         var inputSort = CurrentValueSubject<SortCase,Never> (.sim)
+        var inputCurrentIndex = CurrentValueSubject<Int,Never> (0)
     }
     
     struct Output {
@@ -43,6 +44,8 @@ extension SearchResultViewModel {
     
     func transform() {
         
+        var currentTotal = 0
+        
         let searchQueryItems = PassthroughSubject<SearchQueryItems, Never> ()
         
         let display = CurrentValueSubject<Int, Never>(30)
@@ -53,6 +56,7 @@ extension SearchResultViewModel {
             .removeDuplicates() // distinctUntilChanged
             .map {[weak self] sort in
                 self?.output.drawRowViewModel = []
+                start.send(1)
                 return sort
             }
         
@@ -102,7 +106,7 @@ extension SearchResultViewModel {
                 
                 var datas = self?.output.drawRowViewModel
                 datas?.append(contentsOf: shop.items)
-                
+                currentTotal = datas?.count ?? 0
                 dump(datas)
                 DispatchQueue.main.async {
                     self?.output.drawRowViewModel = datas ?? []
@@ -111,6 +115,19 @@ extension SearchResultViewModel {
                 print("전체 : ",shop.total)
             })
             .store(in: &cancellabel)
+        
+        
+        input.inputCurrentIndex
+            .filter({ current in
+                currentTotal - 5 < current
+            })
+            .sink { current in
+                var value = start.value
+                value += 1
+                start.send(value)
+            }
+            .store(in: &cancellabel)
+        
     }
     
 }
