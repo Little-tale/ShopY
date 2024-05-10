@@ -24,7 +24,6 @@ struct VirticalResultRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing, content: {
-                
                 DownSamplingImageView(url: model.imageProcess)
                     .aspectRatio(1, contentMode: .fit)
                     .frame(maxWidth: .infinity)

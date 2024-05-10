@@ -29,15 +29,33 @@ struct SearchResultView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
-                LazyVGrid(columns: gridItem, content: {
-                    ForEach($viewModel.output.drawRowViewModel, id: \.productId) { model in
-    
-                        VirticalResultRowView(model: model) { num in
-                            print(num)
+            ScrollView(.vertical) {
+                LazyVGrid(columns: gridItem, pinnedViews: [.sectionHeaders], content: {
+                    Section {
+                        ForEach($viewModel.output.drawRowViewModel, id: \.productId) { model in
+                            
+                            VirticalResultRowView(model: model) { num in
+                                print(num)
+                            }
+                            .padding(.horizontal, 10)
                         }
-                        .padding(.horizontal, 10)
+                    } header: {
+                        HStack(spacing: 12) {
+                            ForEach(SortCase.allCases, id: \.name) { sort in
+                                Text( sort.name)
+                                    .asButton {
+                                        
+                                    }
+                                    .padding(4)
+                                    .background(Color.purple)
+                            }
+                            .foregroundStyle(.white)
+                            Spacer()
+                        }
+                        .padding(.all, 6)
+                        .background(Color.teal)
                     }
+                    
                 })
             }
         }
