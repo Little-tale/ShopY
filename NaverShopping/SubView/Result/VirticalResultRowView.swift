@@ -21,14 +21,7 @@ struct VirticalResultRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing, content: {
-                DownSamplingImageView(url: model.imageProcess)
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(maxWidth: .infinity)
-                    .clipShape(.rect(cornerRadius: 12))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(.black, lineWidth: 1)
-                    }
+                ResultImageView(url: model.imageProcess)
                 HeartButton(
                     isSelected: $model.likeState,
                     tag: model.currentTag) {
@@ -53,6 +46,7 @@ struct VirticalResultRowView: View {
                 .lineLimit(2)
                 .font(.subheadline)
                 .padding(.bottom, 4)
+            Spacer()
             Text(model.priceProcess)
         }
         .onAppear {
@@ -61,4 +55,19 @@ struct VirticalResultRowView: View {
     }
 }
 
+
+struct ResultImageView: View {
+    let url: URL?
+    
+    var body: some View {
+        DownSamplingImageView(url: url)
+            .aspectRatio(1, contentMode: .fit)
+            .frame(maxWidth: .infinity)
+            .clipShape(.rect(cornerRadius: 12))
+            .overlay {
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(.black, lineWidth: 1)
+            }
+    }
+}
 

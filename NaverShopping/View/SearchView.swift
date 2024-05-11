@@ -61,6 +61,7 @@ struct SearchView: View {
                 navigationIsPresented = true
             }
         }
+        .tint(.black)
         .task {
             viewModel.input.viewOnAppear.send(())
         }

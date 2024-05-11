@@ -14,4 +14,7 @@ struct NaverShoppingApp: App {
             SearchView()
         }
     }
+    init(){
+        
+    }
 }
