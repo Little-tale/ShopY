@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SplashView: View {
     
+    @State
+    var isNextBool = false
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
@@ -32,13 +35,17 @@ struct SplashView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 40)
                         .asButton {
-                            
+                            isNextBool = true
                         }
                         .buttonStyle(StartButtonStyle())
-                }
+                } // HStack
                 .padding(.horizontal, 40)
                 .padding(.bottom, 70)
-            }
+            } // Vstack
+            .navigationDestination(
+                isPresented: $isNextBool) {
+                    UserInfoRegView()
+                }
         }
         
     }
@@ -58,6 +65,8 @@ struct StartButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }
+
+
 
 
 

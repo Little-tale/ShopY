@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct UserInfoRegView: View {
+  
     
     var body: some View {
-        Text("테스트")
+        VStack {
+            Text("갤러리")
+        }
     }
-    
+}
+
+#Preview {
+    SplashView()
 }
