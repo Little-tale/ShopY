@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-struct UserDefaultWrapper<T: Codable> {
+struct UserDefaultCodableWrapper<T: Codable> {
     
     let key: String
     let placeValue: T
@@ -32,4 +32,22 @@ struct UserDefaultWrapper<T: Codable> {
         }
     }
     
+}
+
+@propertyWrapper
+struct UserDefaultWrapper<T> {
+    let key: String
+    let placeValue: T
+    
+    private
+    let US = UserDefaults.standard
+    
+    var wrappedValue: T {
+        get {
+            US.object(forKey: key) as? T ?? placeValue
+        }
+        set {
+            US.setValue(newValue, forKey: key)
+        }
+    }
 }

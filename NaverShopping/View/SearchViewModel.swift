@@ -44,19 +44,21 @@ extension SearchViewModel {
         
         input.viewOnAppear
             .sink { [weak self] _ in
-                self?.output.searchList = ["검색된","것들"]
+                self?.output.searchList = UserDefaultManager.searchHistory
             }
             .store(in: &cancellabel)
         
         input.deleteButtonTap
             .sink {[weak self] indexAt in
                 self?.output.searchList.remove(at: indexAt)
+                UserDefaultManager.searchHistory.remove(at: indexAt)
             }
             .store(in: &cancellabel)
         
         input.allDeleteButtonTap
             .sink {[weak self] _ in
                 self?.output.searchList.removeAll()
+                UserDefaultManager.searchHistory.removeAll()
             }
             .store(in: &cancellabel)
         
@@ -65,7 +67,8 @@ extension SearchViewModel {
                 return self?.input.currentText ?? ""
             })
             .sink {[weak self] text in
-                self?.output.searchList.insert(text, at: 0)
+                UserDefaultManager.searchHistory.insert(text, at: 0)
+                self?.output.searchList = UserDefaultManager.searchHistory
                 self?.output.searchText = text
             }
             .store(in: &cancellabel)

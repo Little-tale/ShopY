@@ -12,11 +12,13 @@ enum UserDefaultManager {
     
     enum Key: String {
         case productId
+        case searchHistory
     }
     
-    @UserDefaultWrapper(key: Key.productId.rawValue, placeValue: [])
+    @UserDefaultCodableWrapper(key: Key.productId.rawValue, placeValue: [])
     static var productId: Set<String>
     
-    
+    @UserDefaultWrapper(key: Key.searchHistory.rawValue, placeValue: [])
+    static var searchHistory: Array<String>
 }
 

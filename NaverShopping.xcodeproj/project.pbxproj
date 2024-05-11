@@ -34,7 +34,7 @@
 		7BC21A542BEE0FE8003BE504 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7BC21A532BEE0FE8003BE504 /* Kingfisher */; };
 		7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A592BEE332B003BE504 /* DownSamplingImageView.swift */; };
 		7BC21A5D2BEE6914003BE504 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A5C2BEE6914003BE504 /* UserDefaultManager.swift */; };
-		7BC21A5F2BEE6B30003BE504 /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A5E2BEE6B30003BE504 /* UserDefaultWrapper.swift */; };
+		7BC21A5F2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A5E2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +65,7 @@
 		7BC21A502BEDEF7C003BE504 /* SortCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCase.swift; sourceTree = "<group>"; };
 		7BC21A592BEE332B003BE504 /* DownSamplingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownSamplingImageView.swift; sourceTree = "<group>"; };
 		7BC21A5C2BEE6914003BE504 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
-		7BC21A5E2BEE6B30003BE504 /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
+		7BC21A5E2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCodableWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +147,7 @@
 				7BC21A552BEE31D0003BE504 /* Modifier */,
 				7BC21A4D2BEDEBE7003BE504 /* SearchResult */,
 				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
+				7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */,
 				7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */,
 			);
 			path = View;
@@ -156,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				7BC21A202BECD18E003BE504 /* SearchListHView.swift */,
-				7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC21A5C2BEE6914003BE504 /* UserDefaultManager.swift */,
-				7BC21A5E2BEE6B30003BE504 /* UserDefaultWrapper.swift */,
+				7BC21A5E2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift */,
 			);
 			path = UserDefault;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC21A5F2BEE6B30003BE504 /* UserDefaultWrapper.swift in Sources */,
+				7BC21A5F2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift in Sources */,
 				7BC21A2A2BECF0C5003BE504 /* NetworkManager.swift in Sources */,
 				7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */,
 				7BC21A5D2BEE6914003BE504 /* UserDefaultManager.swift in Sources */,
