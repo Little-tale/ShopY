@@ -22,8 +22,7 @@ struct ButtonWrapper: ViewModifier {
             action:action,
             label: { content }
         )
-        .buttonStyle(.plain)
-    
+        // .buttonStyle(PlainButtonStyle()) // 버튼 스타일은 밖에서 정할것
     }
 }
 

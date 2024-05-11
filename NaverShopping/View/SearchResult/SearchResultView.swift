@@ -56,13 +56,15 @@ struct SearchResultView: View {
                     } header: {
                         HStack(spacing: 12) {
                             ForEach(SortCase.allCases, id: \.name) { sort in
+                                
                                 Text( sort.name)
                                     .asButton {
                                         viewModel.input.inputSort.send(sort)
                                         print("이게눌림",sort.name)
                                     }
-                                    .padding(4)
-                                    .background(Color.purple)
+                                    .buttonStyle(
+                                        SearchSortButtonStyle(state: viewModel.input.inputSort.value == sort )
+                                    )
                             }
                             .foregroundStyle(.white)
                             Spacer()
@@ -87,6 +89,23 @@ struct SearchResultView: View {
             )
         }
         .navigationTitle(searchText)
+    }
+}
+
+struct SearchSortButtonStyle: ButtonStyle {
+    
+    var state: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(JHColor.white)
+            .padding(.vertical, 5)
+            .padding(.horizontal, 7)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(state ? JHColor.likeColor : JHColor.black)
+            )
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
     
 }
