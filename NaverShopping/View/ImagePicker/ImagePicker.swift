@@ -1,60 +1,68 @@
-//
+
 //  ImagePicker.swift
 //  NaverShopping
 //
 //  Created by Jae hyung Kim on 5/12/24.
-//
 
-import Foundation
+
 import PhotosUI
-import Photos
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+enum PhotoViewError {
+    case cant
+}
+
+struct PhotoView: View {
     
-    let configuration: PHPickerConfiguration
+    @State 
+    var photoItems: [PhotosPickerItem] = []
     
     @State
-    var photoImages: [UIImage] = []
+    var selectedPhotos:[UIImage] = []
     
-    @Binding
-    var isPresented: Bool
+    @State
+    var photoError: PhotoViewError? = nil
     
-    func makeUIViewController(context: Context) -> some UIViewController {
-        let controller = PHPickerViewController(configuration: configuration)
-        controller.delegate = context.coordinator
-        return controller
-    }
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: PHPickerViewControllerDelegate {
-        private let parent: ImagePicker
-        
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
-        
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            print(results)
-            parent.isPresented = false
-            
-            guard !results.isEmpty else {
-                return
+    var body: some View {
+        VStack {
+            if !selectedPhotos.isEmpty {
+                ScrollView(showsIndicators: false) {
+                    ForEach(selectedPhotos, id: \.self) { photo in
+                        Image(uiImage: photo)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                    }
+                }
             }
             
-            for result in results {
-                let itemProvidor = result.itemProvider
-                if itemProvidor.canLoadObject(ofClass: UIImage.self) {
-                    itemProvidor.loadObject(ofClass: UIImage.self) { [weak self] image, error in
-                        self?.parent.photoImages.append(image as! UIImage)
+            PhotosPicker(selection: $photoItems, maxSelectionCount: 0, matching: .images) {
+                Label("Select photos", systemImage: "photo")
+            }
+            .onChange(of: photoItems) { _, newValue in
+                newValue.forEach { item in
+                    Task {
+                        do {
+                            guard let data = try await item.loadTransferable(type: Data.self) else { return }
+                            guard let image = UIImage(data: data) else { return }
+                            selectedPhotos.append(image)
+                        } catch {
+                            photoError = .cant
+                        }
                     }
                 }
             }
         }
-        
     }
 }
+
+/*
+ 
+ newItems.forEach { item in
+     Task {
+         guard let data = try? await item.loadTransferable(type: Data.self) else { return }
+         guard let image = UIImage(data: data) else { return }
+         selectedPhotos.append(image)
+     }
+ }
+ */

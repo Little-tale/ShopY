@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct UserInfoRegView: View {
-  
     
     var body: some View {
         VStack {
-            Text("갤러리")
+            PhotoView()
+            
         }
+        
     }
 }
 
