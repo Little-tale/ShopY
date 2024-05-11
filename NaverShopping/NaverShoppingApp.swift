@@ -11,10 +11,21 @@ import SwiftUI
 struct NaverShoppingApp: App {
     var body: some Scene {
         WindowGroup {
-            SearchView()
+            TabView {
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("검색")
+                    }
+                SplashView()
+                    .tabItem {
+                        Image("exclamationmark.magnifyingglass")
+                    }
+            }
+            
         }
     }
     init(){
-        
+        UINavigationBar.appearance().isTranslucent = false
     }
 }

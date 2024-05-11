@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */; };
+		7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90762BEFACD900B191F2 /* SplashView.swift */; };
+		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
 		7BB54B362BEF33E300770637 /* JHColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB54B352BEF33E300770637 /* JHColor.swift */; };
 		7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */; };
 		7BC21A0B2BECCBA5003BE504 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A0A2BECCBA5003BE504 /* ContentView.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegView.swift; sourceTree = "<group>"; };
+		7B4F90762BEFACD900B191F2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
 		7BC21A052BECCBA5003BE504 /* NaverShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
@@ -82,6 +88,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B4F90722BEFAB9A00B191F2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
+				7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7B4F90732BEFABC800B191F2 /* UserInfoReg */ = {
+			isa = PBXGroup;
+			children = (
+				7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */,
+				7B4F90762BEFACD900B191F2 /* SplashView.swift */,
+			);
+			path = UserInfoReg;
+			sourceTree = "<group>";
+		};
 		7BB54B342BEF33D300770637 /* JH */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,12 +177,11 @@
 		7BC21A1A2BECCC0E003BE504 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B4F90732BEFABC800B191F2 /* UserInfoReg */,
+				7B4F90722BEFAB9A00B191F2 /* Search */,
 				7BC21A582BEE32F3003BE504 /* ViewWrepper */,
 				7BC21A552BEE31D0003BE504 /* Modifier */,
 				7BC21A4D2BEDEBE7003BE504 /* SearchResult */,
-				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
-				7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */,
-				7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +279,7 @@
 		7BC21A552BEE31D0003BE504 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -264,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC21A592BEE332B003BE504 /* DownSamplingImageView.swift */,
+				7BC21A1D2BECCEEB003BE504 /* ButtonWrapper.swift */,
 			);
 			path = ViewWrepper;
 			sourceTree = "<group>";
@@ -375,9 +400,12 @@
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
 				7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */,
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
+				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
+				7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */,
+				7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

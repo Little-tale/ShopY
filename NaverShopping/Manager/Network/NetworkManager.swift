@@ -45,9 +45,7 @@ extension NetworkManager {
                     } catch {
                         promiss(.failure(.errorDecoding))
                     }
-                
-                } catch (let error ) {
-                    
+                } catch {
                     promiss(.failure(.unknownError))
                 }
             }

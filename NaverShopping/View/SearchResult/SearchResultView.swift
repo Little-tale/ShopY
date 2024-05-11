@@ -61,7 +61,7 @@ struct SearchResultView: View {
                             }
                         )
                         .padding(.all, 6)
-                        .background(Color.teal)
+                        .background(JHColor.white)
                     } // header
                 } // content
                 ) // LazyVGrid
