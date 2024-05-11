@@ -36,9 +36,10 @@ struct SearchView: View {
        
                     
                 List(viewModel.output.searchList.indices, id: \.self) { index in
-                    NavigationLink {
-                        SearchResultView(searchText: viewModel.output.searchList[index])
-                    } label: {
+                    Button(action: {
+                        viewModel.output.searchText = viewModel.output.searchList[index]
+                        navigationIsPresented = true
+                    }) {
                         SearchListHView(text: viewModel.output.searchList[index], xButtonTap: {
                             viewModel.input.deleteButtonTap.send(index)
                         }, tag: index)
@@ -47,6 +48,7 @@ struct SearchView: View {
                 .listStyle(.plain)
                 
                 .navigationDestination(isPresented: $navigationIsPresented) {
+
                     SearchResultView(searchText: viewModel.output.searchText)
                 }
                 Spacer()

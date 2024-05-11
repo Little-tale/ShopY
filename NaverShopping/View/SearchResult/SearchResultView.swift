@@ -30,6 +30,12 @@ struct SearchResultView: View {
     var body: some View {
         VStack {
             ScrollView(.vertical) {
+                HStack {
+                    Spacer()
+                    Text(String(viewModel.output.total.value) +
+                         "개의 검색 결과")
+                    .padding(.trailing, 10)
+                }
                 LazyVGrid(columns: gridItem, pinnedViews: [.sectionHeaders], content: {
                     Section {
                         ForEach( Array(
