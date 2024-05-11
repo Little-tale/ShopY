@@ -53,8 +53,6 @@ extension SearchResultViewModel {
         
         let start = CurrentValueSubject<Int, Never> (1)
         
-        let userLikeList = CurrentValueSubject<Set<String>, Never> (UserDefaultManager.productId)
-        
         // distinctUntilChanged
         let sort = input.inputSort
             .removeDuplicates(by: { lcase, rcase in
@@ -111,7 +109,8 @@ extension SearchResultViewModel {
                 var datas = self?.output.drawRowViewModel
                 datas?.append(contentsOf: shop.items.map({ item in
                     var new = item
-                    new.likeState = userLikeList.value.contains(item.productId)
+                    let userLikeList = UserDefaultManager.productId
+                    new.likeState = userLikeList.contains(item.productId)
                     return new
                 }))
                 
