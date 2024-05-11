@@ -54,21 +54,12 @@ struct SearchResultView: View {
                             }
                         }
                     } header: {
-                        HStack(spacing: 12) {
-                            ForEach(SortCase.allCases, id: \.name) { sort in
-                                
-                                Text( sort.name)
-                                    .asButton {
-                                        viewModel.input.inputSort.send(sort)
-                                        print("이게눌림",sort.name)
-                                    }
-                                    .buttonStyle(
-                                        SearchSortButtonStyle(state: viewModel.input.inputSort.value == sort )
-                                    )
+                        HeaderView(
+                            inputSort: $viewModel.input.inputSort.value,
+                            sortClosure: { sort in
+                                viewModel.input.inputSort.send(sort)
                             }
-                            .foregroundStyle(.white)
-                            Spacer()
-                        }
+                        )
                         .padding(.all, 6)
                         .background(Color.teal)
                     } // header
@@ -109,6 +100,31 @@ struct SearchSortButtonStyle: ButtonStyle {
     }
     
 }
+
+struct HeaderView: View{
+    
+    @Binding
+    var inputSort: SortCase
+    
+    var sortClosure: (SortCase) -> Void
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            ForEach(SortCase.allCases, id: \.name) { sort in
+                Text(sort.name)
+                    .asButton {
+                        sortClosure(sort)
+                        print("이게눌림",sort.name)
+                    }
+                    .buttonStyle(
+                        SearchSortButtonStyle(state: inputSort == sort )
+                    )
+            }
+            Spacer()
+        } // HStack
+    }
+}
+
 
 #Preview {
     SearchView()
