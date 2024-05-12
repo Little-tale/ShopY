@@ -11,7 +11,7 @@ import PhotosUI
 
 struct ProfileImage: View {
     
-    let imageState: ProfileViewModel.ImageState
+    let imageState: ProfileModel.ImageState
     
     var body: some View {
         VStack {

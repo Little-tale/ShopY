@@ -12,19 +12,44 @@
 
 import SwiftUI // 기본이지
 import PhotosUI // 사진 프레임워크 아는거 :)
+import Combine
 
 @MainActor // 클래스의 모든 인스턴스는 메인쓰레드(Actor) 에서 접근 됨을 명시
-final class ProfileViewModel: ObservableObject {
-    
+final class ProfileModel: MVIPatternType {
+
+    enum InputAction {
+        case firstnameChanged(String)
+        case lastNameChanged(String)
+        case aboutMeChanged(String)
+        case saveProfile
+    }
+
     // MARK: 프로필 디테일
-    @Published
-    var firstName: String = ""
+    // Input 구조체
+    struct StateModel {
+        var firstName: String = ""
+        var lastName: String = ""
+        var aboutMe: String = ""
+    }
     
-    @Published
-    var lastName: String = ""
+    private
+    var cancellables: Set<AnyCancellable> = []
     
-    @Published
-    var aboutMe: String = ""
+    @Published private(set)
+    var state: StateModel = StateModel()
+    
+    func send(_ action: InputAction) {
+        switch action {
+        case .firstnameChanged(let string):
+            state.firstName = string
+        case .lastNameChanged(let string):
+            state.lastName = string
+        case .aboutMeChanged(let string):
+            state.aboutMe = string
+        case .saveProfile:
+            print("as")
+        }
+    }
     
     /// 이미지 상태를 알려줍니다.
     @Published private(set)

@@ -19,12 +19,7 @@ struct NaverShoppingApp: App {
                     }
                 SplashView()
                     .tabItem {
-                        Image("exclamationmark.magnifyingglass")
-                    }
-                Step2View()
-                    .tabItem {
-                        Image("person")
-                        Text("테스트...")
+                        Text("시작")
                     }
             }
             

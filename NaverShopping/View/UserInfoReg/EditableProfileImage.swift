@@ -10,7 +10,7 @@ import PhotosUI
 
 struct EditableProfileImage: View {
     @ObservedObject
-    var viewModel: ProfileViewModel
+    var viewModel: ProfileModel
     
     var body: some View {
         VStack {

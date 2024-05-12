@@ -20,7 +20,7 @@ struct ProfileView: View {
 struct ProfileForm: View {
     
     @StateObject
-    var viewModel = ProfileViewModel()
+    var viewModel = ProfileModel()
     
     var body: some View {
         Form { // 컨테이너 뷰 ( 설정화면 같은 그런곳 )
@@ -35,11 +35,19 @@ struct ProfileForm: View {
             }
             Section {
                 TextField("First Name", // Label (UI 접근성)
-                          text: $viewModel.firstName,
+                          text: 
+                            Binding(
+                                get: {viewModel.state.firstName},
+                                set: {viewModel.send(.firstnameChanged($0))}
+                            ),
                           prompt: Text("성") // placeHolder
                 )
                 TextField("Last Name",
-                          text: $viewModel.lastName,
+                          text:
+                            Binding(
+                                get: {viewModel.state.lastName},
+                                set: {viewModel.send(.lastNameChanged($0))}
+                            ),
                           prompt: Text("이름")
                 )
             }
@@ -47,15 +55,14 @@ struct ProfileForm: View {
             Section {
                 TextField(
                     "About Me",
-                    text: $viewModel.aboutMe,
+                    text: Binding(
+                        get: {viewModel.state.aboutMe},
+                        set: {viewModel.send(.aboutMeChanged($0))}
+                    ),
                     prompt: Text("자기소개")
                 )
             }
         }
         .navigationTitle("프로필")
     }
-}
-
-#Preview{
-    ProfileView()
 }
