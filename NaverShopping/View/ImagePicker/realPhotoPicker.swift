@@ -13,7 +13,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     @Binding
     var isPresented: Bool
     
-    @State
+    @Binding
     var selectedImages: [UIImage]
     
     /// 선택 가능한 개체 수
@@ -47,8 +47,12 @@ struct PhotoPicker: UIViewControllerRepresentable {
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             parent.selectedImages = []
+            let dispatchGroup = DispatchGroup()
             
             for result in results {
+                
+                dispatchGroup.enter()
+                
                 result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
                     guard let image = object as? UIImage else {
                         return
@@ -57,11 +61,12 @@ struct PhotoPicker: UIViewControllerRepresentable {
                     DispatchQueue.main.async { [weak self] in
                         self?.parent.selectedImages.append(image)
                     }
-                    
+                    dispatchGroup.leave()
                 }
             }
-            
-            parent.isPresented = false
+            dispatchGroup.notify(queue: .main) { [unowned self] in
+                parent.isPresented = false
+            }
         }
     }
 }

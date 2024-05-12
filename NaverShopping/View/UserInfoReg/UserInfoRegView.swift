@@ -49,7 +49,7 @@ struct UserInfoRegView: View {
             .fullScreenCover(isPresented: $goGallery) {
                 PhotoPicker(
                     isPresented: $goGallery,
-                    selectedImages: selectedImage,
+                    selectedImages: $selectedImage,
                     selectedLimit: 1,
                     filter: .images
                 )
