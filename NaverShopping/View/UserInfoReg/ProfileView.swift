@@ -62,6 +62,17 @@ struct ProfileForm: View {
                     prompt: Text("자기소개")
                 )
             }
+            
+            HStack {
+                Text("저장")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .padding(.horizontal, 100)
+            .asButton {
+                print("저장 버튼 탭")
+            }
+            .disabled(!viewModel.state.saveButtonState)
         }
         .navigationTitle("프로필")
     }

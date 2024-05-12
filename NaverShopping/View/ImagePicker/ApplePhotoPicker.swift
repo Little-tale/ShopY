@@ -30,6 +30,9 @@ final class ProfileModel: MVIPatternType {
         var firstName: String = ""
         var lastName: String = ""
         var aboutMe: String = ""
+        var saveButtonState: Bool {
+            firstName.count >= 2 && lastName.count >= 2
+        }
     }
     
     private
@@ -42,12 +45,15 @@ final class ProfileModel: MVIPatternType {
         switch action {
         case .firstnameChanged(let string):
             state.firstName = string
+            
         case .lastNameChanged(let string):
             state.lastName = string
+            
         case .aboutMeChanged(let string):
             state.aboutMe = string
+            
         case .saveProfile:
-            print("as")
+            print("저장 해야할 시점")
         }
     }
     
