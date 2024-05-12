@@ -11,7 +11,12 @@ import PhotosUI
 struct UserInfoRegView: View {
     
     @State
-    var selectedImage: UIImage? = nil
+    var selectedImage: [UIImage] = []
+    @State
+    var galleryAlert: Bool = false
+    
+    @State
+    var goGallery: Bool = false
     
     var body: some View {
         VStack {
@@ -19,8 +24,8 @@ struct UserInfoRegView: View {
                 .font(.title)
                 .bold()
             HStack {
-                if let selectedImage {
-                    Image(uiImage: selectedImage)
+                if let image = selectedImage.first {
+                    Image(uiImage: image)
                         .resizable()
                         .modifier(UserImageViewModifier())
                 } else {
@@ -32,11 +37,28 @@ struct UserInfoRegView: View {
             .padding(.horizontal, 140)
             .asButton {
                 print("이때 이미지 수정 알렛")
+                galleryAlert = true
             }
             .buttonStyle(UserProfileImageButtonStyle())
+            .confirmationDialog("테스트", isPresented: $galleryAlert) {
+                Text("갤러리")
+                    .asButton {
+                        goGallery = true
+                    }
+            }
+            .fullScreenCover(isPresented: $goGallery) {
+                PhotoPicker(
+                    isPresented: $goGallery,
+                    selectedImages: selectedImage,
+                    selectedLimit: 1,
+                    filter: .images
+                )
+            }
+            .onChange(of: selectedImage) { _, newValue in
+                print(newValue)
+            }
             Spacer()
         }
-        
     }
 }
 

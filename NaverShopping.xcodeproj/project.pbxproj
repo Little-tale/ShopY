@@ -12,6 +12,8 @@
 		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
 		7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */; };
 		7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */; };
+		7B4F90842BF0AFA700B191F2 /* PhotoselectorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */; };
+		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BB54B362BEF33E300770637 /* JHColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB54B352BEF33E300770637 /* JHColor.swift */; };
 		7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */; };
 		7BC21A0B2BECCBA5003BE504 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A0A2BECCBA5003BE504 /* ContentView.swift */; };
@@ -49,6 +51,8 @@
 		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
 		7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
 		7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewExameple.swift; sourceTree = "<group>"; };
+		7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoselectorVIew.swift; sourceTree = "<group>"; };
+		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
 		7BC21A052BECCBA5003BE504 /* NaverShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */,
+				7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */,
+				7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B4F90842BF0AFA700B191F2 /* PhotoselectorVIew.swift in Sources */,
 				7BC21A5F2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift in Sources */,
 				7BC21A2A2BECF0C5003BE504 /* NetworkManager.swift in Sources */,
 				7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */,
@@ -420,6 +427,7 @@
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
 				7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */,
+				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
 				7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
