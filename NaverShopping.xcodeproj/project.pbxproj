@@ -17,6 +17,7 @@
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
 		7BA9193C2BF0E6C700E31170 /* EditableProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9193B2BF0E6C700E31170 /* EditableProfileImage.swift */; };
+		7BA9193E2BF0E9D600E31170 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9193D2BF0E9D600E31170 /* ProfileView.swift */; };
 		7BB54B362BEF33E300770637 /* JHColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB54B352BEF33E300770637 /* JHColor.swift */; };
 		7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */; };
 		7BC21A0B2BECCBA5003BE504 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A0A2BECCBA5003BE504 /* ContentView.swift */; };
@@ -59,6 +60,7 @@
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
 		7BA9193B2BF0E6C700E31170 /* EditableProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableProfileImage.swift; sourceTree = "<group>"; };
+		7BA9193D2BF0E9D600E31170 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
 		7BC21A052BECCBA5003BE504 /* NaverShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */,
 				7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */,
 				7BA9193B2BF0E6C700E31170 /* EditableProfileImage.swift */,
+				7BA9193D2BF0E9D600E31170 /* ProfileView.swift */,
 			);
 			path = UserInfoReg;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,
+				7BA9193E2BF0E9D600E31170 /* ProfileView.swift in Sources */,
 				7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */,
 				7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */,
 				7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */,
