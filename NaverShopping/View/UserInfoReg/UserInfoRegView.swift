@@ -47,7 +47,7 @@ struct UserInfoRegView: View {
                     }
             }
             .fullScreenCover(isPresented: $goGallery) {
-                PhotoPicker(
+                CustomPhotoPicker(
                     isPresented: $goGallery,
                     selectedImages: $selectedImage,
                     selectedLimit: 1,

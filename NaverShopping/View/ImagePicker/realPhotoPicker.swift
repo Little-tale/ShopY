@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-struct PhotoPicker: UIViewControllerRepresentable {
+struct CustomPhotoPicker: UIViewControllerRepresentable {
     
     @Binding
     var isPresented: Bool
@@ -39,9 +39,9 @@ struct PhotoPicker: UIViewControllerRepresentable {
     }
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
-        var parent: PhotoPicker
+        var parent: CustomPhotoPicker
         
-        init(_ parent: PhotoPicker) {
+        init(_ parent: CustomPhotoPicker) {
             self.parent = parent
         }
         

@@ -21,6 +21,11 @@ struct NaverShoppingApp: App {
                     .tabItem {
                         Image("exclamationmark.magnifyingglass")
                     }
+                Step2View()
+                    .tabItem {
+                        Image("person")
+                        Text("테스트...")
+                    }
             }
             
         }
