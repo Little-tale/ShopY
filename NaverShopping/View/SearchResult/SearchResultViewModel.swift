@@ -10,6 +10,9 @@ import Combine
 
 final class SearchResultViewModel: CombineViewModelType {
     
+    private
+    let repository = RealmRepository()
+    
     var cancellabel: Set<AnyCancellable> = []
     
     @Published
@@ -106,19 +109,22 @@ extension SearchResultViewModel {
                 }
             }, receiveValue: { [weak self] shop in
                 print("성공한 모델이에여")
-                var datas = self?.output.drawRowViewModel
-                datas?.append(contentsOf: shop.items.map({ item in
+                guard let strongSelf = self else { return }
+                var datas = strongSelf.output.drawRowViewModel
+                datas.append(contentsOf: shop.items.map({ item in
                     var new = item
+                    let model = strongSelf.repository.fetchAll(type: LikePostModel.self)
                     let userLikeList = UserDefaultManager.productId
                     new.likeState = userLikeList.contains(item.productId)
                     return new
                 }))
                 
-                currentTotal = datas?.count ?? 0
+                currentTotal = datas.count
                 dump(datas)
+                
                 DispatchQueue.main.async {
-                    self?.output.drawRowViewModel = datas ?? []
-                    self?.output.total.send(shop.total)
+                    strongSelf.output.drawRowViewModel = datas
+                    strongSelf.output.total.send(shop.total)
                 }
                 
                 print("전체 : ",shop.total)
