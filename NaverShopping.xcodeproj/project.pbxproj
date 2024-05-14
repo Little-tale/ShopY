@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B2D77632BF3B44200D51F49 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B2D77622BF3B44200D51F49 /* Realm */; };
+		7B2D77652BF3B44200D51F49 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B2D77642BF3B44200D51F49 /* RealmSwift */; };
+		7B2D77682BF3B52600D51F49 /* LikePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77672BF3B52600D51F49 /* LikePostModel.swift */; };
+		7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */; };
 		7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */; };
 		7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90762BEFACD900B191F2 /* SplashView.swift */; };
 		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
@@ -52,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B2D77672BF3B52600D51F49 /* LikePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostModel.swift; sourceTree = "<group>"; };
+		7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRealmModel.swift; sourceTree = "<group>"; };
 		7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegView.swift; sourceTree = "<group>"; };
 		7B4F90762BEFACD900B191F2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
@@ -101,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2D77652BF3B44200D51F49 /* RealmSwift in Frameworks */,
+				7B2D77632BF3B44200D51F49 /* Realm in Frameworks */,
 				7BC21A542BEE0FE8003BE504 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B2D77662BF3B50700D51F49 /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B2D77672BF3B52600D51F49 /* LikePostModel.swift */,
+				7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */,
+			);
+			path = RealmModel;
+			sourceTree = "<group>";
+		};
 		7B4F90722BEFAB9A00B191F2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +323,7 @@
 		7BC21A442BED2BAB003BE504 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B2D77662BF3B50700D51F49 /* RealmModel */,
 				7BB54B342BEF33D300770637 /* JH */,
 				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
 				7BC21A502BEDEF7C003BE504 /* SortCase.swift */,
@@ -366,6 +384,8 @@
 			name = NaverShopping;
 			packageProductDependencies = (
 				7BC21A532BEE0FE8003BE504 /* Kingfisher */,
+				7B2D77622BF3B44200D51F49 /* Realm */,
+				7B2D77642BF3B44200D51F49 /* RealmSwift */,
 			);
 			productName = NaverShopping;
 			productReference = 7BC21A052BECCBA5003BE504 /* NaverShopping.app */;
@@ -397,6 +417,7 @@
 			mainGroup = 7BC219FC2BECCBA5003BE504;
 			packageReferences = (
 				7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7B2D77612BF3B44200D51F49 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7BC21A062BECCBA5003BE504 /* Products */;
 			projectDirPath = "";
@@ -435,10 +456,12 @@
 				7BC21A512BEDEF7C003BE504 /* SortCase.swift in Sources */,
 				7BC21A402BED2A7E003BE504 /* SearchResultView.swift in Sources */,
 				7BC21A4F2BEDEC08003BE504 /* SearchResultViewModel.swift in Sources */,
+				7B2D77682BF3B52600D51F49 /* LikePostModel.swift in Sources */,
 				7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */,
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
+				7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */,
 				7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */,
 				7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */,
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
@@ -678,6 +701,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7B2D77612BF3B44200D51F49 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -689,6 +720,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7B2D77622BF3B44200D51F49 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B2D77612BF3B44200D51F49 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		7B2D77642BF3B44200D51F49 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B2D77612BF3B44200D51F49 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		7BC21A532BEE0FE8003BE504 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */;
