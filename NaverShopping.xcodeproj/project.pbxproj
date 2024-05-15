@@ -19,6 +19,8 @@
 		7B4F90842BF0AFA700B191F2 /* PhotoselectorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */; };
 		7B52E54F2BF471C500977EC7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E54E2BF471C500977EC7 /* Realm */; };
 		7B52E5512BF471C500977EC7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E5502BF471C500977EC7 /* RealmSwift */; };
+		7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */; };
+		7B52E5582BF48AF100977EC7 /* TextValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5572BF48AF100977EC7 /* TextValid.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -68,6 +70,8 @@
 		7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
 		7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewExameple.swift; sourceTree = "<group>"; };
 		7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoselectorVIew.swift; sourceTree = "<group>"; };
+		7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegViewModel.swift; sourceTree = "<group>"; };
+		7B52E5572BF48AF100977EC7 /* TextValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValid.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */,
 				7BA9193B2BF0E6C700E31170 /* EditableProfileImage.swift */,
 				7BA9193D2BF0E9D600E31170 /* ProfileView.swift */,
+				7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */,
 			);
 			path = UserInfoReg;
 			sourceTree = "<group>";
@@ -169,6 +174,14 @@
 				7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */,
 			);
 			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		7B52E5562BF48AE400977EC7 /* TextValid */ = {
+			isa = PBXGroup;
+			children = (
+				7B52E5572BF48AF100977EC7 /* TextValid.swift */,
+			);
+			path = TextValid;
 			sourceTree = "<group>";
 		};
 		7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */ = {
@@ -282,6 +295,7 @@
 		7BC21A272BECF0A7003BE504 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7B52E5562BF48AE400977EC7 /* TextValid */,
 				7B2D776B2BF3BB7D00D51F49 /* RealmFolder */,
 				7BC21A5B2BEE6903003BE504 /* UserDefault */,
 				7BC21A282BECF0B5003BE504 /* Network */,
@@ -467,6 +481,7 @@
 				7BC21A5F2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift in Sources */,
 				7BC21A2A2BECF0C5003BE504 /* NetworkManager.swift in Sources */,
 				7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */,
+				7B52E5582BF48AF100977EC7 /* TextValid.swift in Sources */,
 				7BC21A5D2BEE6914003BE504 /* UserDefaultManager.swift in Sources */,
 				7BC21A512BEDEF7C003BE504 /* SortCase.swift in Sources */,
 				7BC21A402BED2A7E003BE504 /* SearchResultView.swift in Sources */,
@@ -483,6 +498,7 @@
 				7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,
+				7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */,
 				7BA9193E2BF0E9D600E31170 /* ProfileView.swift in Sources */,
 				7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */,
 				7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */,

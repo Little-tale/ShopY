@@ -13,13 +13,15 @@ final class ProfileRealmModel: Object {
     @Persisted(primaryKey: true) var id: ObjectId
     
     @Persisted var name: String
+    @Persisted var introduce: String
     @Persisted var phoneNumber: String
     @Persisted var userImageUrl: String
     
     convenience
-    init(name: String, phoneNumber: String, userImageUrl: String) {
+    init(name: String, phoneNumber: String, introduce:String, userImageUrl: String) {
         self.init()
         self.name = name
+        self.introduce = introduce
         self.phoneNumber = phoneNumber
         self.userImageUrl = userImageUrl
     }

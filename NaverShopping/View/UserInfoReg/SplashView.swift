@@ -44,7 +44,7 @@ struct SplashView: View {
             } // Vstack
             .navigationDestination(
                 isPresented: $isNextBool) {
-                    ProfileForm()
+                    UserInfoRegView(viewType: .first)
                 }
         }
         

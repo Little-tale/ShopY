@@ -8,6 +8,11 @@
 import SwiftUI
 import PhotosUI
 
+enum UserProfileType {
+    case first
+    case modify
+}
+
 struct UserInfoRegView: View {
     
     @State
@@ -15,12 +20,14 @@ struct UserInfoRegView: View {
     @State
     var galleryAlert: Bool = false
     
+    var viewType: UserProfileType
+    
     @State
     var goGallery: Bool = false
     
     var body: some View {
         VStack {
-            Text("프로필 정하기")
+            Text("프로필을 등록해주세요")
                 .font(.title)
                 .bold()
             HStack {
@@ -37,15 +44,9 @@ struct UserInfoRegView: View {
             .padding(.horizontal, 140)
             .asButton {
                 print("이때 이미지 수정 알렛")
-                galleryAlert = true
+                goGallery = true
             }
             .buttonStyle(UserProfileImageButtonStyle())
-            .confirmationDialog("테스트", isPresented: $galleryAlert) {
-                Text("갤러리")
-                    .asButton {
-                        goGallery = true
-                    }
-            }
             .fullScreenCover(isPresented: $goGallery) {
                 CustomPhotoPicker(
                     isPresented: $goGallery,
@@ -61,18 +62,31 @@ struct UserInfoRegView: View {
         }
     }
 }
+/*
+ .confirmationDialog("테스트", isPresented: $galleryAlert) {
+     Text("갤러리")
+         .asButton {
+             
+         }
+ }
+ */
 
 struct UserImageViewModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .aspectRatio(1, contentMode: .fit)
-            .frame(maxWidth: .infinity)
-            .clipShape(Circle(), style: FillStyle())
-            .overlay(
-                Circle()
-                    .stroke(Color.black, lineWidth: 2)
-            )
+            .scaledToFill()
+            .clipShape(Circle())
+            .frame(width: 100, height: 100)
+            .background {
+                Circle().fill(
+                    LinearGradient (
+                        colors: [JHColor.likeColor, JHColor.pointGreen],
+                        startPoint: .leading,
+                        endPoint: .bottom
+                    )
+                )
+            }
     }
 }
 
@@ -86,5 +100,5 @@ struct UserProfileImageButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    UserInfoRegView()
+    UserInfoRegView(viewType: .first)
 }
