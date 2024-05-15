@@ -34,7 +34,7 @@ struct UserInfoRegView: View {
                 Text("프로필을 등록해주세요")
                     .font(.title)
                     .bold()
-                ProfileImageView(imageState: viewModel.imageState.value)
+                MyProfileImageView(imageState:  $viewModel.imageState.value)
                 .asButton {
                     goGallery = true
                 }

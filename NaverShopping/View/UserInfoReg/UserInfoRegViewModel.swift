@@ -76,6 +76,7 @@ extension UserInfoRegViewModel {
         
         selectedImages
             .sink { [weak self] images in
+                print(images)
                 guard let self else { return }
                 if let image = images.first {
                     imageState.send(.success(image))

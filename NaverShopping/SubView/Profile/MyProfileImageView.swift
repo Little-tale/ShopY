@@ -18,7 +18,8 @@ enum ImagePickState {
 
 struct MyProfileImageView: View {
     
-    let imageState: ImagePickState
+    @Binding
+    var imageState: ImagePickState
     
     var body: some View {
         VStack {
@@ -39,8 +40,11 @@ struct MyProfileImageView: View {
             }
         }
         .modifier(CircularProfileImage())
-        
+        .onAppear {
+            print(" ....!!!! ")
+        }
     }
+    
 }
 
 
