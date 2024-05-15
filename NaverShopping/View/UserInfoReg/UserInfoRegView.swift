@@ -34,7 +34,7 @@ struct UserInfoRegView: View {
                 Text("프로필을 등록해주세요")
                     .font(.title)
                     .bold()
-                MyProfileImageView(imageState:  $viewModel.imageState.value)
+                MyProfileImageView(imageState:  $viewModel.imagePickerState)
                 .asButton {
                     goGallery = true
                 }
@@ -42,7 +42,9 @@ struct UserInfoRegView: View {
                 .fullScreenCover(isPresented: $goGallery) {
                     CustomPhotoPicker(
                         isPresented: $goGallery,
-                        selectedImages: $viewModel.selectedImages.value,
+                        selectedImages: { images in
+                            viewModel.handle(intent: .selectImages(images))
+                        },
                         selectedLimit: 1,
                         filter: .images
                     )

@@ -8,7 +8,7 @@
 import Combine
 
 protocol MVIPatternType: ObservableObject {
-    associatedtype InputAction
+    associatedtype Intent
     
     associatedtype StateModel
 }

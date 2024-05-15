@@ -13,8 +13,8 @@ struct CustomPhotoPicker: UIViewControllerRepresentable {
     @Binding
     var isPresented: Bool
     
-    @Binding
-    var selectedImages: [UIImage]
+    
+    var selectedImages: ([UIImage]) -> Void
     
     /// 선택 가능한 개체 수
     let selectedLimit: Int // 선택 가능 이미지 갯수
@@ -46,7 +46,7 @@ struct CustomPhotoPicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            parent.selectedImages = []
+            var images: [UIImage] = []
             let dispatchGroup = DispatchGroup()
             
             for result in results {
@@ -57,14 +57,15 @@ struct CustomPhotoPicker: UIViewControllerRepresentable {
                     guard let image = object as? UIImage else {
                         return
                     }
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        self?.parent.selectedImages.append(image)
+
+                    DispatchQueue.main.async {
+                        images.append(image)
                     }
                     dispatchGroup.leave()
                 }
             }
             dispatchGroup.notify(queue: .main) { [unowned self] in
+                parent.selectedImages(images)
                 parent.isPresented = false
             }
         }
