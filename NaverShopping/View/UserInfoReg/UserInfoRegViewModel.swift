@@ -17,12 +17,16 @@ final class UserInfoRegViewModel: MVIPatternType {
     @Published
     var imagePickerState: ImagePickState = .empty
     
+    @Published
+    var stateModel = StateModel()
+    
     enum Intent { // 다시 학습해 보자. 사용자의 의도를 관리
         case selectImages([UIImage])
+        case nameText(String)
     }
     
     struct StateModel { // 상태를 담당
-        
+        var nameText = ""
     }
 }
 
@@ -33,6 +37,8 @@ extension UserInfoRegViewModel {
         switch intent {
         case .selectImages(let images):
             processingImage(images)
+        case .nameText(let name):
+            stateModel.nameText = name
         }
     }
 }

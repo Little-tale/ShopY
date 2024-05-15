@@ -23,6 +23,7 @@
 		7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */; };
 		7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55D2BF4B3D700977EC7 /* MyProfileImageView.swift */; };
 		7B52E5602BF4B47600977EC7 /* CircleProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55F2BF4B47600977EC7 /* CircleProfileImage.swift */; };
+		7B52E5632BF4E93300977EC7 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -76,6 +77,7 @@
 		7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		7B52E55D2BF4B3D700977EC7 /* MyProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileImageView.swift; sourceTree = "<group>"; };
 		7B52E55F2BF4B47600977EC7 /* CircleProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileImage.swift; sourceTree = "<group>"; };
+		7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		7B52E5612BF4E92700977EC7 /* TextFiled */ = {
+			isa = PBXGroup;
+			children = (
+				7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */,
+			);
+			path = TextFiled;
+			sourceTree = "<group>";
+		};
 		7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 		7BC21A162BECCBBD003BE504 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				7B52E5612BF4E92700977EC7 /* TextFiled */,
 				7B52E55C2BF4B3C700977EC7 /* Profile */,
 				7BC21A412BED2AC7003BE504 /* Result */,
 				7BC21A1F2BECD164003BE504 /* Search */,
@@ -534,6 +545,7 @@
 				7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
+				7B52E5632BF4E93300977EC7 /* ProfileTextField.swift in Sources */,
 				7BA919432BF10A1B00E31170 /* Step2.swift in Sources */,
 				7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */,
 				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,

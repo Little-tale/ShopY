@@ -32,32 +32,53 @@ struct UserInfoRegView: View {
         VStack {
             VStack {
                 Text("프로필을 등록해주세요")
-                    .font(.title)
+                    .font(.title2)
                     .bold()
-                MyProfileImageView(imageState:  $viewModel.imagePickerState)
-                .asButton {
-                    goGallery = true
-                }
-                .buttonStyle(UserProfileImageButtonStyle())
-                .fullScreenCover(isPresented: $goGallery) {
-                    CustomPhotoPicker(
-                        isPresented: $goGallery,
-                        selectedImages: { images in
-                            viewModel.handle(intent: .selectImages(images))
-                        },
-                        selectedLimit: 1,
-                        filter: .images
-                    )
-                }
-                .onChange(of: selectedImage) { _, newValue in
-                    print(newValue)
-                }
+                
+                profileView
+                
+                ProfileTextField(headLine: "NAME", placeHolder: "이름을 입력해 주세요", text: Binding(
+                    get: { viewModel.stateModel.nameText
+                }, set: { viewModel.handle(intent: .nameText($0))})
+                )
+                .padding(.horizontal, 40)
+            
+                
                 Spacer()
             }
         }
-        
+    }
+    
+    
+}
+
+extension UserInfoRegView {
+    var profileView: some View {
+        MyProfileImageView(imageState:  $viewModel.imagePickerState)
+        .asButton {
+            goGallery = true
+        }
+        .buttonStyle(UserProfileImageButtonStyle())
+        .fullScreenCover(isPresented: $goGallery) {
+            CustomPhotoPicker(
+                isPresented: $goGallery,
+                selectedImages: { images in
+                    viewModel.handle(intent: .selectImages(images))
+                },
+                selectedLimit: 1,
+                filter: .images
+            )
+        }
+        .onChange(of: selectedImage) { _, newValue in
+            print(newValue)
+        }
     }
 }
+
+
+
+
+
 
 struct UserProfileImageButtonStyle: ButtonStyle {
     
