@@ -35,7 +35,9 @@ final class RealmRepository: RealmRepositoryType {
     
     init() {
         do {
-            realm = try Realm()
+            let realms = try Realm()
+            realm = realms
+            print(realms.configuration.fileURL)
         } catch {
             realm = nil
         }

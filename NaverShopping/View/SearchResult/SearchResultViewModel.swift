@@ -41,6 +41,7 @@ extension SearchResultViewModel {
         var total = CurrentValueSubject<Int,Never> (0)
         var isError = false
         var realmError = PassthroughSubject<RealmError, Never> ()
+        var realmIsError = false
     }
 }
 
@@ -114,7 +115,9 @@ extension SearchResultViewModel {
             }, receiveValue: { [weak self] shop in
                 print("성공한 모델이에여")
                 guard let strongSelf = self else { return }
+                
                 var datas = strongSelf.output.drawRowViewModel
+                
                 datas.append(contentsOf: shop.items.map({ item in
                     var new = item
                     let model = strongSelf.repository.fetchAll(type: LikePostModel.self)
@@ -124,7 +127,7 @@ extension SearchResultViewModel {
                     }
                     if case .failure(let failure) = model {
                         realmErrorTrigger.send(failure)
-                        strongSelf.output.isError = true
+                        strongSelf.output.realmIsError = true
                     }
                     return new
                 }))
@@ -174,7 +177,8 @@ extension SearchResultViewModel {
 //                    UserDefaultManager.productId.remove(before.productId)
                     if case .failure(let failure) = result {
                         realmErrorTrigger.send(failure)
-                    } 
+                        output.realmIsError = true
+                    }
                 }
                 models[index] = item
                 output.drawRowViewModel = models

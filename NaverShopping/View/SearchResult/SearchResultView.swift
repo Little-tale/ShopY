@@ -25,8 +25,10 @@ struct SearchResultView: View {
     @State
     var likeState = true
     
-   
+    @State private
+    var errorMessage: String = ""
     
+   
     var body: some View {
         VStack {
             ScrollView(.vertical) {
@@ -71,6 +73,9 @@ struct SearchResultView: View {
         .task {
             viewModel.input.searchText.send(searchText)
         }
+        .onReceive(viewModel.output.realmError, perform: { error in
+            errorMessage = error.localizedDescription
+        })
         .alert(isPresented: $viewModel.output.isError) {
             Alert(
                 title: Text("에러"),
@@ -79,6 +84,18 @@ struct SearchResultView: View {
                 secondaryButton: .cancel()
             )
         }
+        .alert("Error",
+               isPresented: $viewModel.output.realmIsError,
+               actions: {
+            Button("확인", role: .destructive) {
+                
+            }
+        },
+        message: {
+                Text("데이터 베이스 오류")
+                Text(errorMessage)
+            }
+        )
         .navigationTitle(searchText)
     }
 }
