@@ -40,6 +40,7 @@ extension SearchResultViewModel {
         var drawRowViewModel: [ShopItem] = []
         var total = CurrentValueSubject<Int,Never> (0)
         var isError = false
+        var realmError = PassthroughSubject<RealmError, Never> ()
     }
 }
 
@@ -55,6 +56,9 @@ extension SearchResultViewModel {
         let display = CurrentValueSubject<Int, Never>(30)
         
         let start = CurrentValueSubject<Int, Never> (1)
+        
+        let realmErrorTrigger = PassthroughSubject<RealmError, Never> ()
+        output.realmError = realmErrorTrigger
         
         // distinctUntilChanged
         let sort = input.inputSort
@@ -114,8 +118,14 @@ extension SearchResultViewModel {
                 datas.append(contentsOf: shop.items.map({ item in
                     var new = item
                     let model = strongSelf.repository.fetchAll(type: LikePostModel.self)
-                    let userLikeList = UserDefaultManager.productId
-                    new.likeState = userLikeList.contains(item.productId)
+                    if case .success(let success) = model {
+                        let userLikeList = Array(success)
+                        new.likeState = userLikeList.contains(where: { $0.id == item.productId })
+                    }
+                    if case .failure(let failure) = model {
+                        realmErrorTrigger.send(failure)
+                        strongSelf.output.isError = true
+                    }
                     return new
                 }))
                 
@@ -132,6 +142,7 @@ extension SearchResultViewModel {
             .store(in: &cancellabel)
         
         
+        
         input.inputCurrentIndex
             .filter({ current in
                 currentTotal - 5 < current
@@ -145,11 +156,28 @@ extension SearchResultViewModel {
         
         input.likeStateChange
             .sink {[weak self] item, index in
-               var models = self?.output.drawRowViewModel
-                models?[index] = item
-                if let models {
-                    self?.output.drawRowViewModel = models
+                guard let self else { return }
+               var models = output.drawRowViewModel
+                if !item.likeState {
+                    print("좋아요 \(item.productNameProcess)")
+//                    UserDefaultManager.productId.insert(before.productId)
+                    let model = LikePostModel(
+                        postId: item.productId,
+                        title: item.productNameProcess,
+                        sellerName: item.mallNameProcess,
+                        postUrlString: item.imageProcess?.description ?? ""
+                    )
+                    repository.add(model)
+                } else {
+                    print("좋아요취소 \(item.productNameProcess)")
+                    let result = repository.findIDAndRemove(type: LikePostModel.self, id: item.productId)
+//                    UserDefaultManager.productId.remove(before.productId)
+                    if case .failure(let failure) = result {
+                        realmErrorTrigger.send(failure)
+                    } 
                 }
+                models[index] = item
+                output.drawRowViewModel = models
             }
             .store(in: &cancellabel)
         

@@ -11,4 +11,5 @@ enum RealmError: Error {
     case cantLoadRealm
     case failAdd
     case failRemove
+    case cantFindModel
 }

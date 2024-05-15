@@ -29,13 +29,7 @@ struct VirticalResultRowView: View {
                         before.likeState = !before.likeState
                         heartButtonTapped(before)
                         
-                        if before.likeState {
-                            print("좋아요 \(before.productNameProcess)")
-                            UserDefaultManager.productId.insert(before.productId)
-                        } else {
-                            print("좋아요취소 \(before.productNameProcess)")
-                            UserDefaultManager.productId.remove(before.productId)
-                        }
+
                     }
                     .padding(.top, 2)
                     .padding(.trailing, 2)

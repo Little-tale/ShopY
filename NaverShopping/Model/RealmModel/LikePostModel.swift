@@ -14,17 +14,20 @@ import RealmSwift
  렘을 실시간 변동을 감지해서 데이터를 반영해야 하는데.
  */
 
-final class LikePostModel: Object {
+final class LikePostModel: Object, RealmFindType {
     
-    @Persisted(primaryKey: true) var id: ObjectId
+    typealias ID = String
+    
+    @Persisted(primaryKey: true) var id: String
     
     @Persisted var title: String
     @Persisted var sellerName: String
     @Persisted var postUrlString: String
     
     convenience
-    init(title: String, sellerName: String, postUrlString: String) {
+    init(postId: String, title: String, sellerName: String, postUrlString: String) {
         self.init()
+        self.id = postId
         self.title = title
         self.sellerName = sellerName
         self.postUrlString = postUrlString
