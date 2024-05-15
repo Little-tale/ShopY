@@ -31,6 +31,7 @@ final class ImageFileManager {
         case profile
         
         case custom(custom: String)
+        
         var path: String {
             return switch self {
             case .profile:

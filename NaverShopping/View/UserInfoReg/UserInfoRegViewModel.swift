@@ -19,11 +19,14 @@ final class UserInfoRegViewModel: MVIPatternType {
     @Published private(set)
     var state = StateModel()
     
+    var imageState = CurrentValueSubject<ImagePickState,Never> (.empty)
+    
+    var selectedImages = CurrentValueSubject<[UIImage],Never> ([])
+    
     enum InputAction {
         case nameChange(String)
         case introduce(String)
         case phoneNumber(String)
-        case userImage(UIImage)
         case saveProfile
     }
     
@@ -48,6 +51,7 @@ extension UserInfoRegViewModel {
             value[0] = !name.isEmpty
             currentButtonState.send(value)
             state.name = name
+            
         case .introduce(let intro):
             
             state.introduce = intro
@@ -60,10 +64,6 @@ extension UserInfoRegViewModel {
                 value[1] = false
             }
             state.phoneNumber = number
-        case .userImage(let image):
-            
-            state.userImage = image
-            
         case .saveProfile:
             break
         }
@@ -73,6 +73,20 @@ extension UserInfoRegViewModel {
                 self?.state.saveButtonState = bools.allSatisfy({ $0 == true })
             }
             .store(in: &cancellables)
+        
+        selectedImages
+            .sink { [weak self] images in
+                guard let self else { return }
+                if let image = images.first {
+                    imageState.send(.success(image))
+                } else if images.isEmpty {
+                    imageState.send(.empty)
+                } else {
+                    imageState.send(.empty)
+                }
+            }
+            .store(in: &cancellables)
+            
     }
     
 }

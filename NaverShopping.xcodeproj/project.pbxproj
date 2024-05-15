@@ -21,6 +21,8 @@
 		7B52E5512BF471C500977EC7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E5502BF471C500977EC7 /* RealmSwift */; };
 		7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */; };
 		7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */; };
+		7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55D2BF4B3D700977EC7 /* MyProfileImageView.swift */; };
+		7B52E5602BF4B47600977EC7 /* CircleProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55F2BF4B47600977EC7 /* CircleProfileImage.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -72,6 +74,8 @@
 		7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoselectorVIew.swift; sourceTree = "<group>"; };
 		7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegViewModel.swift; sourceTree = "<group>"; };
 		7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
+		7B52E55D2BF4B3D700977EC7 /* MyProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileImageView.swift; sourceTree = "<group>"; };
+		7B52E55F2BF4B47600977EC7 /* CircleProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileImage.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -191,6 +195,14 @@
 			path = FileManager;
 			sourceTree = "<group>";
 		};
+		7B52E55C2BF4B3C700977EC7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7B52E55D2BF4B3D700977EC7 /* MyProfileImageView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +264,7 @@
 		7BC21A162BECCBBD003BE504 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				7B52E55C2BF4B3C700977EC7 /* Profile */,
 				7BC21A412BED2AC7003BE504 /* Result */,
 				7BC21A1F2BECD164003BE504 /* Search */,
 				7BC21A172BECCBC7003BE504 /* Button */,
@@ -380,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */,
+				7B52E55F2BF4B47600977EC7 /* CircleProfileImage.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -483,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA919412BF0FB2200E31170 /* Step1.swift in Sources */,
+				7B52E5602BF4B47600977EC7 /* CircleProfileImage.swift in Sources */,
 				7BA9193C2BF0E6C700E31170 /* EditableProfileImage.swift in Sources */,
 				7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */,
 				7B4F90842BF0AFA700B191F2 /* PhotoselectorVIew.swift in Sources */,
@@ -516,6 +531,7 @@
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
 				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
+				7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
 				7BA919432BF10A1B00E31170 /* Step2.swift in Sources */,

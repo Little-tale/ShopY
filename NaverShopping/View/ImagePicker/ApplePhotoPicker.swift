@@ -61,13 +61,6 @@ final class ProfileModel: MVIPatternType {
     @Published private(set)
     var imageState: ImageState = .empty
     
-    enum ImageState {
-        case empty
-        case loading(Progress)
-        case success(Image)
-        case failure(Error)
-    }
-    
     enum TransforError: Error {
         case importError // 이미지 로드 실패시 사용될 에러타입
     }

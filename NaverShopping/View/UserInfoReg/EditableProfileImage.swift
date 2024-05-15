@@ -8,22 +8,22 @@
 import SwiftUI
 import PhotosUI
 
-struct EditableProfileImage: View {
-    @ObservedObject
-    var viewModel: ProfileModel
-    
-    var body: some View {
-        VStack {
-            PhotosPicker(
-                selection: $viewModel.imageSelection,
-                matching: .images,
-                photoLibrary: .shared()) {
-                    ProfileImage(imageState: viewModel.imageState)
-                }
-                .paletteSelectionEffect(.automatic)
-        }
-    }
-}
-#Preview {
-    EditableProfileImage(viewModel: .init())
-}
+//struct EditableProfileImage: View {
+//    @ObservedObject
+//    var viewModel: ProfileModel
+//    
+//    var body: some View {
+//        VStack {
+//            PhotosPicker(
+//                selection: $viewModel.imageSelection,
+//                matching: .images,
+//                photoLibrary: .shared()) {
+//                    ProfileImage(imageState: viewModel.imageState)
+//                }
+//                .paletteSelectionEffect(.automatic)
+//        }
+//    }
+//}
+//#Preview {
+//    EditableProfileImage(viewModel: .init())
+//}
