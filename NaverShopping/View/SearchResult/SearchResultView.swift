@@ -26,7 +26,7 @@ struct SearchResultView: View {
     var likeState = true
     
     @State private
-    var errorMessage: String = ""
+    var errorMessage: String?
     
    
     var body: some View {
@@ -74,7 +74,7 @@ struct SearchResultView: View {
             viewModel.input.searchText.send(searchText)
         }
         .onReceive(viewModel.output.realmError, perform: { error in
-            errorMessage = error.localizedDescription
+            errorMessage = error.message
         })
         .alert(isPresented: $viewModel.output.isError) {
             Alert(
@@ -92,8 +92,7 @@ struct SearchResultView: View {
             }
         },
         message: {
-                Text("데이터 베이스 오류")
-                Text(errorMessage)
+                Text(errorMessage ?? "데이터 베이스 오류")
             }
         )
         .navigationTitle(searchText)

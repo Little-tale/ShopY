@@ -161,7 +161,7 @@ extension SearchResultViewModel {
             .sink {[weak self] item, index in
                 guard let self else { return }
                var models = output.drawRowViewModel
-                if !item.likeState {
+                if item.likeState {
                     print("좋아요 \(item.productNameProcess)")
 //                    UserDefaultManager.productId.insert(before.productId)
                     let model = LikePostModel(

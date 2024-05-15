@@ -39,6 +39,7 @@ final class RealmRepository: RealmRepositoryType {
             realm = realms
             print(realms.configuration.fileURL)
         } catch {
+            print("렘 자체 문제 ")
             realm = nil
         }
     }
