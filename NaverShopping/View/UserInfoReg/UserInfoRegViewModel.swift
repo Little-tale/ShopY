@@ -23,10 +23,15 @@ final class UserInfoRegViewModel: MVIPatternType {
     enum Intent { // 다시 학습해 보자. 사용자의 의도를 관리
         case selectImages([UIImage])
         case nameText(String)
+        case introduce(String)
+        case phoneNumber(String)
     }
     
     struct StateModel { // 상태를 담당
         var nameText = ""
+        var introduce = ""
+        var phoneNumber = ""
+        var userImageUrl: String? = nil
     }
 }
 
@@ -37,8 +42,15 @@ extension UserInfoRegViewModel {
         switch intent {
         case .selectImages(let images):
             processingImage(images)
+            
         case .nameText(let name):
             stateModel.nameText = name
+            
+        case .introduce(let introduce):
+            stateModel.introduce = introduce
+            
+        case .phoneNumber(let phoneNumber):
+            stateModel.phoneNumber = phoneNumber
         }
     }
 }

@@ -36,10 +36,23 @@ struct UserInfoRegView: View {
                     .bold()
                 
                 profileView
+                    .padding(.vertical, 20)
                 
-                ProfileTextField(headLine: "NAME", placeHolder: "이름을 입력해 주세요", text: Binding(
-                    get: { viewModel.stateModel.nameText
-                }, set: { viewModel.handle(intent: .nameText($0))})
+                ProfileTextField(headLine: "NAME *", placeHolder: "이름을 입력해 주세요 (필수)", text: Binding(
+                    get: { viewModel.stateModel.nameText},
+                    set: { viewModel.handle(intent: .nameText($0))})
+                )
+                .padding(.horizontal, 40)
+                
+                ProfileTextField(headLine: "Read Me", placeHolder: "자기소개를 작성해주세요", text: Binding(
+                    get: { viewModel.stateModel.introduce},
+                    set: { viewModel.handle(intent: .introduce($0))})
+                )
+                .padding(.horizontal, 40)
+                
+                ProfileTextField(headLine: "Phone Number", placeHolder: "전화번호를 입력해주세요", text: Binding(
+                    get: { viewModel.stateModel.phoneNumber},
+                    set: { viewModel.handle(intent: .phoneNumber($0))})
                 )
                 .padding(.horizontal, 40)
             
