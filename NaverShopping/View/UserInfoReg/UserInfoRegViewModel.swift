@@ -13,6 +13,9 @@ final class UserInfoRegViewModel: MVIPatternType {
     private
     var cancellables: Set<AnyCancellable> = []
     
+    private
+    let currentButtonState = CurrentValueSubject<[Bool],Never> (.init(repeating: false, count: 2))
+    
     @Published private(set)
     var state = StateModel()
     
@@ -36,20 +39,33 @@ final class UserInfoRegViewModel: MVIPatternType {
 extension UserInfoRegViewModel {
     
     func send(_ action: InputAction) {
-        
-        let currentButtonState = CurrentValueSubject<[Bool],Never> (.init(repeating: false, count: 3))
+
+        var value = currentButtonState.value
         
         switch action {
         case .nameChange(let name):
-            <#code#>
+            
+            value[0] = !name.isEmpty
+            currentButtonState.send(value)
+            state.name = name
         case .introduce(let intro):
-            <#code#>
+            
+            state.introduce = intro
         case .phoneNumber(let number):
-            <#code#>
+            if number.isEmpty {
+                value[1] = true
+            } else if number.count > 7 {
+                value[1] = true
+            } else {
+                value[1] = false
+            }
+            state.phoneNumber = number
         case .userImage(let image):
-            <#code#>
+            
+            state.userImage = image
+            
         case .saveProfile:
-            <#code#>
+            break
         }
         
         currentButtonState

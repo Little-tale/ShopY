@@ -20,7 +20,6 @@
 		7B52E54F2BF471C500977EC7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E54E2BF471C500977EC7 /* Realm */; };
 		7B52E5512BF471C500977EC7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E5502BF471C500977EC7 /* RealmSwift */; };
 		7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */; };
-		7B52E5582BF48AF100977EC7 /* TextValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5572BF48AF100977EC7 /* TextValid.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -71,7 +70,6 @@
 		7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewExameple.swift; sourceTree = "<group>"; };
 		7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoselectorVIew.swift; sourceTree = "<group>"; };
 		7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegViewModel.swift; sourceTree = "<group>"; };
-		7B52E5572BF48AF100977EC7 /* TextValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValid.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 		7B52E5562BF48AE400977EC7 /* TextValid */ = {
 			isa = PBXGroup;
 			children = (
-				7B52E5572BF48AF100977EC7 /* TextValid.swift */,
 			);
 			path = TextValid;
 			sourceTree = "<group>";
@@ -481,7 +478,6 @@
 				7BC21A5F2BEE6B30003BE504 /* UserDefaultCodableWrapper.swift in Sources */,
 				7BC21A2A2BECF0C5003BE504 /* NetworkManager.swift in Sources */,
 				7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */,
-				7B52E5582BF48AF100977EC7 /* TextValid.swift in Sources */,
 				7BC21A5D2BEE6914003BE504 /* UserDefaultManager.swift in Sources */,
 				7BC21A512BEDEF7C003BE504 /* SortCase.swift in Sources */,
 				7BC21A402BED2A7E003BE504 /* SearchResultView.swift in Sources */,
