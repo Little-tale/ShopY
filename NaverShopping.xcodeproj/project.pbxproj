@@ -20,6 +20,7 @@
 		7B52E54F2BF471C500977EC7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E54E2BF471C500977EC7 /* Realm */; };
 		7B52E5512BF471C500977EC7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E5502BF471C500977EC7 /* RealmSwift */; };
 		7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */; };
+		7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -70,6 +71,7 @@
 		7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewExameple.swift; sourceTree = "<group>"; };
 		7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoselectorVIew.swift; sourceTree = "<group>"; };
 		7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegViewModel.swift; sourceTree = "<group>"; };
+		7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 			children = (
 			);
 			path = TextValid;
+			sourceTree = "<group>";
+		};
+		7B52E5592BF4904500977EC7 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */ = {
@@ -292,6 +302,7 @@
 		7BC21A272BECF0A7003BE504 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7B52E5592BF4904500977EC7 /* FileManager */,
 				7B52E5562BF48AE400977EC7 /* TextValid */,
 				7B2D776B2BF3BB7D00D51F49 /* RealmFolder */,
 				7BC21A5B2BEE6903003BE504 /* UserDefault */,
@@ -512,6 +523,7 @@
 				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
 				7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */,
+				7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 				7BA919452BF12D0400E31170 /* MVIPatternType.swift in Sources */,
 			);
