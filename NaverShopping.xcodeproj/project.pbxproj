@@ -27,6 +27,8 @@
 		7B87BD102BF65004000F0F79 /* SaveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */; };
 		7B87BD122BF65792000F0F79 /* TextValidTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */; };
 		7B87BD152BF665E5000F0F79 /* WarningTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */; };
+		7B87BD172BF67664000F0F79 /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD162BF67664000F0F79 /* ViewError.swift */; };
+		7B87BD192BF68013000F0F79 /* ErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD182BF68013000F0F79 /* ErrorProtocol.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -84,6 +86,8 @@
 		7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonStyle.swift; sourceTree = "<group>"; };
 		7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidTestManager.swift; sourceTree = "<group>"; };
 		7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextViewModifier.swift; sourceTree = "<group>"; };
+		7B87BD162BF67664000F0F79 /* ViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewError.swift; sourceTree = "<group>"; };
+		7B87BD182BF68013000F0F79 /* ErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorProtocol.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -402,6 +406,8 @@
 				7BB54B342BEF33D300770637 /* JH */,
 				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
 				7BC21A502BEDEF7C003BE504 /* SortCase.swift */,
+				7B87BD162BF67664000F0F79 /* ViewError.swift */,
+				7B87BD182BF68013000F0F79 /* ErrorProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,
 				7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */,
 				7BA9193E2BF0E9D600E31170 /* ProfileView.swift in Sources */,
+				7B87BD172BF67664000F0F79 /* ViewError.swift in Sources */,
 				7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */,
 				7BC21A262BECE04B003BE504 /* ViewModelType.swift in Sources */,
 				7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */,
@@ -573,6 +580,7 @@
 				7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */,
 				7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
+				7B87BD192BF68013000F0F79 /* ErrorProtocol.swift in Sources */,
 				7BA919452BF12D0400E31170 /* MVIPatternType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

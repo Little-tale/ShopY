@@ -15,7 +15,7 @@ enum RealmError: Error {
 }
 
 
-extension RealmError {
+extension RealmError: ErrorMessageType {
     var message: String {
         return switch self {
         case .cantLoadRealm:

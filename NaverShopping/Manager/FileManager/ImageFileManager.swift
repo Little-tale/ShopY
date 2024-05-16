@@ -16,6 +16,26 @@ enum ImageFileManagerError: Error {
     case cantRemoveImage
 }
 
+extension ImageFileManagerError: ErrorMessageType{
+    var message: String {
+        return switch self {
+        case .cantSaveImage:
+            "이미지 저장 실패"
+        case .cantZip:
+            "이미지 압축 실패"
+        case .directoryError:
+            "이미지 저장 실패"
+        case .cantLoadImage:
+            "이미지 로드 실패"
+        case .imageNotFound:
+            "이미지 불러오기 실패"
+        case .cantRemoveImage:
+            "이미지 삭제 실패"
+        }
+    }
+}
+
+
 final class ImageFileManager {
 
     static
@@ -45,7 +65,7 @@ final class ImageFileManager {
 
 extension ImageFileManager {
     
-    func saveImage(image: UIImage, folderPath: fileFolderPath, fileId: String) -> Result<Void, ImageFileManagerError>{
+    func saveImage(image: UIImage, folderPath: fileFolderPath, fileId: String) -> Result<URL, ImageFileManagerError>{
         
         guard let image = image.pngData() else {
             return .failure(.cantZip)
@@ -69,7 +89,7 @@ extension ImageFileManager {
         
         do {
             try image.write(to: fileUrl)
-            return .success(())
+            return .success(fileUrl)
         } catch {
             return .failure(.cantSaveImage)
         }
