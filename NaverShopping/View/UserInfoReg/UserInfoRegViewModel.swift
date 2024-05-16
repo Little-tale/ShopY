@@ -20,8 +20,6 @@ final class UserInfoRegViewModel: MVIPatternType {
     @Published
     var stateModel = StateModel()
     
-    private
-    var saveButtonTap = PassthroughSubject<Void, Never> ()
     
     enum Intent { // 다시 학습해 보자. 사용자의 의도를 관리
         case selectImages([UIImage])
@@ -37,6 +35,10 @@ final class UserInfoRegViewModel: MVIPatternType {
         var phoneNumber = ""
         var userImageUrl: String? = nil
         var saveButtonEnabled = false
+        
+        // TextValidState
+        var nameTextValid = false
+        var phoneNumberValid = true
     }
 }
 
@@ -51,14 +53,17 @@ extension UserInfoRegViewModel {
         case .nameText(let name):
             stateModel.nameText = name
             
+            validTextForButton()
         case .introduce(let introduce):
             stateModel.introduce = introduce
             
         case .phoneNumber(let phoneNumber):
             stateModel.phoneNumber = phoneNumber
             
+            validTextForButton()
+            
         case .saveButtonTap:
-            saveButtonTap.send(())
+            saveButtonTab()
         }
     }
 }
@@ -75,5 +80,29 @@ extension UserInfoRegViewModel {
         }
     }
     
+    private
+    func validTextForButton() {
+        /// Name Valid
+        stateModel.nameTextValid = TextValidTestManager.matchesPattern(
+            .userName(
+                text: stateModel.nameText
+            )
+        )
+        
+        /// phoneNumberValid Valid
+        stateModel.phoneNumberValid = TextValidTestManager.matchesPattern(
+            .phoneNumber(
+                text: stateModel.phoneNumber
+            )
+        )
+
+        // ButtonEnabled
+        stateModel.saveButtonEnabled = stateModel.nameTextValid && stateModel.phoneNumberValid
+    }
+    
+    private
+    func saveButtonTab(){
+        
+    }
     
 }

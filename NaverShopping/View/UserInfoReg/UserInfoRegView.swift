@@ -38,24 +38,47 @@ struct UserInfoRegView: View {
                 profileView
                     .padding(.vertical, 20)
                 
-                ProfileTextField(headLine: "NAME *", placeHolder: "이름을 입력해 주세요 (필수)", text: Binding(
-                    get: { viewModel.stateModel.nameText},
-                    set: { viewModel.handle(intent: .nameText($0))})
+                ProfileTextField(headLine: "NAME *", placeHolder: "이름을 입력해 주세요 (필수)",
+                                 text: Binding(
+                                    get: { viewModel.stateModel.nameText},
+                                    set: { viewModel.handle(intent: .nameText($0))}
+                                 ),
+                                 state: viewModel.stateModel.nameTextValid
                 )
                 .padding(.horizontal, 40)
+                
+                HStack{
+                    Spacer()
+                    Text(viewModel.stateModel.nameTextValid ? " " : "이름 형식이 맞지 않아요...")
+                        .modifier(WarningTextViewModifier())
+                }
+                .padding(.trailing, 40)
                 
                 ProfileTextField(headLine: "Read Me", placeHolder: "자기소개를 작성해주세요", text: Binding(
                     get: { viewModel.stateModel.introduce},
-                    set: { viewModel.handle(intent: .introduce($0))})
+                    set: { viewModel.handle(intent: .introduce($0))}),
+                                 state: nil
                 )
                 .padding(.horizontal, 40)
+                .padding(.bottom, 15)
                 
-                ProfileTextField(headLine: "Phone Number", placeHolder: "전화번호를 입력해주세요", text: Binding(
-                    get: { viewModel.stateModel.phoneNumber},
-                    set: { viewModel.handle(intent: .phoneNumber($0))})
+                ProfileTextField(headLine: "Phone Number", placeHolder: "전화번호를 입력해주세요",
+                                 text: Binding(
+                                    get: { viewModel.stateModel.phoneNumber},
+                                    set: { viewModel.handle(intent: .phoneNumber($0))}
+                                 ),
+                                 state: viewModel.stateModel.phoneNumberValid
                 )
                 .keyboardType(.numberPad)
                 .padding(.horizontal, 40)
+                
+                
+                HStack{
+                    Spacer()
+                    Text(viewModel.stateModel.phoneNumberValid ? " " : "전화번호 양식이 맞지 않아요...")
+                        .modifier(WarningTextViewModifier())
+                }
+                .padding(.trailing, 40)
                 
                 Text("저장")
                     .font(.headline)

@@ -24,4 +24,5 @@ extension JHColor {
     static let onlyBlack: Color = .onlyBlack
     static let onlyDarkGray: Color = .darkGrayOnly
     static let segementBlack: Color = .segmentBlack
+    static let sysBlue: Color = .blue
 }
