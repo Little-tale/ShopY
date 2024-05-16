@@ -34,7 +34,7 @@ struct UserInfoRegView: View {
                 Text("프로필을 등록해주세요")
                     .font(.title2)
                     .bold()
-                
+    
                 profileView
                     .padding(.vertical, 20)
                 
@@ -54,14 +54,26 @@ struct UserInfoRegView: View {
                     get: { viewModel.stateModel.phoneNumber},
                     set: { viewModel.handle(intent: .phoneNumber($0))})
                 )
+                .keyboardType(.numberPad)
                 .padding(.horizontal, 40)
-            
+                
+                Text("저장")
+                    .font(.headline)
+                    .bold()
+                    .frame(width: 200, height: 15)
+                    .asButton {
+                        viewModel.handle(intent: .saveButtonTap(()))
+                    }
+                    .buttonStyle(SaveButtonStyle(
+                        buttonState: viewModel.stateModel.saveButtonEnabled
+                      ))
+                    .disabled(viewModel.stateModel.saveButtonEnabled)
+                    .padding(.vertical, 30)
                 
                 Spacer()
             }
         }
     }
-    
     
 }
 

@@ -20,11 +20,15 @@ final class UserInfoRegViewModel: MVIPatternType {
     @Published
     var stateModel = StateModel()
     
+    private
+    var saveButtonTap = PassthroughSubject<Void, Never> ()
+    
     enum Intent { // 다시 학습해 보자. 사용자의 의도를 관리
         case selectImages([UIImage])
         case nameText(String)
         case introduce(String)
         case phoneNumber(String)
+        case saveButtonTap(Void)
     }
     
     struct StateModel { // 상태를 담당
@@ -32,6 +36,7 @@ final class UserInfoRegViewModel: MVIPatternType {
         var introduce = ""
         var phoneNumber = ""
         var userImageUrl: String? = nil
+        var saveButtonEnabled = false
     }
 }
 
@@ -51,12 +56,16 @@ extension UserInfoRegViewModel {
             
         case .phoneNumber(let phoneNumber):
             stateModel.phoneNumber = phoneNumber
+            
+        case .saveButtonTap:
+            saveButtonTap.send(())
         }
     }
 }
 
 // MARK: Processing
 extension UserInfoRegViewModel {
+    
     private
     func processingImage(_ images: [UIImage]) {
         if let firstImage = images.first {
@@ -65,4 +74,6 @@ extension UserInfoRegViewModel {
             imagePickerState = .empty
         }
     }
+    
+    
 }
