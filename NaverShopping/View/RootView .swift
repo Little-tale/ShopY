@@ -9,17 +9,42 @@ import SwiftUI
 
 struct RootView: View {
     
+    @StateObject
+    private 
+    var appRootManager = AppRootManager()
+    
     var body: some View {
-        TabView {
-            SearchView()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("검색")
-                }
-            SplashView()
-                .tabItem {
-                    Text("시작")
+        Group {
+            switch appRootManager.currentRoot {
+            case .splash:
+                InterAppView
+            case .startView:
+                splashView()
+            case .tabbarView:
+                TabbarView()
             }
         }
     }
 }
+
+extension RootView {
+    
+    var InterAppView: some View {
+        VStack{
+            Spacer()
+            Text("로딩창")
+                .font(.title)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+            Spacer()
+        }
+        .onAppear(
+            
+        )
+    }
+}
+
+#Preview {
+    RootView()
+}
+

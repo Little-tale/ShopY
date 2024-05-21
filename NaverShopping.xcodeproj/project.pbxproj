@@ -12,7 +12,6 @@
 		7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */; };
 		7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */; };
 		7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */; };
-		7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90762BEFACD900B191F2 /* SplashView.swift */; };
 		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
 		7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */; };
 		7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */; };
@@ -26,6 +25,9 @@
 		7B52E5632BF4E93300977EC7 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */; };
 		7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB7C2BFCBE710040086A /* RootView .swift */; };
 		7B5DFB852BFCF3BB0040086A /* JHFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB842BFCF3BB0040086A /* JHFont.swift */; };
+		7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */; };
+		7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB892BFCFFDF0040086A /* TabbarView.swift */; };
+		7B5DFB8C2BFD03120040086A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB8B2BFD03120040086A /* SplashView.swift */; };
 		7B87BD102BF65004000F0F79 /* SaveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */; };
 		7B87BD122BF65792000F0F79 /* TextValidTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */; };
 		7B87BD152BF665E5000F0F79 /* WarningTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */; };
@@ -75,7 +77,6 @@
 		7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegView.swift; sourceTree = "<group>"; };
-		7B4F90762BEFACD900B191F2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
 		7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
 		7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewExameple.swift; sourceTree = "<group>"; };
@@ -87,6 +88,9 @@
 		7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		7B5DFB7C2BFCBE710040086A /* RootView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView .swift"; sourceTree = "<group>"; };
 		7B5DFB842BFCF3BB0040086A /* JHFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHFont.swift; sourceTree = "<group>"; };
+		7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootManager.swift; sourceTree = "<group>"; };
+		7B5DFB892BFCFFDF0040086A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		7B5DFB8B2BFD03120040086A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonStyle.swift; sourceTree = "<group>"; };
 		7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidTestManager.swift; sourceTree = "<group>"; };
 		7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextViewModifier.swift; sourceTree = "<group>"; };
@@ -175,12 +179,12 @@
 			isa = PBXGroup;
 			children = (
 				7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */,
-				7B4F90762BEFACD900B191F2 /* SplashView.swift */,
 				7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */,
 				7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */,
 				7BA9193B2BF0E6C700E31170 /* EditableProfileImage.swift */,
 				7BA9193D2BF0E9D600E31170 /* ProfileView.swift */,
 				7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */,
+				7B5DFB8B2BFD03120040086A /* SplashView.swift */,
 			);
 			path = UserInfoReg;
 			sourceTree = "<group>";
@@ -226,6 +230,14 @@
 				7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */,
 			);
 			path = TextFiled;
+			sourceTree = "<group>";
+		};
+		7B5DFB882BFCFFCD0040086A /* TabbarView */ = {
+			isa = PBXGroup;
+			children = (
+				7B5DFB892BFCFFDF0040086A /* TabbarView.swift */,
+			);
+			path = TabbarView;
 			sourceTree = "<group>";
 		};
 		7B87BD132BF665CF000F0F79 /* Text */ = {
@@ -318,6 +330,7 @@
 		7BC21A1A2BECCC0E003BE504 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B5DFB882BFCFFCD0040086A /* TabbarView */,
 				7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */,
 				7B4F907E2BEFD12400B191F2 /* ImagePicker */,
 				7B4F90732BEFABC800B191F2 /* UserInfoReg */,
@@ -356,6 +369,7 @@
 				7B2D776B2BF3BB7D00D51F49 /* RealmFolder */,
 				7BC21A5B2BEE6903003BE504 /* UserDefault */,
 				7BC21A282BECF0B5003BE504 /* Network */,
+				7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -561,6 +575,7 @@
 				7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */,
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
 				7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */,
+				7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,
@@ -576,6 +591,7 @@
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
 				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
+				7B5DFB8C2BFD03120040086A /* SplashView.swift in Sources */,
 				7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
@@ -585,7 +601,7 @@
 				7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */,
 				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
-				7B4F90772BEFACD900B191F2 /* SplashView.swift in Sources */,
+				7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */,
 				7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 				7B87BD192BF68013000F0F79 /* ErrorProtocol.swift in Sources */,

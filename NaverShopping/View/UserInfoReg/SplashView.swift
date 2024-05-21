@@ -1,14 +1,14 @@
 //
-//  SplashVIew.swift
+//  SplashView.swift
 //  NaverShopping
 //
-//  Created by Jae hyung Kim on 5/11/24.
+//  Created by Jae hyung Kim on 5/22/24.
 //
 
 import SwiftUI
 
-struct SplashView: View {
-    
+
+struct splashView: View {
     @State
     var isNextBool = false
     
@@ -22,7 +22,7 @@ struct SplashView: View {
 }
 
 
-extension SplashView {
+extension splashView {
     // IOS 16*
     @ViewBuilder @available( iOS 16, *)
     var iOS16View: some View {
@@ -50,7 +50,7 @@ extension SplashView {
     }
 }
 
-extension SplashView {
+extension splashView {
     private
     var contentView: some View {
         VStack(spacing: 10) {
@@ -73,7 +73,7 @@ extension SplashView {
     }
 }
 
-extension SplashView {
+extension splashView {
     private
     var StartButtonView: some View {
         HStack {
@@ -104,12 +104,4 @@ struct StartButtonStyle: ButtonStyle {
             )
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
-}
-
-
-
-
-
-#Preview {
-    SplashView()
 }
