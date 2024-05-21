@@ -28,6 +28,7 @@
 		7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */; };
 		7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB892BFCFFDF0040086A /* TabbarView.swift */; };
 		7B5DFB8C2BFD03120040086A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB8B2BFD03120040086A /* SplashView.swift */; };
+		7B5DFB8F2BFD06DE0040086A /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB8E2BFD06DE0040086A /* RootViewModel.swift */; };
 		7B87BD102BF65004000F0F79 /* SaveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */; };
 		7B87BD122BF65792000F0F79 /* TextValidTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */; };
 		7B87BD152BF665E5000F0F79 /* WarningTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */; };
@@ -91,6 +92,7 @@
 		7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootManager.swift; sourceTree = "<group>"; };
 		7B5DFB892BFCFFDF0040086A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		7B5DFB8B2BFD03120040086A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		7B5DFB8E2BFD06DE0040086A /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonStyle.swift; sourceTree = "<group>"; };
 		7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidTestManager.swift; sourceTree = "<group>"; };
 		7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextViewModifier.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				7BA9193D2BF0E9D600E31170 /* ProfileView.swift */,
 				7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */,
 				7B5DFB8B2BFD03120040086A /* SplashView.swift */,
+				7B5DFB8E2BFD06DE0040086A /* RootViewModel.swift */,
 			);
 			path = UserInfoReg;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				7B52E5602BF4B47600977EC7 /* CircleProfileImage.swift in Sources */,
 				7BA9193C2BF0E6C700E31170 /* EditableProfileImage.swift in Sources */,
 				7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */,
+				7B5DFB8F2BFD06DE0040086A /* RootViewModel.swift in Sources */,
 				7B4F90842BF0AFA700B191F2 /* PhotoselectorVIew.swift in Sources */,
 				7B87BD152BF665E5000F0F79 /* WarningTextViewModifier.swift in Sources */,
 				7B5DFB852BFCF3BB0040086A /* JHFont.swift in Sources */,

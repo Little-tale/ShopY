@@ -8,14 +8,4 @@
 import Foundation
 
 
-final class AppRootManager: ObservableObject {
-    
-    @Published
-    var currentRoot: Roots = .splash
-    
-    enum Roots {
-        case splash
-        case startView
-        case tabbarView
-    }
-}
+

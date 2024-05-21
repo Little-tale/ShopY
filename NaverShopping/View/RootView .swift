@@ -10,12 +10,11 @@ import SwiftUI
 struct RootView: View {
     
     @StateObject
-    private 
-    var appRootManager = AppRootManager()
+    private var viewModel = RootViewModel()
     
     var body: some View {
         Group {
-            switch appRootManager.currentRoot {
+            switch viewModel.stateModel.currentRoot {
             case .splash:
                 InterAppView
             case .startView:
@@ -23,6 +22,11 @@ struct RootView: View {
             case .tabbarView:
                 TabbarView()
             }
+        }
+        .alert("Error",
+               isPresented: $viewModel.stateModel.alertTrigger)
+        {
+            Text(viewModel.stateModel.error.message)
         }
     }
 }
@@ -38,9 +42,9 @@ extension RootView {
                 .foregroundStyle(.white)
             Spacer()
         }
-        .onAppear(
-            
-        )
+        .onAppear {
+            viewModel.send(action: .viewOnAppear)
+        }
     }
 }
 
