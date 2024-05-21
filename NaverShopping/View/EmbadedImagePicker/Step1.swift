@@ -9,10 +9,12 @@ import SwiftUI
 import PhotosUI
 
 // 뷰모델을 만들어 봅시다.
+@available(iOS 16.0, *)
 @MainActor
 final class ContentViewModel: ObservableObject {
     
     // 사용자가 선택한 이미지를 관리할 클래스
+    
     @MainActor
     final class ImageAttachment: ObservableObject, Identifiable {
         
@@ -92,7 +94,8 @@ final class ContentViewModel: ObservableObject {
     var attachmentByIdentifier = [String: ImageAttachment]()
 }
 
-private 
+@available(iOS 16.0, *)
+private
 extension PhotosPickerItem {
     var identifier: String {
         guard let identifier = itemIdentifier else {

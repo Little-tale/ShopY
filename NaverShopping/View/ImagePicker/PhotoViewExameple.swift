@@ -12,6 +12,7 @@ enum PhotoViewError {
     case cant
 }
 
+@available(iOS 17.0, *)
 struct PhotoView: View {
     
     @State 

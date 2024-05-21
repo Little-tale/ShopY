@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 
+@available(iOS 17.0, *)
 struct Step2View: View {
     
     @StateObject
@@ -41,7 +42,7 @@ struct Step2View: View {
     }
 }
 
-
+@available(iOS 17.0, *)
 struct ImageList: View {
     
     @ObservedObject
@@ -66,6 +67,7 @@ struct ImageList: View {
     }
 }
 
+@available(iOS 16.0, *)
 struct ImageAttachmentView: View {
 
     @ObservedObject 

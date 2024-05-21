@@ -9,20 +9,10 @@ import SwiftUI
 
 @main
 struct NaverShoppingApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            TabView {
-                SearchView()
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("검색")
-                    }
-                SplashView()
-                    .tabItem {
-                        Text("시작")
-                    }
-            }
-            
+            RootView()
         }
     }
     init(){

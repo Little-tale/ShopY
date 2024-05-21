@@ -123,7 +123,7 @@ extension UserInfoRegView {
                 filter: .images
             )
         }
-        .onChange(of: selectedImage) { _, newValue in
+        .onChange(of: selectedImage) { newValue in
             print(newValue)
         }
     }
