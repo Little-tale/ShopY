@@ -105,7 +105,10 @@ extension ImageFileManager {
             return .failure(.directoryError)
         }
 
-        if !fileManager.fileExists(atPath: fileUrl.path()) {
+       
+        if !fileManager.fileExists(
+            atPath: getPath(url: fileUrl)
+        ) {
             return .failure(.imageNotFound)
         }
         
@@ -129,12 +132,16 @@ extension ImageFileManager {
             return .failure(.directoryError)
         }
         
-        if !fileManager.fileExists(atPath: fileUrl.path()) {
+        if !fileManager.fileExists(
+            atPath: getPath(url: fileUrl)
+        ) {
             return .failure(.imageNotFound)
         }
         
         do {
-            try fileManager.removeItem(atPath: fileUrl.path())
+            try fileManager.removeItem(
+                atPath: getPath(url: fileUrl)
+            )
             
             let contents = try fileManager.contentsOfDirectory(atPath: folder.path)
             
@@ -161,6 +168,16 @@ extension ImageFileManager {
         let fileUrl = folderUrl.appendingPathComponent(id, conformingTo: .png)
         
         return .success(fileUrl)
+    }
+
+    
+    private
+    func getPath(url: URL) -> String{
+        if #available(iOS 16.0, *) {
+            return url.path()
+        } else {
+            return url.path
+        }
     }
 }
 
