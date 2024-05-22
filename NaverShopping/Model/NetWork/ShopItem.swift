@@ -8,9 +8,8 @@
 import Foundation
 
 
-struct ShopItem: Decodable, Hashable, Identifiable{
-    var id = UUID()
-    
+struct ShopItem: Decodable{
+   
     let title: String
     let link: String
     let image: String
@@ -21,6 +20,10 @@ struct ShopItem: Decodable, Hashable, Identifiable{
 }
 
 /* // 엔티티에 들어갈 프로퍼티
+ Hashable, Identifiable
+ 
+ var id = UUID()
+ 
  var likeState = false
  var currentTag: Int = 0
  
