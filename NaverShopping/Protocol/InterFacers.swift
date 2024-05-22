@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-protocol Interfacer { }
+protocol InterFacers { }
 
-extension Interfacer where Self: AnyObject {
+extension InterFacers where Self: AnyObject {
     
     func Interfaced(_ apply: (Self) -> Void) {
         apply(self)
@@ -20,3 +21,11 @@ extension Interfacer where Self: AnyObject {
         return self
     }
 }
+
+extension NSObject: InterFacers { }
+extension Array: InterFacers { }
+extension Dictionary: InterFacers { }
+extension Set: InterFacers { }
+
+
+
