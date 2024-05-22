@@ -12,11 +12,18 @@ struct splashView: View {
     @State
     var isNextBool = false
     
+    @State
+    var changeRoot = false
+    
     var body: some View {
-        if #available(iOS 16, *){
-            iOS16View
+        if changeRoot{
+            TabbarView()
         } else {
-            iOS15View
+            if #available(iOS 16, *){
+                iOS16View
+            } else {
+                iOS15View
+            }
         }
     }
 }
@@ -31,7 +38,7 @@ extension splashView {
             .navigationDestination(
                 isPresented: $isNextBool
             ) {
-                UserInfoRegView(viewType: .first)
+                UserInfoRegView(viewType: .first, goTabBarView: $changeRoot)
             }
         }
     }
@@ -41,7 +48,7 @@ extension splashView {
             contentView
                 .background(
                     NavigationLink(destination: {
-                        UserInfoRegView(viewType: .first)
+                        UserInfoRegView(viewType: .first, goTabBarView: $changeRoot)
                     }, label: {
                         EmptyView()
                     })

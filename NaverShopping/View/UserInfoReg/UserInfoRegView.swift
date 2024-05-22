@@ -28,6 +28,9 @@ struct UserInfoRegView: View {
     @State
     var goGallery: Bool = false
     
+    @Binding
+    var goTabBarView: Bool
+    
     var body: some View {
         
         VStack {
@@ -102,30 +105,40 @@ struct UserInfoRegView: View {
             } message: {
                 Text(viewModel.stateModel.currentError?.message ?? "ERROR")
             }
+            .alert("등록 성공!", isPresented: $viewModel.stateModel.successTrigger) {
+                Button(action: {
+                    goTabBarView.toggle()
+                }, label: {
+                    Text("확인")
+                })
+            }
+        
+        
     }
-    
 }
+
+
 
 extension UserInfoRegView {
     var profileView: some View {
         MyProfileImageView(imageState:  $viewModel.imagePickerState)
-        .asButton {
-            goGallery = true
-        }
-        .buttonStyle(UserProfileImageButtonStyle())
-        .fullScreenCover(isPresented: $goGallery) {
-            CustomPhotoPicker(
-                isPresented: $goGallery,
-                selectedImages: { images in
-                    viewModel.handle(intent: .selectImages(images))
-                },
-                selectedLimit: 1,
-                filter: .images
-            )
-        }
-        .onChange(of: selectedImage) { newValue in
-            print(newValue)
-        }
+            .asButton {
+                goGallery = true
+            }
+            .buttonStyle(UserProfileImageButtonStyle())
+            .fullScreenCover(isPresented: $goGallery) {
+                CustomPhotoPicker(
+                    isPresented: $goGallery,
+                    selectedImages: { images in
+                        viewModel.handle(intent: .selectImages(images))
+                    },
+                    selectedLimit: 1,
+                    filter: .images
+                )
+            }
+            .onChange(of: selectedImage) { newValue in
+                print(newValue)
+            }
     }
 }
 
@@ -143,6 +156,3 @@ struct UserProfileImageButtonStyle: ButtonStyle {
     }
 }
 
-#Preview {
-    UserInfoRegView(viewType: .first)
-}
