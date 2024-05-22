@@ -243,6 +243,14 @@
 			path = TabbarView;
 			sourceTree = "<group>";
 		};
+		7B5DFB902BFE37100040086A /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		7B87BD132BF665CF000F0F79 /* Text */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,9 +433,9 @@
 		7BC21A442BED2BAB003BE504 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B5DFB902BFE37100040086A /* NetWork */,
 				7B2D77662BF3B50700D51F49 /* RealmModel */,
 				7BB54B342BEF33D300770637 /* JH */,
-				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
 				7BC21A502BEDEF7C003BE504 /* SortCase.swift */,
 				7B87BD162BF67664000F0F79 /* ViewError.swift */,
 				7B87BD182BF68013000F0F79 /* ErrorProtocol.swift */,
