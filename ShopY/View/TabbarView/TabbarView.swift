@@ -16,6 +16,10 @@ struct TabbarView: View {
                     Image(systemName: "magnifyingglass")
                     Text("검색")
                 }
+            UserInfoRegView(viewType: .first)
+                .tabItem {
+                    Text("시작")
+            }
         }
     }
 }

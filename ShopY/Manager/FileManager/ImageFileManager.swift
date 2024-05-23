@@ -172,7 +172,7 @@ extension ImageFileManager {
 
     
     private
-    func getPath(url: URL) -> String {
+    func getPath(url: URL) -> String{
         if #available(iOS 16.0, *) {
             return url.path()
         } else {

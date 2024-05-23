@@ -21,7 +21,6 @@ final class RootViewModel: MVIPatternType{
     
     enum Intent {
         case viewOnAppear
-        case ifUserInfoReg
     }
     
     struct StateModel {
@@ -58,8 +57,6 @@ extension RootViewModel {
     func send(action: Intent){
         switch action {
         case .viewOnAppear:
-            transFormToViewOnApear()
-        case .ifUserInfoReg:
             transFormToViewOnApear()
         }
     }
