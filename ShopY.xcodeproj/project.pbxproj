@@ -12,6 +12,8 @@
 		7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */; };
 		7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */; };
 		7B3799012BFF4578002033A9 /* DTOType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799002BFF4578002033A9 /* DTOType.swift */; };
+		7B3799042BFF45FD002033A9 /* ShopDTOModlel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */; };
+		7B3799062BFF464D002033A9 /* ShopItemDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */; };
 		7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */; };
 		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
 		7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */; };
@@ -79,6 +81,8 @@
 		7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		7B3799002BFF4578002033A9 /* DTOType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOType.swift; sourceTree = "<group>"; };
+		7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDTOModlel.swift; sourceTree = "<group>"; };
+		7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemDTOModel.swift; sourceTree = "<group>"; };
 		7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegView.swift; sourceTree = "<group>"; };
 		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
 		7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
@@ -168,6 +172,15 @@
 				7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */,
 			);
 			path = RealmFolder;
+			sourceTree = "<group>";
+		};
+		7B3799022BFF45E7002033A9 /* NetworkModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */,
+				7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */,
+			);
+			path = NetworkModel;
 			sourceTree = "<group>";
 		};
 		7B4F90722BEFAB9A00B191F2 /* Search */ = {
@@ -385,7 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				7BC21A352BECFD0B003BE504 /* URLQueryItems */,
-				7BC21A312BECFAD1003BE504 /* EncodeModel */,
 				7BC21A292BECF0C5003BE504 /* NetworkManager.swift */,
 				7BC21A2B2BECF2C6003BE504 /* HTTPMethod.swift */,
 				7BC21A2D2BECF833003BE504 /* NaverRouter.swift */,
@@ -393,13 +405,6 @@
 				7BC21A472BED2ED5003BE504 /* ImageLoader.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		7BC21A312BECFAD1003BE504 /* EncodeModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EncodeModel;
 			sourceTree = "<group>";
 		};
 		7BC21A352BECFD0B003BE504 /* URLQueryItems */ = {
@@ -429,6 +434,7 @@
 		7BC21A442BED2BAB003BE504 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B3799022BFF45E7002033A9 /* NetworkModel */,
 				7B2D77662BF3B50700D51F49 /* RealmModel */,
 				7BB54B342BEF33D300770637 /* JH */,
 				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
@@ -610,10 +616,12 @@
 				7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */,
 				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
+				7B3799042BFF45FD002033A9 /* ShopDTOModlel.swift in Sources */,
 				7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */,
 				7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 				7B87BD192BF68013000F0F79 /* ErrorProtocol.swift in Sources */,
+				7B3799062BFF464D002033A9 /* ShopItemDTOModel.swift in Sources */,
 				7BA919452BF12D0400E31170 /* MVIPatternType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
