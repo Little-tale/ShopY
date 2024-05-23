@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Shop: Decodable {
+struct Shop: DTO {
     let total: Int
     let start: Int
     let display: Int

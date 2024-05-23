@@ -12,7 +12,7 @@ protocol InterFacers { }
 
 extension InterFacers where Self: AnyObject {
     
-    func Interfaced(_ apply: (Self) -> Void) {
+    func Interface(_ apply: (Self) -> Void) {
         apply(self)
     }
     
