@@ -107,7 +107,7 @@
 		7BA919422BF10A1B00E31170 /* Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2.swift; sourceTree = "<group>"; };
 		7BA919442BF12D0400E31170 /* MVIPatternType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIPatternType.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
-		7BC21A052BECCBA5003BE504 /* NaverShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC21A052BECCBA5003BE504 /* ShopY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
 		7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC21A0F2BECCBA6003BE504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 		7BC21A062BECCBA5003BE504 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BC21A052BECCBA5003BE504 /* NaverShopping.app */,
+				7BC21A052BECCBA5003BE504 /* ShopY.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,7 +299,8 @@
 				7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */,
 				7BC21A0E2BECCBA6003BE504 /* Preview Content */,
 			);
-			path = NaverShopping;
+			name = NaverShopping;
+			path = ShopY;
 			sourceTree = "<group>";
 		};
 		7BC21A0E2BECCBA6003BE504 /* Preview Content */ = {
@@ -476,9 +477,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7BC21A042BECCBA5003BE504 /* NaverShopping */ = {
+		7BC21A042BECCBA5003BE504 /* ShopY */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "NaverShopping" */;
+			buildConfigurationList = 7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "ShopY" */;
 			buildPhases = (
 				7BC21A012BECCBA5003BE504 /* Sources */,
 				7BC21A022BECCBA5003BE504 /* Frameworks */,
@@ -488,14 +489,14 @@
 			);
 			dependencies = (
 			);
-			name = NaverShopping;
+			name = ShopY;
 			packageProductDependencies = (
 				7BC21A532BEE0FE8003BE504 /* Kingfisher */,
 				7B52E54E2BF471C500977EC7 /* Realm */,
 				7B52E5502BF471C500977EC7 /* RealmSwift */,
 			);
 			productName = NaverShopping;
-			productReference = 7BC21A052BECCBA5003BE504 /* NaverShopping.app */;
+			productReference = 7BC21A052BECCBA5003BE504 /* ShopY.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -513,7 +514,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "NaverShopping" */;
+			buildConfigurationList = 7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "ShopY" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -530,7 +531,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7BC21A042BECCBA5003BE504 /* NaverShopping */,
+				7BC21A042BECCBA5003BE504 /* ShopY */,
 			);
 		};
 /* End PBXProject section */
@@ -757,7 +758,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.NaverShopping;
+				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.ShopY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -791,7 +792,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.NaverShopping;
+				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.ShopY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -806,7 +807,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "NaverShopping" */ = {
+		7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "ShopY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BC21A112BECCBA6003BE504 /* Debug */,
@@ -815,7 +816,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "NaverShopping" */ = {
+		7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "ShopY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BC21A142BECCBA6003BE504 /* Debug */,
