@@ -32,10 +32,10 @@
 		7B5DFB922BFE37800040086A /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB912BFE37800040086A /* ShopItem.swift */; };
 		7B5DFB942BFE38C70040086A /* DTOType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB932BFE38C70040086A /* DTOType.swift */; };
 		7B5DFB972BFE3A7A0040086A /* ShopItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB962BFE3A7A0040086A /* ShopItemMapper.swift */; };
-		7B5DFB992BFE3C440040086A /* EntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB982BFE3C440040086A /* EntityType.swift */; };
 		7B5DFB9E2BFE3E380040086A /* ShopItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB9D2BFE3E380040086A /* ShopItemModel.swift */; };
 		7B5DFBA02BFE3FA40040086A /* NumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB9F2BFE3FA40040086A /* NumberManager.swift */; };
 		7B5DFBA22BFE41F40040086A /* InterFacers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFBA12BFE41F40040086A /* InterFacers.swift */; };
+		7B866C9F2BFEFFA500A94D8A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B866C9E2BFEFFA500A94D8A /* APIKey.swift */; };
 		7B87BD102BF65004000F0F79 /* SaveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */; };
 		7B87BD122BF65792000F0F79 /* TextValidTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */; };
 		7B87BD152BF665E5000F0F79 /* WarningTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */; };
@@ -66,7 +66,6 @@
 		7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A362BECFD28003BE504 /* SearchQueryItems.swift */; };
 		7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A382BED1F3F003BE504 /* TargetType.swift */; };
 		7BC21A3B2BED2039003BE504 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A3A2BED2039003BE504 /* .gitignore */; };
-		7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A3D2BED20B7003BE504 /* ApiKey.swift */; };
 		7BC21A402BED2A7E003BE504 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A3F2BED2A7E003BE504 /* SearchResultView.swift */; };
 		7BC21A432BED2AF5003BE504 /* VirticalResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A422BED2AF5003BE504 /* VirticalResultRowView.swift */; };
 		7BC21A462BED2BBA003BE504 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A452BED2BBA003BE504 /* ShopModel.swift */; };
@@ -103,10 +102,10 @@
 		7B5DFB912BFE37800040086A /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		7B5DFB932BFE38C70040086A /* DTOType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOType.swift; sourceTree = "<group>"; };
 		7B5DFB962BFE3A7A0040086A /* ShopItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemMapper.swift; sourceTree = "<group>"; };
-		7B5DFB982BFE3C440040086A /* EntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityType.swift; sourceTree = "<group>"; };
 		7B5DFB9D2BFE3E380040086A /* ShopItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemModel.swift; sourceTree = "<group>"; };
 		7B5DFB9F2BFE3FA40040086A /* NumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberManager.swift; sourceTree = "<group>"; };
 		7B5DFBA12BFE41F40040086A /* InterFacers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterFacers.swift; sourceTree = "<group>"; };
+		7B866C9E2BFEFFA500A94D8A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonStyle.swift; sourceTree = "<group>"; };
 		7B87BD112BF65792000F0F79 /* TextValidTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidTestManager.swift; sourceTree = "<group>"; };
 		7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextViewModifier.swift; sourceTree = "<group>"; };
@@ -121,7 +120,7 @@
 		7BA919422BF10A1B00E31170 /* Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2.swift; sourceTree = "<group>"; };
 		7BA919442BF12D0400E31170 /* MVIPatternType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIPatternType.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
-		7BC21A052BECCBA5003BE504 /* NaverShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaverShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC21A052BECCBA5003BE504 /* ShopY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
 		7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC21A0F2BECCBA6003BE504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -138,7 +137,6 @@
 		7BC21A362BECFD28003BE504 /* SearchQueryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQueryItems.swift; sourceTree = "<group>"; };
 		7BC21A382BED1F3F003BE504 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		7BC21A3A2BED2039003BE504 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		7BC21A3D2BED20B7003BE504 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		7BC21A3F2BED2A7E003BE504 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		7BC21A422BED2AF5003BE504 /* VirticalResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirticalResultRowView.swift; sourceTree = "<group>"; };
 		7BC21A452BED2BBA003BE504 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
@@ -284,6 +282,14 @@
 			path = EntityModel;
 			sourceTree = "<group>";
 		};
+		7B866C9D2BFEFF9800A94D8A /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				7B866C9E2BFEFFA500A94D8A /* APIKey.swift */,
+			);
+			path = Secret;
+			sourceTree = "<group>";
+		};
 		7B87BD132BF665CF000F0F79 /* Text */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC21A3A2BED2039003BE504 /* .gitignore */,
-				7BC21A072BECCBA5003BE504 /* NaverShopping */,
+				7BC21A072BECCBA5003BE504 /* ShopY */,
 				7BC21A062BECCBA5003BE504 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -322,16 +328,16 @@
 		7BC21A062BECCBA5003BE504 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BC21A052BECCBA5003BE504 /* NaverShopping.app */,
+				7BC21A052BECCBA5003BE504 /* ShopY.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7BC21A072BECCBA5003BE504 /* NaverShopping */ = {
+		7BC21A072BECCBA5003BE504 /* ShopY */ = {
 			isa = PBXGroup;
 			children = (
+				7B866C9D2BFEFF9800A94D8A /* Secret */,
 				7BC21A442BED2BAB003BE504 /* Model */,
-				7BC21A3C2BED2072003BE504 /* Secret */,
 				7BC21A272BECF0A7003BE504 /* Manager */,
 				7BC21A242BECE042003BE504 /* Protocol */,
 				7BC21A1A2BECCC0E003BE504 /* View */,
@@ -340,7 +346,7 @@
 				7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */,
 				7BC21A0E2BECCBA6003BE504 /* Preview Content */,
 			);
-			path = NaverShopping;
+			path = ShopY;
 			sourceTree = "<group>";
 		};
 		7BC21A0E2BECCBA6003BE504 /* Preview Content */ = {
@@ -402,7 +408,6 @@
 				7BC21A382BED1F3F003BE504 /* TargetType.swift */,
 				7BA919442BF12D0400E31170 /* MVIPatternType.swift */,
 				7B5DFB932BFE38C70040086A /* DTOType.swift */,
-				7B5DFB982BFE3C440040086A /* EntityType.swift */,
 				7B5DFBA12BFE41F40040086A /* InterFacers.swift */,
 			);
 			path = Protocol;
@@ -426,7 +431,6 @@
 			isa = PBXGroup;
 			children = (
 				7BC21A352BECFD0B003BE504 /* URLQueryItems */,
-				7BC21A312BECFAD1003BE504 /* EncodeModel */,
 				7BC21A292BECF0C5003BE504 /* NetworkManager.swift */,
 				7BC21A2B2BECF2C6003BE504 /* HTTPMethod.swift */,
 				7BC21A2D2BECF833003BE504 /* NaverRouter.swift */,
@@ -436,27 +440,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		7BC21A312BECFAD1003BE504 /* EncodeModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EncodeModel;
-			sourceTree = "<group>";
-		};
 		7BC21A352BECFD0B003BE504 /* URLQueryItems */ = {
 			isa = PBXGroup;
 			children = (
 				7BC21A362BECFD28003BE504 /* SearchQueryItems.swift */,
 			);
 			path = URLQueryItems;
-			sourceTree = "<group>";
-		};
-		7BC21A3C2BED2072003BE504 /* Secret */ = {
-			isa = PBXGroup;
-			children = (
-				7BC21A3D2BED20B7003BE504 /* ApiKey.swift */,
-			);
-			path = Secret;
 			sourceTree = "<group>";
 		};
 		7BC21A412BED2AC7003BE504 /* Result */ = {
@@ -521,9 +510,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7BC21A042BECCBA5003BE504 /* NaverShopping */ = {
+		7BC21A042BECCBA5003BE504 /* ShopY */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "NaverShopping" */;
+			buildConfigurationList = 7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "ShopY" */;
 			buildPhases = (
 				7BC21A012BECCBA5003BE504 /* Sources */,
 				7BC21A022BECCBA5003BE504 /* Frameworks */,
@@ -533,14 +522,14 @@
 			);
 			dependencies = (
 			);
-			name = NaverShopping;
+			name = ShopY;
 			packageProductDependencies = (
 				7BC21A532BEE0FE8003BE504 /* Kingfisher */,
 				7B52E54E2BF471C500977EC7 /* Realm */,
 				7B52E5502BF471C500977EC7 /* RealmSwift */,
 			);
 			productName = NaverShopping;
-			productReference = 7BC21A052BECCBA5003BE504 /* NaverShopping.app */;
+			productReference = 7BC21A052BECCBA5003BE504 /* ShopY.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -558,7 +547,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "NaverShopping" */;
+			buildConfigurationList = 7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "ShopY" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -575,7 +564,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7BC21A042BECCBA5003BE504 /* NaverShopping */,
+				7BC21A042BECCBA5003BE504 /* ShopY */,
 			);
 		};
 /* End PBXProject section */
@@ -638,9 +627,9 @@
 				7B5DFBA02BFE3FA40040086A /* NumberManager.swift in Sources */,
 				7BC21A462BED2BBA003BE504 /* ShopModel.swift in Sources */,
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
-				7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */,
 				7B5DFB9E2BFE3E380040086A /* ShopItemModel.swift in Sources */,
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
+				7B866C9F2BFEFFA500A94D8A /* APIKey.swift in Sources */,
 				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
 				7B5DFB942BFE38C70040086A /* DTOType.swift in Sources */,
@@ -653,7 +642,6 @@
 				7B5DFB972BFE3A7A0040086A /* ShopItemMapper.swift in Sources */,
 				7BA919432BF10A1B00E31170 /* Step2.swift in Sources */,
 				7B87BD122BF65792000F0F79 /* TextValidTestManager.swift in Sources */,
-				7B5DFB992BFE3C440040086A /* EntityType.swift in Sources */,
 				7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */,
 				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
@@ -794,10 +782,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NaverShopping/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ShopY/Preview Content\"";
 				DEVELOPMENT_TEAM = H25F4B7J4U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -809,7 +798,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.NaverShopping;
+				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.ShopY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -828,10 +817,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NaverShopping/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ShopY/Preview Content\"";
 				DEVELOPMENT_TEAM = H25F4B7J4U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -843,7 +833,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.NaverShopping;
+				PRODUCT_BUNDLE_IDENTIFIER = LittleTail.ShopY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -858,7 +848,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "NaverShopping" */ = {
+		7BC21A002BECCBA5003BE504 /* Build configuration list for PBXProject "ShopY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BC21A112BECCBA6003BE504 /* Debug */,
@@ -867,7 +857,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "NaverShopping" */ = {
+		7BC21A132BECCBA6003BE504 /* Build configuration list for PBXNativeTarget "ShopY" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BC21A142BECCBA6003BE504 /* Debug */,
