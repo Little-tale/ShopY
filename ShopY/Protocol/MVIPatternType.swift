@@ -11,4 +11,6 @@ protocol MVIPatternType: ObservableObject {
     associatedtype Intent
     
     associatedtype StateModel
+    
+    var stateModel: StateModel { get }
 }
