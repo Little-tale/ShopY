@@ -8,8 +8,12 @@
 import Foundation
 
 struct ShopItemMapper {
+
+    
     
     func toEntity(_ dto: ShopItem) -> ShopItemModel {
+        
+        
         
         return ShopItemModel(
             title: productNameProcess(productName: dto.title),
@@ -56,4 +60,5 @@ struct ShopItemMapper {
     func mallNameProcess(mallName: String) -> String {
         return mallName + " 판매자"
     }
+
 }
