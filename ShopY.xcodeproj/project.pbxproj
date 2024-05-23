@@ -41,7 +41,6 @@
 		7B87BD152BF665E5000F0F79 /* WarningTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */; };
 		7B87BD172BF67664000F0F79 /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD162BF67664000F0F79 /* ViewError.swift */; };
 		7B87BD192BF68013000F0F79 /* ErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87BD182BF68013000F0F79 /* ErrorProtocol.swift */; };
-		7B8AA0EC2BFF107400C728C7 /* ShoppingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AA0EB2BFF107400C728C7 /* ShoppingRepository.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -112,7 +111,6 @@
 		7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningTextViewModifier.swift; sourceTree = "<group>"; };
 		7B87BD162BF67664000F0F79 /* ViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewError.swift; sourceTree = "<group>"; };
 		7B87BD182BF68013000F0F79 /* ErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorProtocol.swift; sourceTree = "<group>"; };
-		7B8AA0EB2BFF107400C728C7 /* ShoppingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingRepository.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 		7B5DFB902BFE37100040086A /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				7B8AA0EA2BFF106100C728C7 /* Repository */,
 				7B5DFB9C2BFE3E210040086A /* EntityModel */,
 				7B5DFB952BFE3A680040086A /* Mapper */,
 				7BC21A452BED2BBA003BE504 /* ShopModel.swift */,
@@ -299,14 +296,6 @@
 				7B87BD142BF665E5000F0F79 /* WarningTextViewModifier.swift */,
 			);
 			path = Text;
-			sourceTree = "<group>";
-		};
-		7B8AA0EA2BFF106100C728C7 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				7B8AA0EB2BFF107400C728C7 /* ShoppingRepository.swift */,
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */ = {
@@ -657,7 +646,6 @@
 				7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */,
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
 				7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */,
-				7B8AA0EC2BFF107400C728C7 /* ShoppingRepository.swift in Sources */,
 				7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 				7B87BD192BF68013000F0F79 /* ErrorProtocol.swift in Sources */,
