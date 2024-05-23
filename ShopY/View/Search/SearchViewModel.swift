@@ -6,73 +6,79 @@
 //
 
 import Foundation
-import Combine
+import Combine // 명시 사유: @Published는 콤바인 기반
 
-final class SearchViewModel: CombineViewModelType {
+// SearchViewModel
+final class SearchViewModel: MVIPatternType {
     
-    @Published
-    var input: Input = Input()
-    
-    @Published
-    var output: Output = Output()
-    
-    var cancellabel: Set<AnyCancellable> = []
-    
-    init(){
-        transform()
-    }
-}
-
-extension SearchViewModel {
-    
-    struct Input {
-        var viewOnAppear = PassthroughSubject<Void, Never> ()
-        var deleteButtonTap = PassthroughSubject<Int, Never> ()
-        var allDeleteButtonTap = PassthroughSubject<Void, Never> ()
-        var searchButtonTap = PassthroughSubject<Void,Never> ()
-        var currentText = ""
+    enum Intent {
+        case viewOnAppear
+        case deleteButtonTap(Int)
+        case allDeleteButtonTap
+        case searchButtonTap
+        case currnetText(String)
     }
     
-    struct Output {
+    struct StateModel {
         var searchList: [String] = []
         var searchText: String = ""
+        var navTitle: String = "안녕하세요!"
+    }
+    
+    @Published
+    var stateModel = StateModel()
+
+    private
+    let realmRepository = RealmRepository()
+    
+}
+
+// User Action Send
+extension SearchViewModel {
+    
+    func send(action: Intent) {
+        switch action{
+        case .viewOnAppear:
+            
+            stateModel.searchList = UserDefaultManager.searchHistory
+            
+            findUserInfo()
+            
+        case .deleteButtonTap(let indexAt):
+            UserDefaultManager.searchHistory.remove(at: indexAt)
+            
+        case .allDeleteButtonTap:
+            stateModel.searchList.removeAll()
+            UserDefaultManager.searchHistory.removeAll()
+            
+        case .searchButtonTap:
+            let searchText = stateModel.searchText
+            UserDefaultManager.searchHistory.insert(searchText, at: 0)
+        case .currnetText(let searchText):
+            stateModel.searchText = searchText
+        }
     }
 }
 
+// realm For User Profile
 extension SearchViewModel {
-    func transform() {
+    
+    func findUserInfo() {
         
-        input.viewOnAppear
-            .sink { [weak self] _ in
-                self?.output.searchList = UserDefaultManager.searchHistory
+        let result = realmRepository.fetchAll(type: ProfileRealmModel.self)
+    
+        switch result {
+        case .success(let success):
+            
+            if let userName = success.first?.name {
+                stateModel.navTitle = userName + "님의 ShopY~!"
+            } else {
+                stateModel.navTitle = "검색해 보아요!"
             }
-            .store(in: &cancellabel)
-        
-        input.deleteButtonTap
-            .sink {[weak self] indexAt in
-                self?.output.searchList.remove(at: indexAt)
-                UserDefaultManager.searchHistory.remove(at: indexAt)
-            }
-            .store(in: &cancellabel)
-        
-        input.allDeleteButtonTap
-            .sink {[weak self] _ in
-                self?.output.searchList.removeAll()
-                UserDefaultManager.searchHistory.removeAll()
-            }
-            .store(in: &cancellabel)
-        
-        input.searchButtonTap
-            .map({ [weak self] _ in
-                return self?.input.currentText ?? ""
-            })
-            .sink {[weak self] text in
-                UserDefaultManager.searchHistory.insert(text, at: 0)
-                self?.output.searchList = UserDefaultManager.searchHistory
-                self?.output.searchText = text
-            }
-            .store(in: &cancellabel)
-        
-        
+            
+           
+        case .failure:
+            stateModel.navTitle = "검색해 보아요!"
+        }
     }
 }

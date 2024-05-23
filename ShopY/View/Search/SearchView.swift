@@ -15,9 +15,6 @@ struct SearchView: View {
     @State 
     var navigationIsPresented = false
     
-    @State
-    var selectionIndex = 0
-    
     var body: some View {
         Group {
             if #available(iOS 16.0, *) {
@@ -27,9 +24,7 @@ struct SearchView: View {
             }
         }
         .tint(.black)
-        .onAppear {
-            viewModel.input.viewOnAppear.send(())
-        }
+         
     }
     
     @ViewBuilder @available(iOS 16, *)
@@ -37,8 +32,16 @@ struct SearchView: View {
         NavigationStack {
             mainContent
                 .navigationDestination(isPresented: $navigationIsPresented) {
-                    SearchResultView(searchText: viewModel.output.searchText)
+                    SearchResultView(searchText: viewModel.stateModel.searchText)
                 }
+        }
+        .onAppear {
+            viewModel.send(action: .viewOnAppear)
+        }
+        .onChange(of: navigationIsPresented) { newValue in
+            if !newValue {
+                viewModel.send(action: .viewOnAppear)
+            }
         }
     }
     
@@ -48,11 +51,19 @@ struct SearchView: View {
             mainContent
                 .background(
                     NavigationLink(
-                        destination: SearchResultView(searchText: viewModel.output.searchText),
+                        destination: SearchResultView(searchText: viewModel.stateModel.searchText),
                         isActive: $navigationIsPresented,
                         label: { EmptyView() }
                     )
                 )
+        }
+        .onAppear { // 한번만 호출되는 이슈가 발생
+            viewModel.send(action: .viewOnAppear)
+        }
+        .onChange(of: navigationIsPresented) { newValue in
+            if !newValue {
+                viewModel.send(action: .viewOnAppear)
+            }
         }
     }
     
@@ -63,11 +74,18 @@ struct SearchView: View {
             searchList
             Spacer()
         }
-        .navigationTitle("떠나고 싶은 재형이의 쇼핑~")
+        .navigationTitle(viewModel.stateModel.navTitle)
         .navigationBarTitleDisplayMode(.inline)
-        .searchable(text: $viewModel.input.currentText, placement: .navigationBarDrawer(displayMode: .always))
+        .searchable(
+            text: Binding(get: {
+                viewModel.stateModel.searchText
+            }, set: { text in
+                viewModel.send(action: .currnetText(text))
+            }),
+            placement: .automatic
+        )
         .onSubmit(of: .search) {
-            viewModel.input.searchButtonTap.send(())
+            viewModel.send(action: .searchButtonTap)
             navigationIsPresented = true
         }
     }
@@ -80,7 +98,7 @@ struct SearchView: View {
                 .bold()
             Spacer()
             Button("모두 지우기") {
-                viewModel.input.allDeleteButtonTap.send(())
+                viewModel.send(action: .allDeleteButtonTap)
             }
             .font(.system(size: 18, weight: .bold))
             .foregroundColor(.green)
@@ -89,13 +107,13 @@ struct SearchView: View {
     }
     
     private var searchList: some View {
-        List(viewModel.output.searchList.indices, id: \.self) { index in
+        List(viewModel.stateModel.searchList.indices, id: \.self) { index in
             Button(action: {
-                viewModel.output.searchText = viewModel.output.searchList[index]
+                viewModel.stateModel.searchText = viewModel.stateModel.searchList[index]
                 navigationIsPresented = true
             }) {
-                SearchListHView(text: viewModel.output.searchList[index], xButtonTap: {
-                    viewModel.input.deleteButtonTap.send(index)
+                SearchListHView(text: viewModel.stateModel.searchList[index], xButtonTap: {
+                    viewModel.send(action: .deleteButtonTap(index))
                 }, tag: index)
             }
         }
@@ -103,6 +121,3 @@ struct SearchView: View {
     }
 }
 
-#Preview {
-    SearchView()
-}
