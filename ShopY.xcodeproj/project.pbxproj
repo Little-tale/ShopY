@@ -183,6 +183,13 @@
 			path = NetworkModel;
 			sourceTree = "<group>";
 		};
+		7B3799072BFF51C2002033A9 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 		7B4F90722BEFAB9A00B191F2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +441,7 @@
 		7BC21A442BED2BAB003BE504 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B3799072BFF51C2002033A9 /* Mapper */,
 				7B3799022BFF45E7002033A9 /* NetworkModel */,
 				7B2D77662BF3B50700D51F49 /* RealmModel */,
 				7BB54B342BEF33D300770637 /* JH */,
