@@ -26,12 +26,17 @@ struct splashView: View {
             }
         }
     }
+    
+    init(){
+        navigationStyle()
+        navigationButtonStyle()
+    }
 }
 
 
 extension splashView {
     // IOS 16*
-    @ViewBuilder @available( iOS 16, *)
+    @available( iOS 16, *)
     var iOS16View: some View {
         NavigationStack {
             contentView
@@ -40,20 +45,40 @@ extension splashView {
             ) {
                 UserInfoRegView(viewType: .first, goTabBarView: $changeRoot)
             }
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     // IOS 15
     var iOS15View: some View {
         NavigationView {
-            contentView
-                .background(
-                    NavigationLink(destination: {
-                        UserInfoRegView(viewType: .first, goTabBarView: $changeRoot)
-                    }, label: {
-                        EmptyView()
-                    })
-                )
+            VStack {
+                contentView
+                NavigationLink(destination: UserInfoRegView(viewType: .first, goTabBarView: $changeRoot), isActive: $isNextBool) {
+                    EmptyView()
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    // 네비게이션
+    private func navigationStyle() {
+        let appear = UINavigationBarAppearance()
+    
+        appear.configureWithOpaqueBackground()
+        appear.backgroundColor = UIColor(JHColor.white)
+        appear.titleTextAttributes = [.foregroundColor: UIColor(JHColor.black)]
+        appear.largeTitleTextAttributes = [.foregroundColor: UIColor(JHColor.white)]
+        
+        UINavigationBar.appearance().standardAppearance = appear
+        UINavigationBar.appearance().scrollEdgeAppearance = appear
+    }
+    // 네비게이션 버튼
+    private func navigationButtonStyle(){
+        let barButtonAppear = UIBarButtonItem.appearance()
+        
+        barButtonAppear.tintColor = UIColor(JHColor.black)
+        
     }
 }
 

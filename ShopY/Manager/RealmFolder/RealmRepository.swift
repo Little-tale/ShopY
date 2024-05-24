@@ -54,7 +54,12 @@ final class RealmRepository: RealmRepositoryType {
     }
     
     init() {
-        RealmRepository.registerRealmClass()
+        if #available(iOS 17, *) {
+            
+        } else {
+            RealmRepository.registerRealmClass()
+        }
+        
         do {
             let realms = try Realm()
             realm = realms
