@@ -15,6 +15,9 @@ struct ProfileSettingView: View {
     @State
     var imageAlertTrigger = false
     
+    private
+    let viewModel = ProfileViewModel()
+    
     var body: some View {
         if #available(iOS 16, *){
             iOS16View
@@ -30,13 +33,25 @@ extension ProfileSettingView {
     @available(iOS 16, *)
     var iOS16View: some View {
         NavigationStack {
-            ScrollView {
-                profileInfoView
-                    .padding(.all, 10)
-                    // .padding(.vertical, 10)
+            
+            profileInfoView
+                .padding(.all, 10)
+            // .padding(.vertical, 10)
+            List {
+                ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
+                    
+                    Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                        .listRowBackground(JHColor.white)
+                }
             }
+            .scrollContentBackground(.hidden)
+            .scrollDisabled(true)
             .navigationTitle("프로필")
             .navigationBarTitleDisplayMode(.inline)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(JHColor.pointGreen.opacity(0.2))
+            )
             .toolbar {
                 Spacer()
                 navButtonView
@@ -48,6 +63,12 @@ extension ProfileSettingView {
         NavigationView {
             ScrollView {
                 HStack {
+                    VStack {
+                        ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
+                            
+                            Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                        }
+                    }
                     profileInfoView
                 }
                 .navigationTitle("프로필")
