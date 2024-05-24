@@ -21,6 +21,8 @@ struct MyProfileImageView: View {
     @Binding
     var imageState: ImagePickState
     
+    let frame: CGSize
+    
     var body: some View {
         VStack {
             switch imageState {
@@ -39,7 +41,7 @@ struct MyProfileImageView: View {
                     .foregroundStyle(.white)
             }
         }
-        .modifier(CircularProfileImage())
+        .modifier(CircularProfileImage(frame: frame))
         .onAppear {
             print(" ....!!!! ")
         }

@@ -51,6 +51,8 @@
 		7BA919412BF0FB2200E31170 /* Step1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919402BF0FB2200E31170 /* Step1.swift */; };
 		7BA919432BF10A1B00E31170 /* Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919422BF10A1B00E31170 /* Step2.swift */; };
 		7BA919452BF12D0400E31170 /* MVIPatternType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919442BF12D0400E31170 /* MVIPatternType.swift */; };
+		7BA9E0502C00758E00861D34 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */; };
+		7BA9E0522C00789C00861D34 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */; };
 		7BB54B362BEF33E300770637 /* JHColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB54B352BEF33E300770637 /* JHColor.swift */; };
 		7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */; };
 		7BC21A0D2BECCBA6003BE504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */; };
@@ -124,6 +126,8 @@
 		7BA919402BF0FB2200E31170 /* Step1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1.swift; sourceTree = "<group>"; };
 		7BA919422BF10A1B00E31170 /* Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2.swift; sourceTree = "<group>"; };
 		7BA919442BF12D0400E31170 /* MVIPatternType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIPatternType.swift; sourceTree = "<group>"; };
+		7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
 		7BC21A052BECCBA5003BE504 /* ShopY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
@@ -320,6 +324,15 @@
 			path = EmbadedImagePicker;
 			sourceTree = "<group>";
 		};
+		7BA9E04C2C00753500861D34 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */,
+				7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		7BB54B342BEF33D300770637 /* JH */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +408,7 @@
 		7BC21A1A2BECCC0E003BE504 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BA9E04C2C00753500861D34 /* ProfileView */,
 				7B5DFB882BFCFFCD0040086A /* TabbarView */,
 				7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */,
 				7B4F907E2BEFD12400B191F2 /* ImagePicker */,
@@ -634,6 +648,7 @@
 				7B2D77682BF3B52600D51F49 /* LikePostModel.swift in Sources */,
 				7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */,
 				7B3799092BFF5FDE002033A9 /* ShopEntityMapper.swift in Sources */,
+				7BA9E0522C00789C00861D34 /* ProfileSettingView.swift in Sources */,
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
@@ -643,6 +658,7 @@
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
 				7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */,
 				7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */,
+				7BA9E0502C00758E00861D34 /* ProfileViewModel.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,

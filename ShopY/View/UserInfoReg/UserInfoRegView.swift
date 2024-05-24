@@ -121,7 +121,10 @@ struct UserInfoRegView: View {
 
 extension UserInfoRegView {
     var profileView: some View {
-        MyProfileImageView(imageState:  $viewModel.imagePickerState)
+        MyProfileImageView(
+            imageState:  $viewModel.imagePickerState,
+            frame: CGSize(width: 100, height: 100)
+        )
             .asButton {
                 goGallery = true
             }

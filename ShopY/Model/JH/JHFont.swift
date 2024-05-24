@@ -20,5 +20,21 @@ extension JHFont {
         }
     }
     
+    static var profileNameFont: Font {
+        if #available(iOS 16.0, *) {
+            return .system(.headline)
+        } else {
+            return .system(size: 24, weight: .bold, design: .monospaced)
+        }
+    }
+    
+    static var introduceFont: Font {
+        if #available(iOS 16.0, *) {
+            return .system(.caption)
+        } else {
+            return .system(size: 16, weight: .regular, design: .monospaced)
+        }
+    }
+    
 }
 

@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct CircularProfileImage: ViewModifier {
+    
+    var frame: CGSize
    
     func body(content: Content) -> some View {
         content
             .scaledToFill()
             .clipShape(Circle())
-            .frame(width: 100, height: 100)
+            .frame(width: frame.width, height: frame.height)
             .background {
                 Circle().fill(
                     LinearGradient (
