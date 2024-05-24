@@ -9,11 +9,11 @@ import SwiftUI
 
 struct RootView: View {
     
-    @StateObject
+    @StateObject // iOS 14
     private var viewModel = RootViewModel()
     
     var body: some View {
-        Group {
+        Group { // iOS 12
             switch viewModel.stateModel.currentRoot {
             case .splash:
                 InterAppView
@@ -23,7 +23,7 @@ struct RootView: View {
                 TabbarView()
             }
         }
-        .alert("Error",
+        .alert("Error",  // iOS 15.0
                isPresented: $viewModel.stateModel.alertTrigger)
         {
             Text(viewModel.stateModel.error.message)
@@ -36,13 +36,13 @@ extension RootView {
     var InterAppView: some View {
         VStack{
             Spacer()
-            Text("로딩창")
+            Text("로딩창") // iOS 13
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundStyle(.white)
             Spacer()
         }
-        .onAppear {
+        .onAppear { // iOS 13
             viewModel.send(action: .viewOnAppear)
         }
     }

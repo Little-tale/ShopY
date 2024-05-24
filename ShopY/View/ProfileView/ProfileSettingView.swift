@@ -36,7 +36,6 @@ extension ProfileSettingView {
             
             profileInfoView
                 .padding(.all, 10)
-            // .padding(.vertical, 10)
             List {
                 ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
                     

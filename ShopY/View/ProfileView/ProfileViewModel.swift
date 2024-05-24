@@ -9,6 +9,9 @@ import Foundation
 
 final class ProfileViewModel: MVIPatternType {
     
+    private
+    let realmRepository = RealmRepository()
+    
     enum SettingSeciton: Int, CaseIterable {
         case changedInfo
         case likeBasket
@@ -24,6 +27,7 @@ final class ProfileViewModel: MVIPatternType {
     }
     
     enum Intent {
+        case viewOnAppear
         
     }
     
