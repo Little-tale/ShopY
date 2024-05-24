@@ -53,6 +53,7 @@
 		7BA9E0522C00789C00861D34 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */; };
 		7BA9E07A2C00C19F00861D34 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA9E0792C00C19F00861D34 /* Realm */; };
 		7BA9E07C2C00C19F00861D34 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA9E07B2C00C19F00861D34 /* RealmSwift */; };
+		7BA9E07E2C00F5DF00861D34 /* ExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E07D2C00F5DF00861D34 /* ExView.swift */; };
 		7BB54B362BEF33E300770637 /* JHColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB54B352BEF33E300770637 /* JHColor.swift */; };
 		7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */; };
 		7BC21A0D2BECCBA6003BE504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */; };
@@ -128,6 +129,7 @@
 		7BA919442BF12D0400E31170 /* MVIPatternType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIPatternType.swift; sourceTree = "<group>"; };
 		7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
+		7BA9E07D2C00F5DF00861D34 /* ExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExView.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
 		7BC21A052BECCBA5003BE504 /* ShopY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				7B37990E2BFF6479002033A9 /* ExString.swift */,
+				7BA9E07D2C00F5DF00861D34 /* ExView.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,
 				7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */,
+				7BA9E07E2C00F5DF00861D34 /* ExView.swift in Sources */,
 				7BA9193E2BF0E9D600E31170 /* ProfileView.swift in Sources */,
 				7B87BD172BF67664000F0F79 /* ViewError.swift in Sources */,
 				7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */,

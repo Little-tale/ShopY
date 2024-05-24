@@ -25,6 +25,15 @@ struct ProfileSettingView: View {
             iOS15View
         }
     }
+    
+    init() {
+        if #available(iOS 16.0, *) {
+            // none
+        } else {
+            UITableView.appearance().backgroundColor = .clear
+            UITableView.appearance().isScrollEnabled = false
+        }
+    }
 }
 
 
@@ -38,7 +47,6 @@ extension ProfileSettingView {
                 .padding(.all, 10)
             List {
                 ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
-                    
                     Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
                         .listRowBackground(JHColor.white)
                 }
@@ -60,19 +68,26 @@ extension ProfileSettingView {
     
     var iOS15View: some View {
         NavigationView {
-            ScrollView {
-                HStack {
-                    VStack {
-                        ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
-                            
-                            Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
-                        }
+            VStack {
+                profileInfoView
+                    .padding(.all, 10)
+                List {
+                    ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
+                        
+                        Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                            .listRowBackground(JHColor.white)
                     }
-                    profileInfoView
                 }
                 .navigationTitle("프로필")
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(trailing: navButtonView)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(JHColor.pointGreen.opacity(0.2))
+                )
+                .toolbar {
+                    Spacer()
+                    navButtonView
+                }
             }
         }
     }

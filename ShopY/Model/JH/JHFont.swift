@@ -24,7 +24,7 @@ extension JHFont {
         if #available(iOS 16.0, *) {
             return .system(.headline)
         } else {
-            return .system(size: 24, weight: .bold, design: .monospaced)
+            return .system(size: 18, weight: .bold, design: .monospaced)
         }
     }
     
@@ -32,7 +32,7 @@ extension JHFont {
         if #available(iOS 16.0, *) {
             return .system(.caption)
         } else {
-            return .system(size: 16, weight: .regular, design: .monospaced)
+            return .system(size: 12, weight: .regular, design: .monospaced)
         }
     }
     

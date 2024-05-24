@@ -23,4 +23,9 @@ struct TabbarView: View {
                 }
         }
     }
+    
+    init(){
+        navigationStyle()
+        navigationButtonStyle()
+    }
 }
