@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct SearchResultView: View {
     
     private
@@ -24,43 +22,38 @@ struct SearchResultView: View {
     
     @State
     var likeState = true
+
     
-    @State private
-    var errorMessage: String?
-    
-   
     var body: some View {
         VStack {
             ScrollView(.vertical) {
                 HStack {
                     Spacer()
-                    Text(String(viewModel.output.total.value) +
-                         "개의 검색 결과")
+                    Text(viewModel.stateModel.totalConfig)
                     .padding(.trailing, 10)
                 }
                 LazyVGrid(columns: gridItem, pinnedViews: [.sectionHeaders], content: {
                     Section {
-                        ForEach( Array(
-                            viewModel.output.drawRowViewModel.enumerated()),
+                        ForEach(Array(
+                            viewModel.stateModel.drawRowViewModel.enumerated()),
                                  id: \.element.id) {index, model in
                             VirticalResultRowView(
                                 model: .constant(model)
                             ) { item in // heartButtonTapped
-                                print(item, index)
-                                viewModel.input.likeStateChange.send((item,index))
+                                viewModel.send(.likeStateChange((item, index)))
                             }
                             .padding(.horizontal, 10)
                             .onAppear {
-                                // print(model)
-                                viewModel.input.inputCurrentIndex.send(index)
+                                viewModel.send(.inputCurrentIndex(index))
                             }
                         }
                     } header: {
                         HeaderView(
-                            inputSort: $viewModel.input.inputSort.value,
-                            sortClosure: { sort in
-                                viewModel.input.inputSort.send(sort)
-                            }
+                            inputSort: Binding(get: {
+                                viewModel.stateModel.currentSort
+                            }, set: { value in
+                                viewModel.send(.inputSort(value))
+                            })
                         )
                         .padding(.all, 6)
                         .background(JHColor.white)
@@ -71,31 +64,27 @@ struct SearchResultView: View {
             
         } // VStack
         .task {
-            viewModel.input.searchText.send(searchText)
+            viewModel.send(.searchText(searchText))
         }
-        .onReceive(viewModel.output.realmError, perform: { error in
-            errorMessage = error.message
-        })
-        .alert(isPresented: $viewModel.output.isError) {
+        .alert(isPresented: $viewModel.stateModel.isError) {
             Alert(
                 title: Text("에러"),
-                message: Text(viewModel.output.ifNetworkError.value?.errorMessgae ?? "none"),
+                message: Text(alertMessage),
                 primaryButton: .destructive(Text("확인")),
                 secondaryButton: .cancel()
             )
         }
-        .alert("Error",
-               isPresented: $viewModel.output.realmIsError,
-               actions: {
-            Button("확인", role: .destructive) {
-                
-            }
-        },
-        message: {
-                Text(errorMessage ?? "데이터 베이스 오류")
-            }
-        )
         .navigationTitle(searchText)
+    }
+    
+    private var alertMessage: String {
+        if let network = viewModel.stateModel.ifNetworkError {
+            return network.errorMessgae
+        } else if let realm = viewModel.stateModel.realmError {
+            return realm.message
+        } else {
+            return "알 수 없는 에러"
+        }
     }
 }
 
@@ -122,15 +111,16 @@ struct HeaderView: View{
     @Binding
     var inputSort: SortCase
     
-    var sortClosure: (SortCase) -> Void
+    //var sortClosure: (SortCase) -> Void
     
     var body: some View {
         HStack(spacing: 12) {
             ForEach(SortCase.allCases, id: \.name) { sort in
                 Text(sort.name)
                     .asButton {
-                        sortClosure(sort)
+                        //sortClosure(sort)
                         print("이게눌림",sort.name)
+                        inputSort = sort
                     }
                     .buttonStyle(
                         SearchSortButtonStyle(state: inputSort == sort )
@@ -139,9 +129,4 @@ struct HeaderView: View{
             Spacer()
         } // HStack
     }
-}
-
-
-#Preview {
-    SearchView()
 }

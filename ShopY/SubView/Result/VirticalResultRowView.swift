@@ -14,36 +14,39 @@ import Kingfisher
 struct VirticalResultRowView: View {
     
     @Binding
-    var model: ShopItem
+    var model: ShopEntityModel
     
-    var heartButtonTapped: (ShopItem) -> Void
+    var heartButtonTapped: (ShopEntityModel) -> Void
+    
+    @State
+    var likeState = false
     
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing, content: {
                 ResultImageView(url: model.imageProcess)
                 HeartButton(
-                    isSelected: $model.likeState,
+                    isSelected: $likeState,
                     tag: model.currentTag) {
                         var before = model
                         before.likeState = !before.likeState
                         heartButtonTapped(before)
-                        
-
+                        likeState.toggle()
                     }
                     .padding(.top, 2)
                     .padding(.trailing, 2)
             })
-            Text(model.mallNameProcess)
+            Text(model.mallName)
                 .font(.footnote)
-            Text(model.productNameProcess)
+            Text(model.title)
                 .lineLimit(2)
                 .font(.subheadline)
                 .padding(.bottom, 4)
             Spacer()
-            Text(model.priceProcess)
+            Text(model.lprice)
         }
         .onAppear {
+            likeState = model.likeState
             print("토글전",model.likeState)
         }
     }

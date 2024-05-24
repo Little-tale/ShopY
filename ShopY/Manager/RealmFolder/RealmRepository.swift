@@ -37,7 +37,7 @@ final class RealmRepository: RealmRepositoryType {
         do {
             let realms = try Realm()
             realm = realms
-            print(realms.configuration.fileURL)
+            print("이게 두번 ?",realms.configuration.fileURL)
         } catch {
             print("렘 자체 문제 ")
             realm = nil
