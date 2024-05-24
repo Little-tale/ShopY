@@ -7,4 +7,4 @@
 
 import Foundation
 
-protocol DTOType { }
+protocol DTOType: Decodable { }
