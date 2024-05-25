@@ -65,6 +65,7 @@ struct SearchView: View {
                 viewModel.send(action: .viewOnAppear)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private 
