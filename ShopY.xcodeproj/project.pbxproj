@@ -11,6 +11,9 @@
 		7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */; };
 		7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */; };
 		7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */; };
+		7B2E5BD12C01198B0060847C /* ExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD02C01198B0060847C /* ExView.swift */; };
+		7B2E5BD72C011A570060847C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD52C011A570060847C /* ProfileViewModel.swift */; };
+		7B2E5BD82C011A570060847C /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD62C011A570060847C /* ProfileSettingView.swift */; };
 		7B3799012BFF4578002033A9 /* DTOType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799002BFF4578002033A9 /* DTOType.swift */; };
 		7B3799042BFF45FD002033A9 /* ShopDTOModlel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */; };
 		7B3799062BFF464D002033A9 /* ShopItemDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */; };
@@ -25,6 +28,8 @@
 		7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */; };
 		7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907F2BEFD15600B191F2 /* PhotoViewExameple.swift */; };
 		7B4F90842BF0AFA700B191F2 /* PhotoselectorVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90832BF0AFA700B191F2 /* PhotoselectorVIew.swift */; };
+		7B52E54F2BF471C500977EC7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E54E2BF471C500977EC7 /* Realm */; };
+		7B52E5512BF471C500977EC7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52E5502BF471C500977EC7 /* RealmSwift */; };
 		7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5542BF485E300977EC7 /* UserInfoRegViewModel.swift */; };
 		7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55A2BF4906500977EC7 /* ImageFileManager.swift */; };
 		7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E55D2BF4B3D700977EC7 /* MyProfileImageView.swift */; };
@@ -49,11 +54,6 @@
 		7BA919412BF0FB2200E31170 /* Step1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919402BF0FB2200E31170 /* Step1.swift */; };
 		7BA919432BF10A1B00E31170 /* Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919422BF10A1B00E31170 /* Step2.swift */; };
 		7BA919452BF12D0400E31170 /* MVIPatternType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919442BF12D0400E31170 /* MVIPatternType.swift */; };
-		7BA9E0502C00758E00861D34 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */; };
-		7BA9E0522C00789C00861D34 /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */; };
-		7BA9E07A2C00C19F00861D34 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA9E0792C00C19F00861D34 /* Realm */; };
-		7BA9E07C2C00C19F00861D34 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7BA9E07B2C00C19F00861D34 /* RealmSwift */; };
-		7BA9E07E2C00F5DF00861D34 /* ExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9E07D2C00F5DF00861D34 /* ExView.swift */; };
 		7BB54B362BEF33E300770637 /* JHColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB54B352BEF33E300770637 /* JHColor.swift */; };
 		7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */; };
 		7BC21A0D2BECCBA6003BE504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC21A0C2BECCBA6003BE504 /* Assets.xcassets */; };
@@ -89,6 +89,9 @@
 		7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRealmModel.swift; sourceTree = "<group>"; };
 		7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		7B2E5BD02C01198B0060847C /* ExView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExView.swift; sourceTree = "<group>"; };
+		7B2E5BD52C011A570060847C /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ShopY/View/ProfileView/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
+		7B2E5BD62C011A570060847C /* ProfileSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettingView.swift; path = ShopY/View/ProfileView/ProfileSettingView.swift; sourceTree = SOURCE_ROOT; };
 		7B3799002BFF4578002033A9 /* DTOType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOType.swift; sourceTree = "<group>"; };
 		7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDTOModlel.swift; sourceTree = "<group>"; };
 		7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemDTOModel.swift; sourceTree = "<group>"; };
@@ -127,9 +130,6 @@
 		7BA919402BF0FB2200E31170 /* Step1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1.swift; sourceTree = "<group>"; };
 		7BA919422BF10A1B00E31170 /* Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2.swift; sourceTree = "<group>"; };
 		7BA919442BF12D0400E31170 /* MVIPatternType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIPatternType.swift; sourceTree = "<group>"; };
-		7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
-		7BA9E07D2C00F5DF00861D34 /* ExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExView.swift; sourceTree = "<group>"; };
 		7BB54B352BEF33E300770637 /* JHColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHColor.swift; sourceTree = "<group>"; };
 		7BC21A052BECCBA5003BE504 /* ShopY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC21A082BECCBA5003BE504 /* NaverShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingApp.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA9E07C2C00C19F00861D34 /* RealmSwift in Frameworks */,
-				7BA9E07A2C00C19F00861D34 /* Realm in Frameworks */,
+				7B52E5512BF471C500977EC7 /* RealmSwift in Frameworks */,
+				7B52E54F2BF471C500977EC7 /* Realm in Frameworks */,
 				7BC21A542BEE0FE8003BE504 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +190,15 @@
 				7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */,
 			);
 			path = RealmFolder;
+			sourceTree = "<group>";
+		};
+		7B2E5BD42C011A300060847C /* ProfileSetting */ = {
+			isa = PBXGroup;
+			children = (
+				7B2E5BD62C011A570060847C /* ProfileSettingView.swift */,
+				7B2E5BD52C011A570060847C /* ProfileViewModel.swift */,
+			);
+			path = ProfileSetting;
 			sourceTree = "<group>";
 		};
 		7B3799022BFF45E7002033A9 /* NetworkModel */ = {
@@ -221,8 +230,8 @@
 		7B37990D2BFF646F002033A9 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E5BD02C01198B0060847C /* ExView.swift */,
 				7B37990E2BFF6479002033A9 /* ExString.swift */,
-				7BA9E07D2C00F5DF00861D34 /* ExView.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -327,15 +336,6 @@
 			path = EmbadedImagePicker;
 			sourceTree = "<group>";
 		};
-		7BA9E04C2C00753500861D34 /* ProfileView */ = {
-			isa = PBXGroup;
-			children = (
-				7BA9E04F2C00758E00861D34 /* ProfileViewModel.swift */,
-				7BA9E0512C00789C00861D34 /* ProfileSettingView.swift */,
-			);
-			path = ProfileView;
-			sourceTree = "<group>";
-		};
 		7BB54B342BEF33D300770637 /* JH */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,7 +411,7 @@
 		7BC21A1A2BECCC0E003BE504 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BA9E04C2C00753500861D34 /* ProfileView */,
+				7B2E5BD42C011A300060847C /* ProfileSetting */,
 				7B5DFB882BFCFFCD0040086A /* TabbarView */,
 				7BA9193F2BF0FAF300E31170 /* EmbadedImagePicker */,
 				7B4F907E2BEFD12400B191F2 /* ImagePicker */,
@@ -568,8 +568,8 @@
 			name = ShopY;
 			packageProductDependencies = (
 				7BC21A532BEE0FE8003BE504 /* Kingfisher */,
-				7BA9E0792C00C19F00861D34 /* Realm */,
-				7BA9E07B2C00C19F00861D34 /* RealmSwift */,
+				7B52E54E2BF471C500977EC7 /* Realm */,
+				7B52E5502BF471C500977EC7 /* RealmSwift */,
 			);
 			productName = NaverShopping;
 			productReference = 7BC21A052BECCBA5003BE504 /* ShopY.app */;
@@ -601,7 +601,7 @@
 			mainGroup = 7BC219FC2BECCBA5003BE504;
 			packageReferences = (
 				7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				7BA9E0782C00C19F00861D34 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				7B52E54D2BF471C500977EC7 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7BC21A062BECCBA5003BE504 /* Products */;
 			projectDirPath = "";
@@ -651,22 +651,21 @@
 				7B2D77682BF3B52600D51F49 /* LikePostModel.swift in Sources */,
 				7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */,
 				7B3799092BFF5FDE002033A9 /* ShopEntityMapper.swift in Sources */,
-				7BA9E0522C00789C00861D34 /* ProfileSettingView.swift in Sources */,
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
+				7B2E5BD82C011A570060847C /* ProfileSettingView.swift in Sources */,
 				7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */,
 				7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */,
 				7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */,
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
 				7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */,
 				7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */,
-				7BA9E0502C00758E00861D34 /* ProfileViewModel.swift in Sources */,
+				7B2E5BD72C011A570060847C /* ProfileViewModel.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,
 				7B52E5552BF485E300977EC7 /* UserInfoRegViewModel.swift in Sources */,
-				7BA9E07E2C00F5DF00861D34 /* ExView.swift in Sources */,
 				7BA9193E2BF0E9D600E31170 /* ProfileView.swift in Sources */,
 				7B87BD172BF67664000F0F79 /* ViewError.swift in Sources */,
 				7BC21A482BED2ED5003BE504 /* ImageLoader.swift in Sources */,
@@ -683,6 +682,7 @@
 				7B37990F2BFF6479002033A9 /* ExString.swift in Sources */,
 				7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
+				7B2E5BD12C01198B0060847C /* ExView.swift in Sources */,
 				7BC21A212BECD18E003BE504 /* SearchListHView.swift in Sources */,
 				7B52E5632BF4E93300977EC7 /* ProfileTextField.swift in Sources */,
 				7BA919432BF10A1B00E31170 /* Step2.swift in Sources */,
@@ -916,12 +916,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7BA9E0782C00C19F00861D34 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		7B52E54D2BF471C500977EC7 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.48.0;
+				version = 10.47.0;
 			};
 		};
 		7BC21A522BEE0FE8003BE504 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
@@ -935,14 +935,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7BA9E0792C00C19F00861D34 /* Realm */ = {
+		7B52E54E2BF471C500977EC7 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7BA9E0782C00C19F00861D34 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 7B52E54D2BF471C500977EC7 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		7BA9E07B2C00C19F00861D34 /* RealmSwift */ = {
+		7B52E5502BF471C500977EC7 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7BA9E0782C00C19F00861D34 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 7B52E54D2BF471C500977EC7 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		7BC21A532BEE0FE8003BE504 /* Kingfisher */ = {
