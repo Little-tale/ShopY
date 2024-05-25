@@ -22,46 +22,54 @@ struct SearchResultView: View {
     
     @State
     var likeState = true
-
+    
     
     var body: some View {
         VStack {
-            ScrollView(.vertical) {
-                HStack {
-                    Spacer()
-                    Text(viewModel.stateModel.totalConfig)
-                    .padding(.trailing, 10)
-                }
-                LazyVGrid(columns: gridItem, pinnedViews: [.sectionHeaders], content: {
-                    Section {
-                        ForEach(Array(
-                            viewModel.stateModel.drawRowViewModel.enumerated()),
-                                 id: \.element.id) {index, model in
-                            VirticalResultRowView(
-                                model: .constant(model)
-                            ) { item in // heartButtonTapped
-                                viewModel.send(.likeStateChange((item, index)))
-                            }
-                            .padding(.horizontal, 10)
-                            .onAppear {
-                                viewModel.send(.inputCurrentIndex(index))
-                            }
-                        }
-                    } header: {
-                        HeaderView(
-                            inputSort: Binding(get: {
-                                viewModel.stateModel.currentSort
-                            }, set: { value in
-                                viewModel.send(.inputSort(value))
-                            })
-                        )
-                        .padding(.all, 6)
-                        .background(JHColor.white)
-                    } // header
-                } // content
-                ) // LazyVGrid
-            } // ScrollView
             
+            ScrollViewReader { proxy in
+                ScrollView(.vertical) {
+                    searchResultCountView
+                    LazyVGrid(
+                        columns: gridItem,
+                        pinnedViews: [.sectionHeaders],
+                        content: {
+                            Section {
+                                ForEach(Array(
+                                    viewModel.stateModel.drawRowViewModel.enumerated()),
+                                        id: \.element.id) {index, model in
+                                    VirticalResultRowView(
+                                        model: .constant(model)
+                                    ) { item in // heartButtonTapped
+                                        viewModel.send(.likeStateChange((item, index)))
+                                    }
+                                    .padding(.horizontal, 10)
+                                    .onAppear {
+                                        viewModel.send(.inputCurrentIndex(index))
+                                    }
+                                }
+                            } header: {
+                                HeaderView(
+                                    inputSort: Binding(get: {
+                                        viewModel.stateModel.currentSort
+                                    }, set: { value in
+                                        viewModel.send(.inputSort(value))
+                                    })
+                                )
+                                .padding(.horizontal, 6)
+                                .padding(.bottom, 6)
+                                .background(JHColor.white)
+                            } // header
+                        } // content
+                    ) // LazyVGrid
+                } // ScrollView
+                .onChange(of: viewModel.stateModel.gotoTop) { newValue in
+                    if newValue {
+                        scrollToTop(with: proxy)
+                        viewModel.stateModel.gotoTop = false
+                    }
+                }
+            }
         } // VStack
         .task {
             viewModel.send(.searchText(searchText))
@@ -75,6 +83,29 @@ struct SearchResultView: View {
             )
         }
         .navigationTitle(searchText)
+    }
+    
+    private
+    func scrollToTop(with scrollViewProxy: ScrollViewProxy) {
+        guard let first = viewModel.stateModel.drawRowViewModel.first else {
+            return
+        }
+        withAnimation {
+            scrollViewProxy.scrollTo(
+                first.id,
+                anchor: .top
+            )
+        }
+    }
+    
+    private
+    var searchResultCountView: some View {
+        HStack {
+            Spacer()
+            Text(viewModel.stateModel.totalConfig)
+                .padding(.trailing, 10)
+                .padding(.top, 4)
+        }
     }
     
     private var alertMessage: String {

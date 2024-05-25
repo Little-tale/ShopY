@@ -40,6 +40,7 @@ final class SearchResultViewModel: MVIPatternType {
         var currentTotal = 0
         var searchText = ""
         var isLoading: Bool = false
+        var gotoTop: Bool = false
     
         var totalConfig: String {
             return String(total) + "개의 검색 결과"
@@ -56,11 +57,15 @@ extension SearchResultViewModel {
             requestModel()
             
         case .inputSort(let sort):
-            stateModel.currentSort = sort
-            stateModel.currentAt = 1
-            stateModel.drawRowViewModel = []
-            requestModel()
-            
+            if stateModel.currentSort != sort {
+                stateModel.currentSort = sort
+                stateModel.currentAt = 1
+                stateModel.drawRowViewModel = []
+                requestModel()
+            } else {
+                stateModel.gotoTop = true
+                print(stateModel.gotoTop)
+            }
         case .inputCurrentIndex(let index):
             stateModel.currentIndexAt = index
             testIfNextCursur()
