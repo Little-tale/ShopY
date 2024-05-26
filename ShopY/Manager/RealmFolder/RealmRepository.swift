@@ -63,7 +63,7 @@ final class RealmRepository: RealmRepositoryType {
         do {
             let realms = try Realm()
             realm = realms
-
+            print(realm?.configuration.fileURL)
         } catch {
             print("렘 자체 문제 ")
             realm = nil

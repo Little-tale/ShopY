@@ -15,15 +15,38 @@ struct ProfileSettingView: View {
     @State
     var imageAlertTrigger = false
     
-    private
-    let viewModel = ProfileViewModel()
+    @StateObject
+    private var viewModel = ProfileViewModel()
     
     var body: some View {
         if #available(iOS 16, *){
             iOS16View
+                .onAppear {
+                    viewModel.send(action: .viewOnAppear)
+                }
+                .alert("Error", isPresented: $viewModel.stateModel.ifError) {
+                    
+                } message: {
+                    alertMessage()
+                }
+
         } else {
             iOS15View
+                .onAppear {
+                    viewModel.send(action: .viewOnAppear)
+                }
         }
+    }
+    
+    func alertMessage() -> some View {
+        if let realmError = viewModel.stateModel.realmError {
+            return Text(realmError.message)
+        }
+        
+        
+        
+        
+        return Text("")
     }
     
     init() {
@@ -112,10 +135,10 @@ extension ProfileSettingView {
             }
             VStack(alignment: .leading) {
                 Spacer()
-                Text("이름: 들어갈곳asdasdasdasdasdasdasdasdasdasdasdsa")
+                Text(viewModel.stateModel.profileModel.userName)
                     .lineLimit(1)
                     .font(JHFont.profileNameFont)
-                Text("안녕하세요~ 자기소개 란입니다 자기소개 해주시면 감사드릴께요~!")
+                Text(viewModel.stateModel.profileModel.userInfo)
                     .lineLimit(2)
                     .font(JHFont.introduceFont)
                 Spacer()
