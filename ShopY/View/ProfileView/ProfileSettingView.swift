@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ProfileSettingView: View {
     
-    @State // 임시
-    var imageSate: ImagePickState = .empty
-    
     @State
     var imageTrigger = false
     
@@ -29,8 +26,10 @@ struct ProfileSettingView: View {
         .onAppear {
             viewModel.send(action: .viewOnAppear)
         }
-        .alert("Error", isPresented: $viewModel.stateModel.ifError) {
-            
+        .alert("Error",
+               isPresented: $viewModel.stateModel.ifError
+        ) {
+            Text("???")
         } message: {
             alertMessage()
         }

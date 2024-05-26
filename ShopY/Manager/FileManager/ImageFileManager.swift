@@ -150,12 +150,6 @@ extension ImageFileManager {
             try fileManager.removeItem(
                 atPath: getPath(url: fileUrl)
             )
-            
-            let contents = try fileManager.contentsOfDirectory(atPath: folder.path)
-            
-            if contents.isEmpty {
-                try fileManager.removeItem(atPath: folder.path)
-            }
             return .success(())
         } catch {
             return .failure(.cantRemoveImage)

@@ -36,7 +36,7 @@ final class ProfileViewModel: MVIPatternType {
         var userName: String
         var userInfo: String
         var userPhoneNumber: String
-        var userProfileState: ImagePickState = .empty
+        var userProfileState: ImagePickState
         
         var id: String
     }
@@ -48,6 +48,7 @@ final class ProfileViewModel: MVIPatternType {
             userName: "",
             userInfo: "",
             userPhoneNumber: "",
+            userProfileState: .empty,
             id: ""
         )
     }
@@ -71,6 +72,7 @@ final class ProfileViewModel: MVIPatternType {
     
     @Published
     var stateModel = StateModel()
+    
     
 }
 // Intent Action
@@ -118,17 +120,20 @@ extension ProfileViewModel {
     ) -> ProfileModel
     {
         var phoneNumber = model.phoneNumber
+        
         if phoneNumber == "" {
             phoneNumber = "Empty"
         }
         var profileModel = ProfileModel(
             userName: model.name,
             userInfo: model.introduce,
-            userPhoneNumber: "P: " + phoneNumber,
+            userPhoneNumber: "P: " + phoneNumber, 
+            userProfileState: .empty,
             id: model.id
         )
         
         if let url = URL(string: model.userImageUrl) {
+            print("에이~ \(url)")
             profileModel.userProfileState = .localUrl(url)
         }
         
@@ -140,13 +145,17 @@ extension ProfileViewModel {
             return
         }
         if !removeData() {
+            stateModel.ifError = true
             return
         }
         
         if !saveData(data: data) {
+            stateModel.ifError = true
             return
         }
         
+        
+        dump(stateModel.profileModel)
     }
     
     private func saveData(data: Data) -> Bool {
@@ -167,13 +176,15 @@ extension ProfileViewModel {
             
             if case .failure(let error) = result {
                 stateModel.errorCase = .realmError(error)
+                return false
             }
             
+            stateModel.profileModel.userProfileState = .localUrl(url)
             return true
         case .failure(let error):
-            
+            print("Error : \(error.message)")
+           
             stateModel.errorCase = .imageFileManagerError(error)
-            stateModel.ifError = true
             return false
         }
     }
@@ -194,12 +205,16 @@ extension ProfileViewModel {
             
             if case .failure(let error) = result {
                 stateModel.errorCase = .realmError(error)
-                stateModel.ifError = true
+                return false
             }
+
             return true
         case .failure(let error):
+            print("Error : \(error.message)")
+            if error == .imageNotFound {
+                return true
+            }
             stateModel.errorCase = .imageFileManagerError(error)
-            stateModel.ifError = true
             return false
         }
     }
