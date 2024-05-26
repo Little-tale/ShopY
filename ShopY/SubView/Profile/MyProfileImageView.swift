@@ -13,6 +13,7 @@ enum ImagePickState {
     case empty
     case loading
     case success(UIImage)
+    case localUrl(URL)
     case failure(Error)
 }
 
@@ -22,6 +23,8 @@ struct MyProfileImageView: View {
     var imageState: ImagePickState
     
     let frame: CGSize
+    
+    var count = 0
     
     var body: some View {
         VStack {
@@ -35,6 +38,9 @@ struct MyProfileImageView: View {
             case .success(let image):
                 Image(uiImage: image)
                 .resizable()
+            case .localUrl(let url):
+                urlMode(url: url)
+                    .foregroundStyle(.white)
             case .failure:
                 Image(systemName: "exclamationmark.triangle.fill")
                     .font(.system(size: 40))
@@ -49,4 +55,21 @@ struct MyProfileImageView: View {
     
 }
 
-
+extension MyProfileImageView {
+    func urlMode(url: URL) -> some View {
+        let image: UIImage?
+        print(url.absoluteString)
+        if #available(iOS 16, *) {
+            image = UIImage(contentsOfFile: url.path())
+        } else {
+            image = UIImage(contentsOfFile: url.path)
+        }
+        
+        guard let image else {
+            return Image(systemName: "xmark")
+        }
+        
+        return Image(uiImage: image)
+            .resizable()
+    }
+}
