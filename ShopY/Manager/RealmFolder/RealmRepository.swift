@@ -127,3 +127,49 @@ final class RealmRepository: RealmRepositoryType {
         }
     }
 }
+
+// RealmProfile
+extension RealmRepository {
+    
+    func profileModify(
+        id: String,
+        name: String? = nil,
+        introduce: String? = nil,
+        phoneNumber: String? = nil,
+        userImageUrl: String? = nil
+    ) -> Result<Void, RealmError> {
+        guard let realm else {
+            return .failure(.cantLoadRealm)
+        }
+        
+        var value = [String: Any]()
+        
+        if let name {
+            value["name"] = name
+        }
+        if let introduce {
+            value["introduce"] = introduce
+        }
+        if let phoneNumber {
+            value["phoneNumber"] = phoneNumber
+        }
+        if let userImageUrl {
+            value["userImageUrl"] = userImageUrl
+        }
+        
+        
+        do {
+            try realm.write {
+                realm.create(
+                    ProfileRealmModel.self,
+                    value: value,
+                    update: .modified
+                )
+            }
+            return .success(())
+        } catch {
+            return .failure(.failAdd)
+        }
+    }
+    
+}

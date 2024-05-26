@@ -181,12 +181,12 @@ extension UserInfoRegViewModel {
         let result = ImageFileManager.shared.saveImage(
             image: image,
             folderPath: .profile,
-            fileId: model.id.stringValue
+            fileId: model.id
         )
 
         switch result {
         case .success(let success):
-            model.userImageUrl = success.description
+            model.userImageUrl = success.absoluteString
             handler(.success(model))
         case .failure(let failure):
             handler(.failure(failure))

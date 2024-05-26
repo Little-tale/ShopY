@@ -14,7 +14,9 @@ struct CustomPhotoPicker: UIViewControllerRepresentable {
     var isPresented: Bool
     
     
-    var selectedImages: ([UIImage]) -> Void
+    var selectedImages: (([UIImage]) -> Void)?
+    
+    var selelectedDataForPNG: (([Data]) -> Void)?
     
     /// 선택 가능한 개체 수
     let selectedLimit: Int // 선택 가능 이미지 갯수
@@ -65,7 +67,8 @@ struct CustomPhotoPicker: UIViewControllerRepresentable {
                 }
             }
             dispatchGroup.notify(queue: .main) { [unowned self] in
-                parent.selectedImages(images)
+                parent.selectedImages?(images)
+                parent.selelectedDataForPNG?(images.compactMap({ $0.pngData() }))
                 parent.isPresented = false
             }
         }

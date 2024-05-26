@@ -8,10 +8,13 @@
 import Foundation
 import RealmSwift
 
-final class ProfileRealmModel: Object {
+final class ProfileRealmModel: Object, RealmFindType {
     
-    @Persisted(primaryKey: true) var id: ObjectId
+    typealias ID = String
     
+    @Persisted(primaryKey: true) var profileId: ObjectId
+    
+    @Persisted var id: String
     @Persisted var name: String
     @Persisted var introduce: String
     @Persisted var phoneNumber: String
@@ -20,6 +23,7 @@ final class ProfileRealmModel: Object {
     convenience
     init(name: String, phoneNumber: String, introduce:String, userImageUrl: String) {
         self.init()
+        self.id = profileId.stringValue
         self.name = name
         self.introduce = introduce
         self.phoneNumber = phoneNumber

@@ -24,7 +24,7 @@ struct MyProfileImageView: View {
     
     let frame: CGSize
     
-    var count = 0
+   // var count = 0
     
     var body: some View {
         VStack {

@@ -13,40 +13,43 @@ struct ProfileSettingView: View {
     var imageSate: ImagePickState = .empty
     
     @State
-    var imageAlertTrigger = false
+    var imageTrigger = false
     
     @StateObject
     private var viewModel = ProfileViewModel()
     
     var body: some View {
-        if #available(iOS 16, *){
-            iOS16View
-                .onAppear {
-                    viewModel.send(action: .viewOnAppear)
-                }
-                .alert("Error", isPresented: $viewModel.stateModel.ifError) {
-                    
-                } message: {
-                    alertMessage()
-                }
-
-        } else {
-            iOS15View
-                .onAppear {
-                    viewModel.send(action: .viewOnAppear)
-                }
+        Group {
+            if #available(iOS 16, *){
+                iOS16View
+            } else {
+                iOS15View
+            }
         }
+        .onAppear {
+            viewModel.send(action: .viewOnAppear)
+        }
+        .alert("Error", isPresented: $viewModel.stateModel.ifError) {
+            
+        } message: {
+            alertMessage()
+        }
+         .fullScreenCover(isPresented: $imageTrigger) {
+             CustomPhotoPicker(
+                 isPresented: $imageTrigger,
+                 selelectedDataForPNG: { datas in
+                     viewModel.send(action: .imageChanged(datas))
+                 },
+                 selectedLimit: 1,
+                 filter: .images
+             )
+         }
     }
+   
     
     func alertMessage() -> some View {
-        if let realmError = viewModel.stateModel.realmError {
-            return Text(realmError.message)
-        }
-        
-        
-        
-        
-        return Text("")
+        let errorCase = viewModel.stateModel.errorCase
+        return Text(errorCase.message)
     }
     
     init() {
@@ -131,7 +134,7 @@ extension ProfileSettingView {
                 frame: CGSize(width: 60, height: 60)
             )
             .asButton {
-                imageAlertTrigger.toggle()
+                imageTrigger.toggle()
             }
             VStack(alignment: .leading) {
                 Spacer()

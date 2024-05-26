@@ -71,6 +71,15 @@ extension ImageFileManager {
             return .failure(.cantZip)
         }
         
+        return saveImageData(
+            pngData: image,
+            folderPath: folderPath,
+            fileId: fileId
+        )
+    }
+    
+    func saveImageData(pngData: Data, folderPath: fileFolderPath, fileId: String) -> Result<URL, ImageFileManagerError> {
+        
         guard let directory = fileManager.urls(
             for: .documentDirectory,
             in: .userDomainMask).first else {
@@ -88,13 +97,12 @@ extension ImageFileManager {
         let fileUrl = folderUrl.appendingPathComponent(fileId, conformingTo: .png)
         
         do {
-            try image.write(to: fileUrl)
+            try pngData.write(to: fileUrl)
             return .success(fileUrl)
         } catch {
             return .failure(.cantSaveImage)
         }
     }
-    
     
     
     func findImage(folder: fileFolderPath, id: String) -> Result<UIImage, ImageFileManagerError> {
