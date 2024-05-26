@@ -31,15 +31,15 @@ final class ProfileViewModel: MVIPatternType {
         
     }
     
+    
     struct ProfileModel {
         var userName: String
         var userInfo: String
         var userPhoneNumber: String
-        var userImage: URL?
+        var userProfileState: ImagePickState = .empty
     }
     
     struct StateModel {
-        var imageSate: ImagePickState = .empty
         var ifError: Bool = false
         var realmError: RealmError? = nil
         var profileModel = ProfileModel(
@@ -53,7 +53,7 @@ final class ProfileViewModel: MVIPatternType {
     var stateModel = StateModel()
     
 }
-
+// Intent Action
 extension ProfileViewModel {
     
     func send(action: Intent) {
@@ -64,6 +64,7 @@ extension ProfileViewModel {
     }
 }
 
+// Processing
 extension ProfileViewModel {
     
     private
@@ -92,12 +93,19 @@ extension ProfileViewModel {
         model: ProfileRealmModel
     ) -> ProfileModel
     {
+        var phoneNumber = model.phoneNumber
+        if phoneNumber == "" {
+            phoneNumber = "Empty"
+        }
         var profileModel = ProfileModel(
             userName: model.name,
             userInfo: model.introduce,
-            userPhoneNumber: model.phoneNumber,
-            userImage: URL(string: model.userImageUrl)
+            userPhoneNumber: "P: " + phoneNumber
         )
+        
+        if let url = URL(string: model.userImageUrl) {
+            profileModel.userProfileState = .localUrl(url)
+        }
         
         return profileModel
     }

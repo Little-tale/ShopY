@@ -127,7 +127,7 @@ extension ProfileSettingView {
     var profileInfoView: some View {
         HStack {
             MyProfileImageView(
-                imageState: $imageSate,
+                imageState: $viewModel.stateModel.profileModel.userProfileState,
                 frame: CGSize(width: 60, height: 60)
             )
             .asButton {
@@ -140,6 +140,8 @@ extension ProfileSettingView {
                     .font(JHFont.profileNameFont)
                 Text(viewModel.stateModel.profileModel.userInfo)
                     .lineLimit(2)
+                    .font(JHFont.introduceFont)
+                Text(viewModel.stateModel.profileModel.userPhoneNumber)
                     .font(JHFont.introduceFont)
                 Spacer()
             }
