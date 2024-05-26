@@ -31,7 +31,6 @@ struct ProfileSettingView: View {
             // none
         } else {
             UITableView.appearance().backgroundColor = .clear
-            UITableView.appearance().isScrollEnabled = false
         }
     }
 }
@@ -59,10 +58,7 @@ extension ProfileSettingView {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(JHColor.pointGreen.opacity(0.2))
             )
-            .toolbar {
-                Spacer()
-                navButtonView
-            }
+           
         }
     }
     
@@ -84,10 +80,7 @@ extension ProfileSettingView {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(JHColor.pointGreen.opacity(0.2))
                 )
-                .toolbar {
-                    Spacer()
-                    navButtonView
-                }
+               
             }
         }
     }
