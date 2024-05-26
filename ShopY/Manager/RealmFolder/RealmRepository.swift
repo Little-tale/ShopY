@@ -144,6 +144,8 @@ extension RealmRepository {
         
         var value = [String: Any]()
         
+        value["profileId"] = try? ObjectId(string: id)
+        
         if let name {
             value["name"] = name
         }
