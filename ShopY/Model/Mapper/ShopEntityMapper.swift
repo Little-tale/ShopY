@@ -25,6 +25,18 @@ struct ShopEntityMapper {
         
         return entity
     }
+    
+    func toEntity(_ likeModel: LikePostModel) -> ShopEntityModel {
+        return ShopEntityModel(
+            productId: likeModel.id,
+            title: likeModel.title,
+            link: likeModel.postURLString,
+            image: likeModel.postImageUrlString,
+            lprice: likeModel.lPrice,
+            hprice: "",
+            mallName: likeModel.sellerName
+        )
+    }
 }
 
 extension ShopEntityMapper {
@@ -38,6 +50,14 @@ extension ShopEntityMapper {
         
         return (dtoP.total, dtoP.items.compactMap({ toEntity($0) }))
     }
+}
+
+extension ShopEntityMapper {
+    
+    func toEntity(_ realmModels: [LikePostModel]) -> [ShopEntityModel] {
+        return realmModels.compactMap { toEntity($0) }
+    }
+    
 }
 
 extension ShopEntityMapper {

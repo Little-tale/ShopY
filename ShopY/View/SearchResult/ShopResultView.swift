@@ -35,7 +35,6 @@ struct ShopResultView: View {
         .navigationTitle(viewModel.stateModel.navTititle)
         .onDisappear {
             if let model = viewModel.stateModel.currentModel {
-                print("바껴야만 했다니까 ",model.likeState)
                 changeedModel?(model)
             }
         }

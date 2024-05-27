@@ -29,6 +29,7 @@ final class ProfileViewModel: MVIPatternType {
     enum Intent {
         case viewOnAppear
         case imageChanged([Data])
+        case selectedCase(SettingSeciton)
     }
     
     
@@ -51,6 +52,8 @@ final class ProfileViewModel: MVIPatternType {
             userProfileState: .empty,
             id: ""
         )
+        
+        var moveToLikes: Bool = false
     }
     
     enum viewError: ErrorMessageType {
@@ -84,6 +87,8 @@ extension ProfileViewModel {
             findProfile()
         case .imageChanged(let datas):
             dataChanged(datas: datas)
+        case .selectedCase(let cases):
+            selectedSection(cases: cases)
         }
     }
 }
@@ -216,6 +221,16 @@ extension ProfileViewModel {
             }
             stateModel.errorCase = .imageFileManagerError(error)
             return false
+        }
+    }
+    
+    private
+    func selectedSection(cases: SettingSeciton) {
+        switch cases {
+        case .changedInfo:
+            break
+        case .likeBasket:
+            stateModel.moveToLikes = true
         }
     }
 }

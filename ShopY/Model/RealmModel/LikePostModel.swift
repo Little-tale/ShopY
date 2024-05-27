@@ -17,15 +17,26 @@ final class LikePostModel: Object, RealmFindType {
     
     @Persisted var title: String
     @Persisted var sellerName: String
-    @Persisted var postUrlString: String
+    @Persisted var postImageUrlString: String
+    @Persisted var postURLString: String
+    @Persisted var lPrice: String
     
     convenience
-    init(postId: String, title: String, sellerName: String, postUrlString: String) {
+    init(
+        postId: String,
+        title: String,
+        sellerName: String,
+        postImageUrlString: String,
+        postURLString: String,
+        lprice: String
+    ) {
         self.init()
         self.id = postId
         self.title = title
         self.sellerName = sellerName
-        self.postUrlString = postUrlString
+        self.postImageUrlString = postImageUrlString
+        self.postURLString = postURLString
+        self.lPrice = lprice
     }
 
 }

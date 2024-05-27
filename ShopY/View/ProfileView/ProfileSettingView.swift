@@ -11,7 +11,7 @@ struct ProfileSettingView: View {
     
     @State
     var imageTrigger = false
-    
+        
     @StateObject
     private var viewModel = ProfileViewModel()
     
@@ -71,8 +71,13 @@ extension ProfileSettingView {
                 .padding(.all, 10)
             List {
                 ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
-                    Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
-                        .listRowBackground(JHColor.white)
+                    Button {
+                        viewModel.send(action: .selectedCase(at))
+                    } label: {
+                        Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                            .listRowBackground(JHColor.white)
+                    }
+                    .tint(JHColor.black)
                 }
             }
             .scrollContentBackground(.hidden)
@@ -83,7 +88,9 @@ extension ProfileSettingView {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(JHColor.pointGreen.opacity(0.2))
             )
-           
+            .navigationDestination(isPresented: $viewModel.stateModel.moveToLikes) {
+                LikesView()
+            }
         }
     }
     
@@ -94,9 +101,13 @@ extension ProfileSettingView {
                     .padding(.all, 10)
                 List {
                     ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
-                        
-                        Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
-                            .listRowBackground(JHColor.white)
+                        Button {
+                            viewModel.send(action: .selectedCase(at))
+                        } label: {
+                            Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                                .listRowBackground(JHColor.white)
+                        }
+                        .tint(JHColor.black)
                     }
                 }
                 .navigationTitle("프로필")
@@ -105,9 +116,15 @@ extension ProfileSettingView {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(JHColor.pointGreen.opacity(0.2))
                 )
-               
+                NavigationLink(isActive: $viewModel.stateModel.moveToLikes) {
+                    LikesView()
+                } label: {
+                    EmptyView()
+                }
+                
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private
