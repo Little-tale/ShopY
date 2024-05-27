@@ -23,13 +23,14 @@ final class SearchResultViewModel: MVIPatternType {
         case inputSort(SortCase)
         case inputCurrentIndex(Int)
         case likeStateChange((ShopEntityModel, Int))
-        case onTapModel(ShopEntityModel)
+        case onTapModel(ShopEntityModel, Int)
+        case likeOnlyChanged(ShopEntityModel, Int)
     }
     
     struct StateModel {
         var ifNetworkError: NetworkError? = nil
         var drawRowViewModel: [ShopEntityModel] = []
-        var goWebViewModel: String? = nil
+        var goWebViewModel: (ShopEntityModel, Int)? = nil
         var total = 0
        
         var isError = false
@@ -76,8 +77,14 @@ extension SearchResultViewModel {
         case .likeStateChange((let model, let indexAt)):
             likeState(model: model, indexAt: indexAt)
             
-        case .onTapModel(let model):
-            moveToWebView(model)
+        case .onTapModel(let model, let number):
+            moveToWebView(model, number: number)
+            
+        case .likeOnlyChanged(let model, let index):
+            print("바껴야만 했음 \(model.likeState)")
+            var models = stateModel.drawRowViewModel
+            models[index] = model
+            stateModel.drawRowViewModel = models
         }
     }
 }
@@ -144,8 +151,8 @@ extension SearchResultViewModel {
     
     
     private
-    func moveToWebView(_ model: ShopEntityModel) {
-        stateModel.goWebViewModel = model.link
+    func moveToWebView(_ model: ShopEntityModel, number: Int) {
+        stateModel.goWebViewModel = (model, number)
         stateModel.gotoWebView = true
     }
 }

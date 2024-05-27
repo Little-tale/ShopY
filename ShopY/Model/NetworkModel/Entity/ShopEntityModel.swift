@@ -8,9 +8,7 @@
 import Foundation
 
 
-struct ShopEntityModel: Hashable, Identifiable {
-    
-    var id: UUID = UUID()
+struct ShopEntityModel: Hashable, Equatable{
     
     let productId: String
     
@@ -32,6 +30,14 @@ struct ShopEntityModel: Hashable, Identifiable {
             return 0
         }
         return productId
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        if lhs.productId == rhs.productId && lhs.likeState == rhs.likeState {
+            return true
+        } else {
+            return false 
+        }
     }
 }
 

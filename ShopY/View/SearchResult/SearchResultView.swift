@@ -15,8 +15,8 @@ struct SearchResultView: View {
         count: 2
     )
     
-    @StateObject private
-    var viewModel = SearchResultViewModel()
+    @StateObject
+    private var viewModel = SearchResultViewModel()
     
     var searchText: String
     
@@ -42,8 +42,10 @@ struct SearchResultView: View {
         VStack {
             contentView
                 .navigationDestination(isPresented: $viewModel.stateModel.gotoWebView) {
-                    if let url = viewModel.stateModel.goWebViewModel {
-                        WKConvertorView(url: url)
+                    if let model = viewModel.stateModel.goWebViewModel {
+                        ShopResultView(model: model.0) { after in
+                            viewModel.send(.likeOnlyChanged(after, model.1))
+                        }
                     }
                 }
         }
@@ -66,9 +68,10 @@ struct SearchResultView: View {
         VStack {
             contentView
             NavigationLink(isActive: $viewModel.stateModel.gotoWebView) {
-                if let url = viewModel.stateModel.goWebViewModel {
-                    WKConvertorView(url: url)
-                    
+                if let model = viewModel.stateModel.goWebViewModel {
+                    ShopResultView(model: model.0) { after in
+                        viewModel.send(.likeOnlyChanged(after, model.1))
+                    }
                 }
             } label: {
                 EmptyView()
@@ -113,8 +116,7 @@ struct SearchResultView: View {
             content: {
                 Section {
                     ForEach(Array(
-                        viewModel.stateModel.drawRowViewModel.enumerated()),
-                            id: \.element.id) {index, model in
+                        viewModel.stateModel.drawRowViewModel.enumerated()), id: \.element.self) {index, model in
                         VirticalResultRowView(
                             model: .constant(model)
                         ) { item in // heartButtonTapped
@@ -126,7 +128,7 @@ struct SearchResultView: View {
                             viewModel.send(.inputCurrentIndex(index))
                         }
                         .onTapGesture {
-                            viewModel.send(.onTapModel(model))
+                            viewModel.send(.onTapModel(model, index))
                         }
                     }
                 } header: {
@@ -152,7 +154,7 @@ struct SearchResultView: View {
         }
         withAnimation {
             scrollViewProxy.scrollTo(
-                first.id,
+                first,
                 anchor: .top
             )
         }
