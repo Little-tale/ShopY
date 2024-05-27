@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0B83DC2C0446CB00E376D8 /* WKWebRepresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B83DB2C0446CB00E376D8 /* WKWebRepresentView.swift */; };
 		7B2D77682BF3B52600D51F49 /* LikePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77672BF3B52600D51F49 /* LikePostModel.swift */; };
 		7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */; };
 		7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B0B83DB2C0446CB00E376D8 /* WKWebRepresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebRepresentView.swift; sourceTree = "<group>"; };
 		7B2D77672BF3B52600D51F49 /* LikePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostModel.swift; sourceTree = "<group>"; };
 		7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRealmModel.swift; sourceTree = "<group>"; };
 		7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				7BC21A1B2BECCC23003BE504 /* SearchView.swift */,
 				7BC21A222BECDFEF003BE504 /* SearchViewModel.swift */,
+				7B0B83DB2C0446CB00E376D8 /* WKWebRepresentView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				7BC21A092BECCBA5003BE504 /* NaverShoppingApp.swift in Sources */,
 				7BC21A462BED2BBA003BE504 /* ShopModel.swift in Sources */,
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
+				7B0B83DC2C0446CB00E376D8 /* WKWebRepresentView.swift in Sources */,
 				7BC21A3E2BED20B7003BE504 /* ApiKey.swift in Sources */,
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
 				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,

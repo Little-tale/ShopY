@@ -57,7 +57,7 @@ struct SearchView: View {
                     )
                 )
         }
-        .onAppear { // 한번만 호출되는 이슈가 발생
+        .onAppear {
             viewModel.send(action: .viewOnAppear)
         }
         .onChange(of: navigationIsPresented) { newValue in
