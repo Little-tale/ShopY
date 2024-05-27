@@ -14,7 +14,9 @@ struct ShopEntityMapper {
         let entity = ShopEntityModel(
             productId: dto.productId,
             title: dto.title.rmHTMLBold,
-            link: dto.link,
+            link: shoppingURLProcess(
+                productID: dto.productId
+            ),
             image: dto.image,
             lprice: NumberManager.shared.getTextToMoney(text: dto.lprice),
             hprice: dto.hprice,
@@ -43,5 +45,17 @@ extension ShopEntityMapper {
     private
     func mallNameProcess(name: String) -> String {
         return name + " 판매자"
+    }
+    
+    private
+    func shoppingURLProcess(productID: String) -> String{
+        let base = APIKey.naverShopProductBase
+        
+        guard let url = URL(string: base + productID) else {
+            print("실패...")
+            return ""
+        }
+        
+        return url.absoluteString
     }
 }

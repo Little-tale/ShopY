@@ -11,7 +11,7 @@ extension String {
     
     var rmHTMLBold: String {
         let first = self.replacingOccurrences(of: "<b>", with: "")
-        let results = self.replacingOccurrences(of: "</b>", with: "")
+        let results = first.replacingOccurrences(of: "</b>", with: "")
         return results
     }
 }

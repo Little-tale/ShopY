@@ -25,52 +25,28 @@ struct SearchResultView: View {
     
     
     var body: some View {
+        Group {
+            if #available(iOS 16, *) {
+                iOS16View
+            } else {
+                iOS15View
+            }
+        }
+        .onAppear {
+            viewModel.stateModel.goWebViewModel = nil
+        }
+    }
+    
+    @available(iOS 16, *)
+    private var iOS16View: some View {
         VStack {
-            
-            ScrollViewReader { proxy in
-                ScrollView(.vertical) {
-                    searchResultCountView
-                    LazyVGrid(
-                        columns: gridItem,
-                        pinnedViews: [.sectionHeaders],
-                        content: {
-                            Section {
-                                ForEach(Array(
-                                    viewModel.stateModel.drawRowViewModel.enumerated()),
-                                        id: \.element.id) {index, model in
-                                    VirticalResultRowView(
-                                        model: .constant(model)
-                                    ) { item in // heartButtonTapped
-                                        viewModel.send(.likeStateChange((item, index)))
-                                    }
-                                    .padding(.horizontal, 10)
-                                    .onAppear {
-                                        viewModel.send(.inputCurrentIndex(index))
-                                    }
-                                }
-                            } header: {
-                                HeaderView(
-                                    inputSort: Binding(get: {
-                                        viewModel.stateModel.currentSort
-                                    }, set: { value in
-                                        viewModel.send(.inputSort(value))
-                                    })
-                                )
-                                .padding(.horizontal, 6)
-                                .padding(.bottom, 6)
-                                .background(JHColor.white)
-                            } // header
-                        } // content
-                    ) // LazyVGrid
-                } // ScrollView
-                .onChange(of: viewModel.stateModel.gotoTop) { newValue in
-                    if newValue {
-                        scrollToTop(with: proxy)
-                        viewModel.stateModel.gotoTop = false
+            contentView
+                .navigationDestination(isPresented: $viewModel.stateModel.gotoWebView) {
+                    if let url = viewModel.stateModel.goWebViewModel {
+                        WKConvertorView(url: url)
                     }
                 }
-            }
-        } // VStack
+        }
         .task {
             viewModel.send(.searchText(searchText))
         }
@@ -83,6 +59,90 @@ struct SearchResultView: View {
             )
         }
         .navigationTitle(searchText)
+    }
+    
+    private
+    var iOS15View: some View {
+        VStack {
+            contentView
+            NavigationLink(isActive: $viewModel.stateModel.gotoWebView) {
+                if let url = viewModel.stateModel.goWebViewModel {
+                    WKConvertorView(url: url)
+                    
+                }
+            } label: {
+                EmptyView()
+            }
+        }
+        .task {
+            viewModel.send(.searchText(searchText))
+        }
+        .alert(isPresented: $viewModel.stateModel.isError) {
+            Alert(
+                title: Text("에러"),
+                message: Text(alertMessage),
+                primaryButton: .destructive(Text("확인")),
+                secondaryButton: .cancel()
+            )
+        }
+        .navigationTitle(searchText)
+    }
+    
+    
+    private
+    var contentView: some View {
+        ScrollViewReader { proxy in
+            ScrollView(.vertical) {
+                searchResultCountView
+                vGridContentView
+            } // ScrollView
+            .onChange(of: viewModel.stateModel.gotoTop) { newValue in
+                if newValue {
+                    scrollToTop(with: proxy)
+                    viewModel.stateModel.gotoTop = false
+                }
+            }
+        }
+    }
+    
+    private
+    var vGridContentView: some View {
+        LazyVGrid(
+            columns: gridItem,
+            pinnedViews: [.sectionHeaders],
+            content: {
+                Section {
+                    ForEach(Array(
+                        viewModel.stateModel.drawRowViewModel.enumerated()),
+                            id: \.element.id) {index, model in
+                        VirticalResultRowView(
+                            model: .constant(model)
+                        ) { item in // heartButtonTapped
+                            viewModel.send(.likeStateChange((item, index)))
+                        }
+                        .tag(index)
+                        .padding(.horizontal, 10)
+                        .onAppear {
+                            viewModel.send(.inputCurrentIndex(index))
+                        }
+                        .onTapGesture {
+                            viewModel.send(.onTapModel(model))
+                        }
+                    }
+                } header: {
+                    HeaderView(
+                        inputSort: Binding(get: {
+                            viewModel.stateModel.currentSort
+                        }, set: { value in
+                            viewModel.send(.inputSort(value))
+                        })
+                    )
+                    .padding(.horizontal, 6)
+                    .padding(.bottom, 6)
+                    .background(JHColor.white)
+                } // header
+            } // content
+        ) // LazyVGrid
     }
     
     private
