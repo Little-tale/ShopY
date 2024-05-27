@@ -50,12 +50,10 @@ extension ShopEntityMapper {
     private
     func shoppingURLProcess(productID: String) -> String{
         let base = APIKey.naverShopProductBase
-        
-        guard let url = URL(string: base + productID) else {
+        guard let url = URL(string:base + productID) else {
             print("실패...")
             return ""
         }
-        
         return url.absoluteString
     }
 }
