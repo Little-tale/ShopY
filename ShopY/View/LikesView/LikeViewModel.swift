@@ -36,9 +36,6 @@ final class LikeViewModel: MVIPatternType {
         
         var moveToWebView: Bool = false
         
-        init(){
-            if moveModel != nil { moveToWebView = true }
-        }
     }
     
     @Published
@@ -55,9 +52,10 @@ extension LikeViewModel {
         case .onAppear:
             startModel()
         case .likeStateChange(let model, let at):
-            likeStateChange(model: model, at: at)
+            break
         case .onTapModel(let model, let at):
             stateModel.moveModel = (model, at)
+            stateModel.moveToWebView.toggle()
         }
     }
 }
@@ -75,18 +73,6 @@ extension LikeViewModel {
         }
     }
     
-    private
-    func likeStateChange(model: ShopEntityModel, at: Int) {
-        let result = shopItemsRepository.likeRegOrDel(model)
-        switch result {
-        case .success:
-            var model = stateModel.currentLikes[at]
-            model.likeState.toggle()
-            stateModel.currentLikes[at] = model
-        case .failure(let failure):
-            stateModel.error = .realm(failure)
-        }
-    }
-    
+  
     
 }
