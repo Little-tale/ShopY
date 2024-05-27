@@ -18,7 +18,6 @@ struct WKWebRepresentView: UIViewRepresentable {
             return WKWebView()
         }
         let webView = WKWebView()
-        webView.load(URLRequest(url: url))
         
         return webView
     }
@@ -28,45 +27,7 @@ struct WKWebRepresentView: UIViewRepresentable {
             print("init URL ISSUE: FOR MAKE updateUIView")
             return
         }
-        
         wkView.load(URLRequest(url: url))
     }
     
-}
-
-
-struct ShopResultView: View {
-    
-    let model: ShopEntityModel
-    
-    @StateObject
-    var viewModel = ShopResultViewModel()
-    
-    var changeedModel: ((ShopEntityModel) -> Void)?
-    
-    var body: some View {
-        VStack {
-            WKWebRepresentView(url: model.link)
-        }
-        .navigationTitle(model.title)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                HeartButton(
-                    isSelected: $viewModel.stateModel.likeState, tag: nil) {
-                        let bool = viewModel.stateModel.likeState
-                        viewModel.send(.changedState)
-                    }
-            }
-        }
-        .onAppear{
-            viewModel.send(.startModel(model))
-        }
-        .navigationTitle(viewModel.stateModel.navTititle)
-        .onDisappear {
-            if let model = viewModel.stateModel.currentModel {
-                print("바껴야만 했다니까 ",model.likeState)
-                changeedModel?(model)
-            }
-        }
-    }
 }
