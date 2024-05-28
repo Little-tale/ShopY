@@ -49,6 +49,7 @@ struct VirticalResultRowView: View {
             likeState = model.likeState
             print("토글전",model.likeState)
         }
+        
     }
 }
 
@@ -59,7 +60,7 @@ struct ResultImageView: View {
     var body: some View {
         DownSamplingImageView(url: url)
             .aspectRatio(1, contentMode: .fit)
-            .frame(maxWidth: .infinity)
+            .frame(width: UIScreen.main.bounds.width / 2 - 20, height: UIScreen.main.bounds.width / 2 - 20)
             .clipShape(.rect(cornerRadius: 12))
             .overlay {
                 RoundedRectangle(cornerRadius: 12)
