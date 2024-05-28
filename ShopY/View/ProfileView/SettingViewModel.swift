@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProfileViewModel: MVIPatternType {
+final class SettingViewModel: MVIPatternType {
     
     private
     let realmRepository = RealmRepository()
@@ -79,7 +79,7 @@ final class ProfileViewModel: MVIPatternType {
     
 }
 // Intent Action
-extension ProfileViewModel {
+extension SettingViewModel {
     
     func send(action: Intent) {
         switch action {
@@ -94,7 +94,7 @@ extension ProfileViewModel {
 }
 
 // Processing
-extension ProfileViewModel {
+extension SettingViewModel {
     
     
     private func findProfile() {

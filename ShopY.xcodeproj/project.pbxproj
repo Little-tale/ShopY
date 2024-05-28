@@ -18,8 +18,8 @@
 		7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */; };
 		7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */; };
 		7B2E5BD12C01198B0060847C /* ExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD02C01198B0060847C /* ExView.swift */; };
-		7B2E5BD72C011A570060847C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD52C011A570060847C /* ProfileViewModel.swift */; };
-		7B2E5BD82C011A570060847C /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD62C011A570060847C /* ProfileSettingView.swift */; };
+		7B2E5BD72C011A570060847C /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD52C011A570060847C /* SettingViewModel.swift */; };
+		7B2E5BD82C011A570060847C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E5BD62C011A570060847C /* SettingView.swift */; };
 		7B3799012BFF4578002033A9 /* DTOType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799002BFF4578002033A9 /* DTOType.swift */; };
 		7B3799042BFF45FD002033A9 /* ShopDTOModlel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */; };
 		7B3799062BFF464D002033A9 /* ShopItemDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */; };
@@ -101,8 +101,8 @@
 		7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		7B2D776E2BF3BCBA00D51F49 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		7B2E5BD02C01198B0060847C /* ExView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExView.swift; sourceTree = "<group>"; };
-		7B2E5BD52C011A570060847C /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ShopY/View/ProfileView/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
-		7B2E5BD62C011A570060847C /* ProfileSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettingView.swift; path = ShopY/View/ProfileView/ProfileSettingView.swift; sourceTree = SOURCE_ROOT; };
+		7B2E5BD52C011A570060847C /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewModel.swift; path = ShopY/View/ProfileView/SettingViewModel.swift; sourceTree = SOURCE_ROOT; };
+		7B2E5BD62C011A570060847C /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = ShopY/View/ProfileView/SettingView.swift; sourceTree = SOURCE_ROOT; };
 		7B3799002BFF4578002033A9 /* DTOType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOType.swift; sourceTree = "<group>"; };
 		7B3799032BFF45FD002033A9 /* ShopDTOModlel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDTOModlel.swift; sourceTree = "<group>"; };
 		7B3799052BFF464D002033A9 /* ShopItemDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemDTOModel.swift; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		7B2E5BD42C011A300060847C /* ProfileSetting */ = {
 			isa = PBXGroup;
 			children = (
-				7B2E5BD62C011A570060847C /* ProfileSettingView.swift */,
-				7B2E5BD52C011A570060847C /* ProfileViewModel.swift */,
+				7B2E5BD62C011A570060847C /* SettingView.swift */,
+				7B2E5BD52C011A570060847C /* SettingViewModel.swift */,
 			);
 			path = ProfileSetting;
 			sourceTree = "<group>";
@@ -680,7 +680,7 @@
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
-				7B2E5BD82C011A570060847C /* ProfileSettingView.swift in Sources */,
+				7B2E5BD82C011A570060847C /* SettingView.swift in Sources */,
 				7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */,
 				7B0B83E72C04A75700E376D8 /* LikeViewModel.swift in Sources */,
 				7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */,
@@ -688,7 +688,7 @@
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
 				7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */,
 				7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */,
-				7B2E5BD72C011A570060847C /* ProfileViewModel.swift in Sources */,
+				7B2E5BD72C011A570060847C /* SettingViewModel.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */,
 				7BB54B362BEF33E300770637 /* JHColor.swift in Sources */,

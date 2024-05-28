@@ -16,7 +16,7 @@ struct TabbarView: View {
                     Image(systemName: "magnifyingglass")
                     Text("검색")
                 }
-            ProfileSettingView()
+            SettingView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("MY")

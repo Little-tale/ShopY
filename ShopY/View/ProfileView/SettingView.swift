@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ProfileSettingView: View {
+struct SettingView: View {
     
     @State
     var imageTrigger = false
         
     @StateObject
-    private var viewModel = ProfileViewModel()
+    private var viewModel = SettingViewModel()
     
     var body: some View {
         Group {
@@ -61,7 +61,7 @@ struct ProfileSettingView: View {
 }
 
 
-extension ProfileSettingView {
+extension SettingView {
     
     @available(iOS 16, *)
     var iOS16View: some View {
@@ -70,11 +70,11 @@ extension ProfileSettingView {
             profileInfoView
                 .padding(.all, 10)
             List {
-                ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
+                ForEach(SettingViewModel.SettingSeciton.allCases, id: \.self) { at in
                     Button {
                         viewModel.send(action: .selectedCase(at))
                     } label: {
-                        Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                        Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
                             .listRowBackground(JHColor.white)
                     }
                     .tint(JHColor.black)
@@ -100,11 +100,11 @@ extension ProfileSettingView {
                 profileInfoView
                     .padding(.all, 10)
                 List {
-                    ForEach(ProfileViewModel.SettingSeciton.allCases, id: \.self) { at in
+                    ForEach(SettingViewModel.SettingSeciton.allCases, id: \.self) { at in
                         Button {
                             viewModel.send(action: .selectedCase(at))
                         } label: {
-                            Text(ProfileViewModel.SettingSeciton.allCases[at.rawValue].title)
+                            Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
                                 .listRowBackground(JHColor.white)
                         }
                         .tint(JHColor.black)
@@ -140,7 +140,7 @@ extension ProfileSettingView {
 }
 
 
-extension ProfileSettingView {
+extension SettingView {
     
     private
     var profileInfoView: some View {
