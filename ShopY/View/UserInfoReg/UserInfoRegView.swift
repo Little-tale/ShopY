@@ -15,6 +15,9 @@ enum UserProfileType {
 
 struct UserInfoRegView: View {
     
+    // Dismiss
+    @Environment(\.dismiss) private var dismiss
+    
     @State
     var selectedImage: [UIImage] = []
     @State
@@ -28,8 +31,8 @@ struct UserInfoRegView: View {
     @State
     var goGallery: Bool = false
     
-    @Binding
-    var goTabBarView: Bool
+    
+    var ifNeedTrigger: (() -> Void)?
     
     var body: some View {
         
@@ -107,12 +110,24 @@ struct UserInfoRegView: View {
             }
             .alert("등록 성공!", isPresented: $viewModel.stateModel.successTrigger) {
                 Button(action: {
-                    goTabBarView.toggle()
+                    ifNeedTrigger?()
                 }, label: {
                     Text("확인")
                 })
             }
-        
+            .alert("수정 성공!", isPresented: $viewModel.stateModel.modifySuccess) {
+                Button {
+                    dismiss()
+                    ifNeedTrigger?()
+                } label: {
+                    Text("확인")
+                }
+            }
+            .onAppear {
+                viewModel.handle(
+                    intent: .inputViewType(viewType)
+                )
+            }
         
     }
 }

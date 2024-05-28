@@ -49,7 +49,7 @@ struct MyProfileImageView: View {
         }
         .modifier(CircularProfileImage(frame: frame))
         .onAppear {
-            print(" ....!!!! ")
+            print("imageState: \(imageState) ")
         }
     }
     
@@ -58,7 +58,7 @@ struct MyProfileImageView: View {
 extension MyProfileImageView {
     func urlMode(url: URL) -> some View {
         let image: UIImage?
-        
+        print("현 2: ",url)
         if #available(iOS 16, *) {
             print("++",url.path())
             

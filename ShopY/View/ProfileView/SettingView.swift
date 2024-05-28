@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingView: View {
+    @State private var trigger = false
     
     @State
     var imageTrigger = false
@@ -19,13 +20,19 @@ struct SettingView: View {
         Group {
             if #available(iOS 16, *){
                 iOS16View
+                    .onAppear {
+                        
+                        viewModel.send(action: .viewOnAppear)
+                    }
             } else {
                 iOS15View
+                    .onAppear {
+                        
+                        viewModel.send(action: .viewOnAppear)
+                    }
             }
         }
-        .onAppear {
-            viewModel.send(action: .viewOnAppear)
-        }
+        
         .alert("Error",
                isPresented: $viewModel.stateModel.ifError
         ) {
@@ -79,6 +86,12 @@ extension SettingView {
                     }
                     .tint(JHColor.black)
                 }
+                .navigationDestination(isPresented: $viewModel.stateModel.moveToModifyView) {
+                    UserInfoRegView(
+                        viewType: .modify) {
+                            viewModel.send(action: .viewOnAppear)
+                        }
+                }
             }
             .scrollContentBackground(.hidden)
             .scrollDisabled(true)
@@ -91,6 +104,7 @@ extension SettingView {
             .navigationDestination(isPresented: $viewModel.stateModel.moveToLikes) {
                 LikesView()
             }
+            
         }
     }
     
@@ -121,21 +135,16 @@ extension SettingView {
                 } label: {
                     EmptyView()
                 }
-                
+                NavigationLink(isActive: $viewModel.stateModel.moveToModifyView) {
+                    UserInfoRegView(viewType: .modify) {
+                        viewModel.send(action: .viewOnAppear)
+                    }
+                } label: {
+                    EmptyView()
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    private
-    var navButtonView: some View {
-        VStack {
-            Button(action: {
-                
-            }, label: {
-                Image(systemName: "gearshape")
-            })
-        }
     }
 }
 
@@ -144,40 +153,43 @@ extension SettingView {
     
     private
     var profileInfoView: some View {
-        HStack {
-            MyProfileImageView(
-                imageState: $viewModel.stateModel.profileModel.userProfileState,
-                frame: CGSize(width: 60, height: 60)
-            )
-            .asButton {
-                imageTrigger.toggle()
-            }
-            VStack(alignment: .leading) {
-                Spacer()
-                Text(viewModel.stateModel.profileModel.userName)
-                    .lineLimit(1)
-                    .font(JHFont.profileNameFont)
-                Text(viewModel.stateModel.profileModel.userInfo)
-                    .lineLimit(2)
-                    .font(JHFont.introduceFont)
-                Text(viewModel.stateModel.profileModel.userPhoneNumber)
-                    .font(JHFont.introduceFont)
-                Spacer()
-            }
-            .padding(.leading, 10)
-            Spacer()
-        }
-        .frame(height: 120)
-        .padding(.horizontal, 20)
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .fill(JHColor.white)
-                .shadow(
-                    color: JHColor.darkGray.opacity(0.5),
-                    radius: 5,
-                    x: 0,
-                    y: 0
+        VStack {
+            HStack {
+                MyProfileImageView(
+                    imageState: $viewModel.stateModel.profileModel.userProfileState,
+                    frame: CGSize(width: 60, height: 60)
                 )
-        )
+                .asButton {
+                    imageTrigger.toggle()
+                }
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Text(viewModel.stateModel.profileModel.userName)
+                        .lineLimit(1)
+                        .font(JHFont.profileNameFont)
+                    Text(viewModel.stateModel.profileModel.userInfo)
+                        .lineLimit(2)
+                        .font(JHFont.introduceFont)
+                    Text(viewModel.stateModel.profileModel.userPhoneNumber)
+                        .font(JHFont.introduceFont)
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                Spacer()
+            }
+            .frame(height: 120)
+            .padding(.horizontal, 20)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(JHColor.white)
+                    .shadow(
+                        color: JHColor.darkGray.opacity(0.5),
+                        radius: 5,
+                        x: 0,
+                        y: 0
+                    )
+            )
+        }
+       
     }
 }

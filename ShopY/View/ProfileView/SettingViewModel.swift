@@ -34,12 +34,13 @@ final class SettingViewModel: MVIPatternType {
     
     
     struct ProfileModel {
+        
         var userName: String
         var userInfo: String
         var userPhoneNumber: String
         var userProfileState: ImagePickState
         
-        var id: String
+        var userId: String
     }
     
     struct StateModel {
@@ -50,10 +51,11 @@ final class SettingViewModel: MVIPatternType {
             userInfo: "",
             userPhoneNumber: "",
             userProfileState: .empty,
-            id: ""
+            userId: ""
         )
         
         var moveToLikes: Bool = false
+        var moveToModifyView = false
     }
     
     enum viewError: ErrorMessageType {
@@ -98,25 +100,27 @@ extension SettingViewModel {
     
     
     private func findProfile() {
+        
         let result = realmRepository.fetchAll(type: ProfileRealmModel.self)
         
         switch result {
         case .success(let models):
             guard let model = models.first else {
-
+                
                 stateModel.errorCase = .realmError(.cantFindModel)
                 
                 stateModel.ifError = true
                 return
             }
             let profileModel = makeProfileModel(model: model)
-            
             stateModel.profileModel = profileModel
             
         case .failure(let error):
             stateModel.errorCase = .realmError(error)
             stateModel.ifError = true
         }
+        
+        
     }
     
     
@@ -132,11 +136,11 @@ extension SettingViewModel {
         var profileModel = ProfileModel(
             userName: model.name,
             userInfo: model.introduce,
-            userPhoneNumber: "P: " + phoneNumber, 
+            userPhoneNumber: "P: " + phoneNumber,
             userProfileState: .empty,
-            id: model.id
+            userId: model.id
         )
-        
+        print("현 :", URL(string: model.userImageUrl))
         if let url = URL(string: model.userImageUrl) {
             print("에이~ \(url)")
             profileModel.userProfileState = .localUrl(url)
@@ -168,14 +172,14 @@ extension SettingViewModel {
         let result = ImageFileManager.shared.saveImageData(
             pngData: data,
             folderPath: .profile,
-            fileId: stateModel.profileModel.id
+            fileId: stateModel.profileModel.userId
         )
         
         switch result {
         case .success(let url):
             
             let result = realmRepository.profileModify(
-                id: stateModel.profileModel.id,
+                id: stateModel.profileModel.userId,
                 userImageUrl: url.absoluteString
             )
             
@@ -188,23 +192,23 @@ extension SettingViewModel {
             return true
         case .failure(let error):
             print("Error : \(error.message)")
-           
+            
             stateModel.errorCase = .imageFileManagerError(error)
             return false
         }
     }
     
     private func removeData() -> Bool {
-
+        
         let result = ImageFileManager.shared.removeImage(
             folder: .profile,
-            id: stateModel.profileModel.id
+            id: stateModel.profileModel.userId
         )
-
+        
         switch result {
         case .success:
             let result = realmRepository.profileModify(
-                id: stateModel.profileModel.id,
+                id: stateModel.profileModel.userId,
                 userImageUrl: ""
             )
             
@@ -212,7 +216,7 @@ extension SettingViewModel {
                 stateModel.errorCase = .realmError(error)
                 return false
             }
-
+            
             return true
         case .failure(let error):
             print("Error : \(error.message)")
@@ -228,7 +232,7 @@ extension SettingViewModel {
     func selectedSection(cases: SettingSeciton) {
         switch cases {
         case .changedInfo:
-            break
+            stateModel.moveToModifyView = true
         case .likeBasket:
             stateModel.moveToLikes = true
         }

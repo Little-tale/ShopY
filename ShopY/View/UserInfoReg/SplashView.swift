@@ -43,7 +43,9 @@ extension splashView {
             .navigationDestination(
                 isPresented: $isNextBool
             ) {
-                UserInfoRegView(viewType: .first, goTabBarView: $changeRoot)
+                UserInfoRegView(viewType: .first) {
+                    changeRoot = true
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -53,7 +55,9 @@ extension splashView {
         NavigationView {
             VStack {
                 contentView
-                NavigationLink(destination: UserInfoRegView(viewType: .first, goTabBarView: $changeRoot), isActive: $isNextBool) {
+                NavigationLink(destination: UserInfoRegView(viewType: .first, ifNeedTrigger: {
+                    changeRoot = true
+                }), isActive: $isNextBool) {
                     EmptyView()
                 }
             }

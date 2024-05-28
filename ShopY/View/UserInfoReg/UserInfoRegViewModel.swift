@@ -26,13 +26,16 @@ final class UserInfoRegViewModel: MVIPatternType {
     private
     let errorCase = PassthroughSubject<ErrorType, Never> ()
     
+    private
+    let reposiory = RealmRepository()
+    
     enum Intent { // 다시 학습해 보자. 사용자의 의도를 관리
         case selectImages([UIImage])
         case nameText(String)
         case introduce(String)
         case phoneNumber(String)
         case saveButtonTap(Void)
-        
+        case inputViewType(UserProfileType)
     }
     
     struct StateModel { // 상태를 담당
@@ -51,6 +54,12 @@ final class UserInfoRegViewModel: MVIPatternType {
         
         // ErrorTrigger
         var errorTrigger: Bool = false
+        
+        // currentViewType
+        var viewType: UserProfileType = .first
+        var currentModel: ProfileRealmModel? = nil
+        
+        var modifySuccess: Bool = false
     }
     
     enum ErrorType : ErrorMessageType {
@@ -86,6 +95,9 @@ extension UserInfoRegViewModel {
     
     func handle(intent: Intent) {
         switch intent {
+        case .inputViewType(let viewType) :
+            stateModel.viewType = viewType
+            ifgetUserInfo()
         case .selectImages(let images):
             processingImage(images)
             
@@ -102,8 +114,13 @@ extension UserInfoRegViewModel {
             validTextForButton()
             
         case .saveButtonTap:
-            saveButtonTab()
-
+            if stateModel.currentModel == nil {
+                print("모델이 없을때")
+                saveButtonTab()
+            } else {
+                print("모델이 있을때")
+                ifModifyButtonTab()
+            }
         }
     }
 }
@@ -142,6 +159,9 @@ extension UserInfoRegViewModel {
     
     private
     func saveButtonTab(){
+        if let user = stateModel.currentModel {
+            return
+        }
         print("SaveButton Tab")
         let name = stateModel.nameText
         let introduce = stateModel.introduce
@@ -177,7 +197,6 @@ extension UserInfoRegViewModel {
                    model: ProfileRealmModel,
                    handler: @escaping((Result<ProfileRealmModel,ImageFileManagerError>) -> Void)
     ) {
-        
         let result = ImageFileManager.shared.saveImage(
             image: image,
             folderPath: .profile,
@@ -195,8 +214,10 @@ extension UserInfoRegViewModel {
     
     private
     func saveModel(_ model: ProfileRealmModel) {
+        guard case .first = stateModel.viewType else {
+            return
+        }
         let result =  repository.add(model)
-        
         switch result {
         case .success:
             stateModel.successTrigger = true
@@ -206,8 +227,86 @@ extension UserInfoRegViewModel {
     }
     
     private
+    func modifyModel(_ model: ProfileRealmModel, url: String){
+        let result = reposiory.profileModify(
+            id: model.id,
+            name: stateModel.nameText,
+            introduce: stateModel.introduce,
+            phoneNumber: stateModel.phoneNumber,
+            userImageUrl: model.userImageUrl
+        )
+        switch result {
+        case .success:
+            stateModel.modifySuccess = true
+        case .failure(let error):
+            stateModel.currentError = .realmError(error)
+            stateModel.errorTrigger = true
+        }
+    }
+    
+    private
     func errorCaseProcessing(_ errorCase: ErrorType) {
         stateModel.currentError = errorCase
         stateModel.errorTrigger = true
+    }
+}
+
+extension UserInfoRegViewModel {
+    func ifModifyButtonTab() {
+        guard let user = stateModel.currentModel else {
+            return
+        }
+        
+        if case .success(let image) = imagePickerState {
+            let result = ImageFileManager.shared.saveImage(
+                image: image,
+                folderPath: .profile,
+                fileId: user.id
+            )
+            
+            switch result {
+            case .success(let url):
+                modifyModel(user, url: url.absoluteString)
+            case .failure(let error):
+                stateModel.currentError = .imageError(error)
+                stateModel.errorTrigger = true
+            }
+        } else if case .empty = imagePickerState {
+            modifyModel(user, url: "")
+        } else {
+            stateModel.currentError = .imageError(.cantLoadImage)
+            stateModel.errorTrigger = true
+        }
+    }
+}
+
+
+extension UserInfoRegViewModel {
+    func ifgetUserInfo() {
+        guard case .modify = stateModel.viewType else {
+            return
+        }
+        let result = reposiory.fetchAll(type: ProfileRealmModel.self )
+        
+        switch result {
+        case .success(let profileResult):
+            let array = Array(profileResult)
+            guard let user = array.first else {
+                stateModel.viewType = .first
+                return
+            }
+            stateModel.nameText = user.name
+            stateModel.phoneNumber = user.phoneNumber
+            stateModel.introduce = user.introduce
+            if let userImageUrl = URL(string: user.userImageUrl) {
+                imagePickerState = .localUrl(userImageUrl)
+            }
+            stateModel.userImageUrl = user.userImageUrl
+            
+            stateModel.currentModel = user
+        case .failure(let error):
+            stateModel.currentError = .realmError(error)
+            stateModel.errorTrigger = true
+        }
     }
 }
