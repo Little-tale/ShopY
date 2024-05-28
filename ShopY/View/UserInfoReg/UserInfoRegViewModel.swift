@@ -233,7 +233,7 @@ extension UserInfoRegViewModel {
             name: stateModel.nameText,
             introduce: stateModel.introduce,
             phoneNumber: stateModel.phoneNumber,
-            userImageUrl: model.userImageUrl
+            userImageUrl: url
         )
         switch result {
         case .success:
