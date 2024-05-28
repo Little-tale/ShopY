@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TabbedItems: Int, CaseIterable{
+enum TabbedItems: Int, CaseIterable {
     case home = 0
     case profile
     
@@ -32,40 +32,47 @@ enum TabbedItems: Int, CaseIterable{
 
 struct CustomTabbarView: View {
     
-    @State var selectedTab = 0
-    
+    @State private var selectedTab = 0
     @EnvironmentObject var navigationManager: RootViewModel
     
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
+    
     var body: some View {
-        
         ZStack(alignment: .bottom) {
+            
             TabView(selection: $selectedTab) {
                 SearchView()
-                    .tag(0)
+                    .tag(TabbedItems.home.rawValue)
                 
                 SettingView()
                     .environmentObject(navigationManager)
-                    .tag(1)
+                    .tag(TabbedItems.profile.rawValue)
             }
+            .ignoresSafeArea(edges: .bottom)
+            customTabBar
         }
-        ZStack{
-            HStack{
-                ForEach((TabbedItems.allCases), id: \.self){ item in
-                    Button{
-                        selectedTab = item.rawValue
-                    } label: {
-                        CustomTabItem(
-                            imageName: item.iconName,
-                            title: item.title,
-                            isActive: (selectedTab == item.rawValue)
-                        )
-                    }
+    }
+    
+    private var customTabBar: some View {
+        HStack {
+            ForEach(TabbedItems.allCases, id: \.self) { item in
+                Button(action: {
+                    selectedTab = item.rawValue
+                }) {
+                    CustomTabItem(
+                        imageName: item.iconName,
+                        title: item.title,
+                        isActive: (selectedTab == item.rawValue)
+                    )
                 }
+                .buttonStyle(PlainButtonStyle())
             }
-            .padding(6)
         }
+        .padding(6)
         .frame(height: 60)
-        .background(JHColor.likeColor.opacity(0.2))
+        .background(JHColor.likeColor.opacity(0.7))
         .modifier(cornerRadiusVersion(cornerRadius: 24))
         .padding(.horizontal, 26)
     }
@@ -73,26 +80,32 @@ struct CustomTabbarView: View {
 
 extension CustomTabbarView {
     
-    func CustomTabItem(imageName: String, title: String, isActive: Bool) -> some View{
-        HStack(spacing: 10){
-            Spacer()
-            Image(systemName: imageName)
-                .resizable()
-                .renderingMode(.template)
-                .foregroundColor(isActive ? .black : .gray)
-                .frame(width: 20, height: 20)
-            
-            if isActive {
-                Text(title)
-                    .font(.system(size: 14))
-                    .foregroundColor(isActive ? .black : .gray)
+    func CustomTabItem(
+        imageName: String,
+        title: String,
+        isActive: Bool
+    ) -> some View {
+        VStack {
+            HStack(spacing: 10) {
+                Spacer()
+                Image(systemName: imageName)
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(isActive ? JHColor.onlyWhite : JHColor.gray)
+                    .frame(width: 20, height: 20)
+                
+                if isActive {
+                    Text(title)
+                        .font(.system(size: 14))
+                        .foregroundColor(isActive ? JHColor.onlyWhite : JHColor.gray)
+                }
+                Spacer()
             }
-            Spacer()
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .background(isActive ? JHColor.likeColor.opacity(0.8) : .clear)
+            .modifier(cornerRadiusVersion(cornerRadius: 24))
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 50)
-        .background(isActive ? JHColor.likeColor.opacity(0.4) : .clear)
-        .modifier(cornerRadiusVersion(cornerRadius: 24))
     }
 }
 
@@ -102,14 +115,13 @@ struct cornerRadiusVersion: ViewModifier {
     
     func body(content: Content) -> some View {
         if #available(iOS 16, *) {
-            return content
+            content
                 .clipShape(
                     RoundedRectangle(cornerRadius: cornerRadius)
                 )
         } else {
-            return content
+            content
                 .cornerRadius(cornerRadius)
         }
     }
 }
-
