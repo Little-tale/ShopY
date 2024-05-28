@@ -12,19 +12,18 @@ struct splashView: View {
     @State
     var isNextBool = false
     
-    @State
-    var changeRoot = false
+    @EnvironmentObject var navigationManager: RootViewModel
     
     var body: some View {
-        if changeRoot{
-            TabbarView()
+
+        if #available(iOS 16, *){
+            iOS16View
+            
         } else {
-            if #available(iOS 16, *){
-                iOS16View
-            } else {
-                iOS15View
-            }
+            iOS15View
+            
         }
+        
     }
     
     init(){
@@ -44,7 +43,7 @@ extension splashView {
                 isPresented: $isNextBool
             ) {
                 UserInfoRegView(viewType: .first) {
-                    changeRoot = true
+                    navigationManager.send(action: .viewOnAppear)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -56,7 +55,7 @@ extension splashView {
             VStack {
                 contentView
                 NavigationLink(destination: UserInfoRegView(viewType: .first, ifNeedTrigger: {
-                    changeRoot = true
+                    navigationManager.send(action: .viewOnAppear)
                 }), isActive: $isNextBool) {
                     EmptyView()
                 }

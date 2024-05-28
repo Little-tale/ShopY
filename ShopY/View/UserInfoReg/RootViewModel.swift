@@ -72,6 +72,7 @@ extension RootViewModel {
         switch result {
         case .success(let model):
             let array = Array(model)
+            print("???",array)
             if array.isEmpty {
                 stateModel.currentRoot = .startView
             } else {

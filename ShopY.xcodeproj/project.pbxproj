@@ -29,6 +29,7 @@
 		7B3799122BFF681C002033A9 /* ShopItemsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799112BFF681C002033A9 /* ShopItemsRepository.swift */; };
 		7B3799152BFF6DBC002033A9 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799142BFF6DBC002033A9 /* Const.swift */; };
 		7B3799172BFF740A002033A9 /* NumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799162BFF740A002033A9 /* NumberManager.swift */; };
+		7B38745D2C05DF5F00C24827 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B38745C2C05DF5E00C24827 /* NavigationManager.swift */; };
 		7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */; };
 		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
 		7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */; };
@@ -112,6 +113,7 @@
 		7B3799112BFF681C002033A9 /* ShopItemsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemsRepository.swift; sourceTree = "<group>"; };
 		7B3799142BFF6DBC002033A9 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		7B3799162BFF740A002033A9 /* NumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberManager.swift; sourceTree = "<group>"; };
+		7B38745C2C05DF5E00C24827 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegView.swift; sourceTree = "<group>"; };
 		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
 		7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				7BC21A552BEE31D0003BE504 /* Modifier */,
 				7BC21A4D2BEDEBE7003BE504 /* SearchResult */,
 				7B5DFB7C2BFCBE710040086A /* RootView .swift */,
+				7B38745C2C05DF5E00C24827 /* NavigationManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
 				7B2E5BD82C011A570060847C /* SettingView.swift in Sources */,
 				7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */,
+				7B38745D2C05DF5F00C24827 /* NavigationManager.swift in Sources */,
 				7B0B83E72C04A75700E376D8 /* LikeViewModel.swift in Sources */,
 				7BC21A392BED1F3F003BE504 /* TargetType.swift in Sources */,
 				7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */,

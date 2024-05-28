@@ -15,6 +15,7 @@ final class SettingViewModel: MVIPatternType {
     enum SettingSeciton: Int, CaseIterable {
         case changedInfo
         case likeBasket
+        case logOut
         
         var title: String {
             return switch self {
@@ -22,6 +23,8 @@ final class SettingViewModel: MVIPatternType {
                 "정보 변경"
             case .likeBasket:
                 "찜 리스트"
+            case .logOut:
+                "계정 삭제"
             }
         }
     }
@@ -56,6 +59,7 @@ final class SettingViewModel: MVIPatternType {
         
         var moveToLikes: Bool = false
         var moveToModifyView = false
+        var moveToRootView = false
     }
     
     enum viewError: ErrorMessageType {
@@ -140,7 +144,7 @@ extension SettingViewModel {
             userProfileState: .empty,
             userId: model.id
         )
-        print("현 :", URL(string: model.userImageUrl))
+       
         if let url = URL(string: model.userImageUrl) {
             print("에이~ \(url)")
             profileModel.userProfileState = .localUrl(url)
@@ -235,6 +239,26 @@ extension SettingViewModel {
             stateModel.moveToModifyView = true
         case .likeBasket:
             stateModel.moveToLikes = true
+        case .logOut:
+            remove()
+        }
+    }
+}
+
+extension SettingViewModel {
+    private
+    func remove(){
+        let result = realmRepository.findIDAndRemove(
+            type: ProfileRealmModel.self,
+            id: stateModel.profileModel.userId
+        )
+        
+        switch result {
+        case .success:
+            stateModel.moveToRootView = true
+        case .failure(let failure):
+            stateModel.errorCase = .realmError(failure)
+            stateModel.ifError = true
         }
     }
 }

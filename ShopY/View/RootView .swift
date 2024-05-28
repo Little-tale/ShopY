@@ -12,6 +12,7 @@ struct RootView: View {
     @StateObject // iOS 14
     private var viewModel = RootViewModel()
     
+    
     var body: some View {
         Group { // iOS 12
             switch viewModel.stateModel.currentRoot {
@@ -19,8 +20,10 @@ struct RootView: View {
                 InterAppView
             case .startView:
                 splashView()
+                    .environmentObject(viewModel)
             case .tabbarView:
                 TabbarView()
+                    .environmentObject(viewModel)
             }
         }
         .alert("Error",  // iOS 15.0

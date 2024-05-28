@@ -16,6 +16,9 @@ struct SettingView: View {
     @StateObject
     private var viewModel = SettingViewModel()
     
+    @EnvironmentObject
+    var navigationManager: RootViewModel
+    
     var body: some View {
         Group {
             if #available(iOS 16, *){
@@ -32,7 +35,6 @@ struct SettingView: View {
                     }
             }
         }
-        
         .alert("Error",
                isPresented: $viewModel.stateModel.ifError
         ) {
@@ -40,16 +42,21 @@ struct SettingView: View {
         } message: {
             alertMessage()
         }
-         .fullScreenCover(isPresented: $imageTrigger) {
-             CustomPhotoPicker(
-                 isPresented: $imageTrigger,
-                 selelectedDataForPNG: { datas in
-                     viewModel.send(action: .imageChanged(datas))
-                 },
-                 selectedLimit: 1,
-                 filter: .images
-             )
-         }
+        .fullScreenCover(isPresented: $imageTrigger) {
+            CustomPhotoPicker(
+                isPresented: $imageTrigger,
+                selelectedDataForPNG: { datas in
+                    viewModel.send(action: .imageChanged(datas))
+                },
+                selectedLimit: 1,
+                filter: .images
+            )
+        }
+        .onChange(of: viewModel.stateModel.moveToRootView) {  newValue in
+            if newValue == true {
+                navigationManager.send(action: .ifUserInfoReg)
+            }
+        }
     }
    
     
