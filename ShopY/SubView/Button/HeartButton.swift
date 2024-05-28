@@ -14,6 +14,8 @@ struct HeartButton: View {
     
     let tag: Int?
     
+    let clear: Bool
+    
     let action: () -> Void
     
     var body: some View {
@@ -24,7 +26,7 @@ struct HeartButton: View {
             }
             .padding(.all, 8)
             .background(
-                .white
+                Color(clear ? .clear : .onlyWhite)
             )
             .clipShape(Circle(), style: FillStyle())
         }

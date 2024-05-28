@@ -24,9 +24,10 @@ struct ShopResultView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HeartButton(
-                    isSelected: $viewModel.stateModel.likeState, tag: nil) {
+                    isSelected: $viewModel.stateModel.likeState, tag: nil, clear: true) {
                         viewModel.send(.changedState)
                     }
+                    
             }
         }
         .onAppear{

@@ -266,9 +266,11 @@ extension SettingViewModel {
         let imageResult = ImageFileManager.shared.removeImage(folder: .profile, id: id)
         
         if case .failure(let failure) = imageResult {
-            stateModel.errorCase = .imageFileManagerError(failure)
-            stateModel.ifError = true
-            return
+            if failure != .imageNotFound {
+                stateModel.errorCase = .imageFileManagerError(failure)
+                stateModel.ifError = true
+                return
+            }
         }
         
         realmRepository.removeAllObject { [weak self] result in

@@ -23,6 +23,15 @@ struct SearchResultView: View {
     @State
     var likeState = true
     
+    init(searchText: String) {
+        self.searchText = searchText
+        
+        if #available(iOS 16, *) {
+            
+        } else {
+            UINavigationBar.appearance().tintColor = UIColor(JHColor.black)
+        }
+    }
     
     var body: some View {
         Group {
@@ -89,6 +98,7 @@ struct SearchResultView: View {
             )
         }
         .navigationTitle(searchText)
+        
     }
     
     

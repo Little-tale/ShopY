@@ -27,7 +27,7 @@ struct VirticalResultRowView: View {
                 ResultImageView(url: model.imageProcess)
                 HeartButton(
                     isSelected: $likeState,
-                    tag: model.currentTag) {
+                    tag: model.currentTag, clear: false) {
                         var before = model
                         before.likeState = !before.likeState
                         heartButtonTapped(before)
