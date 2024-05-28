@@ -240,25 +240,43 @@ extension SettingViewModel {
         case .likeBasket:
             stateModel.moveToLikes = true
         case .logOut:
-            remove()
+            removeAcount()
         }
     }
 }
 
 extension SettingViewModel {
     private
-    func remove(){
+    func removeAcount(){
+        UserDefaultManager.searchHistory = []
+        
+        let id = stateModel.profileModel.userId
+        
         let result = realmRepository.findIDAndRemove(
             type: ProfileRealmModel.self,
             id: stateModel.profileModel.userId
         )
         
-        switch result {
-        case .success:
-            stateModel.moveToRootView = true
-        case .failure(let failure):
+        if case .failure(let failure) = result {
             stateModel.errorCase = .realmError(failure)
             stateModel.ifError = true
+            return
+        }
+        
+        let imageResult = ImageFileManager.shared.removeImage(folder: .profile, id: id)
+        
+        if case .failure(let failure) = imageResult {
+            stateModel.errorCase = .imageFileManagerError(failure)
+            stateModel.ifError = true
+            return
+        }
+        
+        realmRepository.removeAllObject { [weak self] result in
+            guard let self else { return }
+            if case .failure(let failure) = result {
+                stateModel.errorCase = .realmError(failure)
+            }
+            stateModel.moveToRootView = true
         }
     }
 }

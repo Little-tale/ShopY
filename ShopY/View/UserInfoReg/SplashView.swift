@@ -15,15 +15,12 @@ struct splashView: View {
     @EnvironmentObject var navigationManager: RootViewModel
     
     var body: some View {
-
         if #available(iOS 16, *){
             iOS16View
             
         } else {
             iOS15View
-            
         }
-        
     }
     
     init(){
@@ -62,6 +59,7 @@ extension splashView {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(.stack)
     }
     
     

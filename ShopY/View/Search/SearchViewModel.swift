@@ -39,12 +39,11 @@ extension SearchViewModel {
     func send(action: Intent) {
         switch action{
         case .viewOnAppear:
-            
             stateModel.searchList = UserDefaultManager.searchHistory
-            
             findUserInfo()
             
         case .deleteButtonTap(let indexAt):
+            stateModel.searchList.remove(at: indexAt)
             UserDefaultManager.searchHistory.remove(at: indexAt)
             
         case .allDeleteButtonTap:
@@ -54,6 +53,7 @@ extension SearchViewModel {
         case .searchButtonTap:
             let searchText = stateModel.searchText
             UserDefaultManager.searchHistory.insert(searchText, at: 0)
+            
         case .currnetText(let searchText):
             stateModel.searchText = searchText
         }
@@ -76,7 +76,6 @@ extension SearchViewModel {
                 stateModel.navTitle = "검색해 보아요!"
             }
             
-           
         case .failure:
             stateModel.navTitle = "검색해 보아요!"
         }

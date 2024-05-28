@@ -11,6 +11,15 @@ import PhotosUI
 enum UserProfileType {
     case first
     case modify
+    
+    var navigationTitle: String {
+        switch self {
+        case .first:
+            return "등록하기"
+        case .modify:
+            return "수정하기"
+        }
+    }
 }
 
 struct UserInfoRegView: View {
@@ -37,12 +46,15 @@ struct UserInfoRegView: View {
     var body: some View {
         
         VStack {
-            Text("프로필을 등록해주세요")
+
+            Text(viewType == .first ? "프로필을 등록해 주세요" : "프로필 수정 하기")
                 .font(.title2)
                 .bold()
+                .padding(.top, 15)
             
             profileView
-                .padding(.vertical, 20)
+                .padding(.top, 10)
+                .padding(.bottom, 20)
             
             ProfileTextField(headLine: "NAME *", placeHolder: "이름을 입력해 주세요 (필수)",
                              text: Binding(
@@ -128,7 +140,7 @@ struct UserInfoRegView: View {
                     intent: .inputViewType(viewType)
                 )
             }
-        
+            .navigationTitle(viewModel.stateModel.viewType.navigationTitle)
     }
 }
 

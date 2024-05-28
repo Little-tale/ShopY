@@ -103,6 +103,19 @@ final class RealmRepository: RealmRepositoryType {
         }
     }
     
+    func removeAllObject(complite: @escaping (Result<Void, RealmError>) -> Void ) {
+        guard let realm else { complite(.failure(.cantLoadRealm)); return }
+        
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+            complite(.success(()))
+        } catch {
+            complite(.failure(.failRemove))
+        }
+    }
+    
     func findById<M>(type modelType: M.Type, id: M.ID) -> Result< M? , RealmError> where M: Object & RealmFindType {
         guard let realm else { return .failure(.cantLoadRealm) }
         

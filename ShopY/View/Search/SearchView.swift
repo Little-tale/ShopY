@@ -27,7 +27,7 @@ struct SearchView: View {
          
     }
     
-    @ViewBuilder @available(iOS 16, *)
+    @available(iOS 16, *)
     private var iOS16OverView: some View {
         NavigationStack {
             mainContent
@@ -45,7 +45,7 @@ struct SearchView: View {
         }
     }
     
-    @ViewBuilder
+    
     private var iOS15View: some View {
         NavigationView {
             mainContent
@@ -88,6 +88,9 @@ struct SearchView: View {
         .onSubmit(of: .search) {
             viewModel.send(action: .searchButtonTap)
             navigationIsPresented = true
+        }
+        .onAppear {
+            viewModel.stateModel.searchText = ""
         }
     }
     

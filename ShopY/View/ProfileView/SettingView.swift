@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+/*
+ 회고 View On Appear 작동 안하는 이유
+ 
+ */
 
 struct SettingView: View {
-    @State private var trigger = false
     
     @State
     var imageTrigger = false
