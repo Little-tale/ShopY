@@ -11,9 +11,12 @@
  */
 import SwiftUI
 
+
 struct TabbarView: View {
     
     @EnvironmentObject var navigationManager: RootViewModel
+    
+    
     
     var body: some View {
         TabView {
@@ -28,7 +31,6 @@ struct TabbarView: View {
                     Image(systemName: "person")
                     Text("MY")
                 }
-                
         }
     }
     

@@ -22,7 +22,7 @@ struct RootView: View {
                 splashView()
                     .environmentObject(viewModel)
             case .tabbarView:
-                TabbarView()
+                CustomTabbarView()
                     .environmentObject(viewModel)
             }
         }
