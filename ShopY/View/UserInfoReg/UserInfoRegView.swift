@@ -27,6 +27,8 @@ struct UserInfoRegView: View {
     // Dismiss
     @Environment(\.dismiss) private var dismiss
     
+    @FocusState private var isFocosed: Bool
+    
     @State
     var selectedImage: [UIImage] = []
     @State
@@ -44,104 +46,112 @@ struct UserInfoRegView: View {
     var ifNeedTrigger: (() -> Void)?
     
     var body: some View {
-        
-        VStack {
+        ZStack {
+            VStack {
 
-            Text(viewType == .first ? Const.AppText.profileRegMent : Const.AppText.profileModifyMent)
-                .font(.title2)
-                .bold()
-                .padding(.top, 15)
-            
-            profileView
-                .padding(.top, 10)
-                .padding(.bottom, 20)
-            
-            ProfileTextField(headLine: Const.AppText.profileHead, placeHolder: Const.AppText.nameInfoMent,
-                             text: Binding(
-                                get: { viewModel.stateModel.nameText},
-                                set: { viewModel.handle(intent: .nameText($0))}
-                             ),
-                             state: viewModel.stateModel.nameTextValid
-            )
-            .padding(.horizontal, 40)
-            
-            HStack{
-                Spacer()
-                Text(viewModel.stateModel.nameTextValid ? " " : Const.AppText.nameUnValid)
-                    .modifier(WarningTextViewModifier())
-            }
-            .padding(.trailing, 40)
-            
-            ProfileTextField(headLine: Const.AppText.introduceHead, placeHolder: Const.AppText.introduceMent, text: Binding(
-                get: { viewModel.stateModel.introduce},
-                set: { viewModel.handle(intent: .introduce($0))}),
-                             state: nil
-            )
-            .padding(.horizontal, 40)
-            .padding(.bottom, 15)
-            
-            ProfileTextField(headLine: Const.AppText.phoneNumberHead, placeHolder: Const.AppText.phoneNumberInfoMent,
-                             text: Binding(
-                                get: { viewModel.stateModel.phoneNumber},
-                                set: { viewModel.handle(intent: .phoneNumber($0))}
-                             ),
-                             state: viewModel.stateModel.phoneNumberValid
-            )
-            .keyboardType(.numberPad)
-            .padding(.horizontal, 40)
-            
-            
-            HStack{
-                Spacer()
-                Text(viewModel.stateModel.phoneNumberValid ? " " : Const.AppText.PhoneNumberUnValid)
-                    .modifier(WarningTextViewModifier())
-            }
-            .padding(.trailing, 40)
-            
-            Text(Const.AppText.saveMent)
-                .font(.headline)
-                .bold()
-                .frame(width: 200, height: 15)
-                .asButton {
-                    viewModel.handle(intent: .saveButtonTap(()))
-                }
-                .buttonStyle(SaveButtonStyle(
-                    buttonState: viewModel.stateModel.saveButtonEnabled
-                ))
-                .disabled(!viewModel.stateModel.saveButtonEnabled)
-                .padding(.vertical, 30)
-            
-            Spacer()
-        }
-        .alert(
-            "Error",
-            isPresented: $viewModel.stateModel.errorTrigger) {
-                Text("")
-            } message: {
-                Text(viewModel.stateModel.currentError?.message ?? "ERROR")
-            }
-            .alert(Const.AppText.regSuccess, isPresented: $viewModel.stateModel.successTrigger) {
-                Button(action: {
-                    ifNeedTrigger?()
-                }, label: {
-                    Text(Const.AppText.checkMent)
-                })
-            }
-            .alert(Const.AppText.modifySuccess, isPresented: $viewModel.stateModel.modifySuccess) {
-                Button {
-                    dismiss()
-                    ifNeedTrigger?()
-                } label: {
-                    Text(Const.AppText.checkMent)
-                }
-            }
-            .onAppear {
-                viewModel.handle(
-                    intent: .inputViewType(viewType)
+                Text(viewType == .first ? Const.AppText.profileRegMent : Const.AppText.profileModifyMent)
+                    .font(.title2)
+                    .bold()
+                    .padding(.top, 15)
+                
+                profileView
+                    .padding(.top, 10)
+                    .padding(.bottom, 20)
+                
+                ProfileTextField(headLine: Const.AppText.profileHead, placeHolder: Const.AppText.nameInfoMent,
+                                 text: Binding(
+                                    get: { viewModel.stateModel.nameText},
+                                    set: { viewModel.handle(intent: .nameText($0))}
+                                 ),
+                                 state: viewModel.stateModel.nameTextValid
                 )
+                .padding(.horizontal, 40)
+                .focused($isFocosed)
+                
+                HStack{
+                    Spacer()
+                    Text(viewModel.stateModel.nameTextValid ? " " : Const.AppText.nameUnValid)
+                        .modifier(WarningTextViewModifier())
+                }
+                .padding(.trailing, 40)
+                
+                ProfileTextField(headLine: Const.AppText.introduceHead, placeHolder: Const.AppText.introduceMent, text: Binding(
+                    get: { viewModel.stateModel.introduce},
+                    set: { viewModel.handle(intent: .introduce($0))}),
+                                 state: nil
+                )
+                .padding(.horizontal, 40)
+                .padding(.bottom, 15)
+                .focused($isFocosed)
+                
+                ProfileTextField(headLine: Const.AppText.phoneNumberHead, placeHolder: Const.AppText.phoneNumberInfoMent,
+                                 text: Binding(
+                                    get: { viewModel.stateModel.phoneNumber},
+                                    set: { viewModel.handle(intent: .phoneNumber($0))}
+                                 ),
+                                 state: viewModel.stateModel.phoneNumberValid
+                )
+                .keyboardType(.numberPad)
+                .padding(.horizontal, 40)
+                .focused($isFocosed)
+                
+                HStack{
+                    Spacer()
+                    Text(viewModel.stateModel.phoneNumberValid ? " " : Const.AppText.PhoneNumberUnValid)
+                        .modifier(WarningTextViewModifier())
+                }
+                .padding(.trailing, 40)
+                
+                Text(Const.AppText.saveMent)
+                    .font(.headline)
+                    .bold()
+                    .frame(width: 200, height: 15)
+                    .asButton {
+                        viewModel.handle(intent: .saveButtonTap(()))
+                    }
+                    .buttonStyle(SaveButtonStyle(
+                        buttonState: viewModel.stateModel.saveButtonEnabled
+                    ))
+                    .disabled(!viewModel.stateModel.saveButtonEnabled)
+                    .padding(.vertical, 30)
+                
+                Spacer()
             }
-            .navigationTitle(viewModel.stateModel.viewType.navigationTitle)
+            .alert(
+                "Error",
+                isPresented: $viewModel.stateModel.errorTrigger) {
+                    Text("")
+                } message: {
+                    Text(viewModel.stateModel.currentError?.message ?? "ERROR")
+                }
+                .alert(Const.AppText.regSuccess, isPresented: $viewModel.stateModel.successTrigger) {
+                    Button(action: {
+                        ifNeedTrigger?()
+                    }, label: {
+                        Text(Const.AppText.checkMent)
+                    })
+                }
+                .alert(Const.AppText.modifySuccess, isPresented: $viewModel.stateModel.modifySuccess) {
+                    Button {
+                        dismiss()
+                        ifNeedTrigger?()
+                    } label: {
+                        Text(Const.AppText.checkMent)
+                    }
+                }
+                .onAppear {
+                    viewModel.handle(
+                        intent: .inputViewType(viewType)
+                    )
+                }
+                .navigationTitle(viewModel.stateModel.viewType.navigationTitle)
+        }
+        .background(JHColor.white)
+        .onTapGesture {
+            isFocosed = false
+        }
     }
+        
 }
 
 
