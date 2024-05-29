@@ -25,6 +25,7 @@ final class LikeViewModel: MVIPatternType {
     enum Intent {
         case onAppear
         case likeStateChange(ShopEntityModel, Int)
+        case removeAt(Int)
         case onTapModel(ShopEntityModel, Int)
     }
     
@@ -51,11 +52,23 @@ extension LikeViewModel {
         switch action {
         case .onAppear:
             startModel()
+            
         case .likeStateChange(let model, let at):
-            break
+            
+            stateModel.currentLikes[at] = model
+        
+            let result = shopItemsRepository.likeRegOrDel(model)
+            
+            if case .failure(let failure) = result {
+                stateModel.error = .realm(failure)
+                stateModel.ifError = true
+            }
+            
         case .onTapModel(let model, let at):
             stateModel.moveModel = (model, at)
             stateModel.moveToWebView.toggle()
+        case .removeAt(let at):
+            stateModel.currentLikes.remove(at: at)
         }
     }
 }

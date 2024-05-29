@@ -167,7 +167,7 @@ extension UserInfoRegView {
                 )
             }
             .onChange(of: selectedImage) { newValue in
-                print(newValue)
+                print("선택된 이미지",newValue)
             }
     }
 }

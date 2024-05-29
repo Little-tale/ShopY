@@ -64,6 +64,5 @@ extension ShopResultViewModel {
        
         stateModel.likeState = model.likeState
         stateModel.currentModel = model
-        print("바껴야만 \(stateModel.likeState)")
     }
 }

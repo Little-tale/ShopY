@@ -222,7 +222,7 @@ struct HeaderView: View{
                 Text(sort.name)
                     .asButton {
                         //sortClosure(sort)
-                        print("이게눌림",sort.name)
+                        print("현재 정렬: ",sort.name)
                         inputSort = sort
                     }
                     .buttonStyle(

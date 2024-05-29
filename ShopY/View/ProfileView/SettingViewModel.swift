@@ -145,7 +145,7 @@ extension SettingViewModel {
         )
        
         if let url = URL(string: model.userImageUrl) {
-            print("에이~ \(url)")
+            print("Request URL \(url)")
             profileModel.userProfileState = .loading
             stateModel.profileModel = profileModel
             profileModel.userProfileState = .localUrl(url, UUID())

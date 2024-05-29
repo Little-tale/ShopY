@@ -27,8 +27,7 @@ struct LikesView: View {
                             ShopResultView(
                                 model: model.0
                             ) { changed in
-                                viewModel.send(.likeStateChange(changed, model.1)
-                                )
+                                viewModel.send(.onAppear)
                             }
                         }
                     }
@@ -39,8 +38,7 @@ struct LikesView: View {
                         ShopResultView(
                             model: model.0
                         ) { changed in
-                            viewModel.send(.likeStateChange(changed, model.1)
-                            )
+                            viewModel.send(.onAppear)
                         }
                     }
                 } label: {
@@ -72,10 +70,12 @@ extension LikesView {
                     VirticalResultRowView(
                         model: .constant(model)
                     ) { item in // heartButtonTapped
+                        
                         viewModel.send(.likeStateChange(item, index))
                     }
                     .padding(.horizontal, 10)
                     .onTapGesture {
+                        
                         viewModel.send(.onTapModel(model, index))
                     }
                 }

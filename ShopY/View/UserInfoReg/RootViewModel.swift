@@ -65,9 +65,10 @@ extension RootViewModel {
         case .ifUserInfoReg:
             transFormToViewOnApear()
         case .hideTabbar:
-            print("와이")
+            print("Tabbar Hidden Acting")
             stateModel.tabbarisHidden = true
         case .showTabbar:
+            print("Tabbar Show Acting")
             stateModel.tabbarisHidden = false
         }
     }
@@ -80,7 +81,7 @@ extension RootViewModel {
         switch result {
         case .success(let model):
             let array = Array(model)
-            print("???",array)
+            
             if array.isEmpty {
                 stateModel.currentRoot = .startView
             } else {

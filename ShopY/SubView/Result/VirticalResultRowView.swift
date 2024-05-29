@@ -50,7 +50,7 @@ struct VirticalResultRowView: View {
         
         .onAppear {
             likeState = model.likeState
-            print("토글전",model.likeState)
+            print("토글 상태",model.likeState)
         }
         
     }

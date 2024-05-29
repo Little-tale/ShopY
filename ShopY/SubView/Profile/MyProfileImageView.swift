@@ -58,13 +58,13 @@ struct MyProfileImageView: View {
 extension MyProfileImageView {
     func urlMode(url: URL) -> some View {
         let image: UIImage?
-        print("현 2: ",url)
+        
         if #available(iOS 16, *) {
-            print("++",url.path())
-            
             image = UIImage(contentsOfFile: url.path())
+            
         } else {
             image = UIImage(contentsOfFile: url.path)
+            
         }
         
         guard let image else {

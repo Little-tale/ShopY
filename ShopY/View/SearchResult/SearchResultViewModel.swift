@@ -81,7 +81,7 @@ extension SearchResultViewModel {
             moveToWebView(model, number: number)
             
         case .likeOnlyChanged(let model, let index):
-            print("바껴야만 했음 \(model.likeState)")
+            
             var models = stateModel.drawRowViewModel
             models[index] = model
             stateModel.drawRowViewModel = models

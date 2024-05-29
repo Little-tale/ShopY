@@ -26,9 +26,7 @@ extension NetworkManager {
                     guard case .success(let success) = urlRequest else {
                         return promiss(.failure(NetworkError.failRequest))
                     }
-                    
-                    print("@ \(success)")
-                    
+                         
                     let (data, response) = try await URLSession.shared.data(for: success)
                     
                     guard let response = response as? HTTPURLResponse else {
@@ -43,9 +41,11 @@ extension NetworkManager {
                         let decoding = try JSONDecoder().decode(T.self, from: data)
                         promiss(.success(decoding))
                     } catch {
+                        print( "errorDecoding Error ")
                         promiss(.failure(.errorDecoding))
                     }
                 } catch {
+                    print( "unknownError Error ")
                     promiss(.failure(.unknownError))
                 }
             }

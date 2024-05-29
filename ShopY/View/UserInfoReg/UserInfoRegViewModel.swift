@@ -271,7 +271,7 @@ extension UserInfoRegViewModel {
             
             switch result {
             case .success(let url):
-                print("왜죠: \(url)")
+                
                 modifyModel(user, url: url.absoluteString)
             case .failure(let error):
                 stateModel.currentError = .imageError(error)
@@ -305,7 +305,7 @@ extension UserInfoRegViewModel {
             stateModel.phoneNumber = user.phoneNumber
             stateModel.introduce = user.introduce
             if let userImageUrl = URL(string: user.userImageUrl) {
-                print("왜죠: \(userImageUrl)")
+                
                 imagePickerState = .localUrl(userImageUrl, UUID())
             }
             stateModel.userImageUrl = user.userImageUrl

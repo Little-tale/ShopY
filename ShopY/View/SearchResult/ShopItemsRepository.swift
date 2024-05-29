@@ -32,7 +32,7 @@ extension ShopItemsRepository {
             start: next,
             sort: sort.rawValue
         )
-        print(query)
+        
         return NetworkManager.fetchNetwork(
             model: ShopDTOModlel.self,
             router: .search(query: query)
@@ -42,7 +42,7 @@ extension ShopItemsRepository {
          }
          .receive(on: DispatchQueue.main)
          .compactMap{ [weak self] (total, models) in
-             var models = models.compactMap {
+             let models = models.compactMap {
                  self?.ifLikeModel(model: $0)
              }
              return (total: total, models: models)
