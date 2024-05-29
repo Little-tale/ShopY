@@ -31,7 +31,6 @@
 		7B3799172BFF740A002033A9 /* NumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3799162BFF740A002033A9 /* NumberManager.swift */; };
 		7B38745D2C05DF5F00C24827 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B38745C2C05DF5E00C24827 /* NavigationManager.swift */; };
 		7B38745F2C06046300C24827 /* CustomTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B38745E2C06046300C24827 /* CustomTabbarView.swift */; };
-		7B3874622C06323500C24827 /* TabBarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3874612C06323500C24827 /* TabBarAccessor.swift */; };
 		7B4F90752BEFABD500B191F2 /* UserInfoRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */; };
 		7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */; };
 		7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */; };
@@ -117,7 +116,6 @@
 		7B3799162BFF740A002033A9 /* NumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberManager.swift; sourceTree = "<group>"; };
 		7B38745C2C05DF5E00C24827 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		7B38745E2C06046300C24827 /* CustomTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarView.swift; sourceTree = "<group>"; };
-		7B3874612C06323500C24827 /* TabBarAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAccessor.swift; sourceTree = "<group>"; };
 		7B4F90742BEFABD500B191F2 /* UserInfoRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRegView.swift; sourceTree = "<group>"; };
 		7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashImageModifier.swift; sourceTree = "<group>"; };
 		7B4F907C2BEFC9FF00B191F2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 		7B3874602C06321600C24827 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				7B3874612C06323500C24827 /* TabBarAccessor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -697,7 +694,6 @@
 				7B3799092BFF5FDE002033A9 /* ShopEntityMapper.swift in Sources */,
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
-				7B3874622C06323500C24827 /* TabBarAccessor.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
 				7B2E5BD82C011A570060847C /* SettingView.swift in Sources */,
 				7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */,

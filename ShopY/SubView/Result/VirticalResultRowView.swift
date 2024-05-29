@@ -23,7 +23,7 @@ struct VirticalResultRowView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ZStack(alignment: .topTrailing, content: {
+            ZStack(alignment: .topTrailing) {
                 ResultImageView(url: model.imageProcess)
                 HeartButton(
                     isSelected: $likeState,
@@ -35,16 +35,19 @@ struct VirticalResultRowView: View {
                     }
                     .padding(.top, 2)
                     .padding(.trailing, 2)
-            })
+            }
             Text(model.mallName)
                 .font(.footnote)
             Text(model.title)
                 .lineLimit(2)
                 .font(.subheadline)
                 .padding(.bottom, 4)
-            Spacer()
+                .frame(height: 50)
+            
             Text(model.lprice)
+                .lineLimit(1)
         }
+        
         .onAppear {
             likeState = model.likeState
             print("토글전",model.likeState)
@@ -60,7 +63,6 @@ struct ResultImageView: View {
     var body: some View {
         DownSamplingImageView(url: url)
             .aspectRatio(1, contentMode: .fit)
-            .frame(width: UIScreen.main.bounds.width / 2 - 20, height: UIScreen.main.bounds.width / 2 - 20)
             .clipShape(.rect(cornerRadius: 12))
             .overlay {
                 RoundedRectangle(cornerRadius: 12)
