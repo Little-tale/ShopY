@@ -16,6 +16,9 @@ struct NaverShoppingApp: App {
         }
     }
     init(){
-        UINavigationBar.appearance().isTranslucent = false
+        let appearence = UINavigationBarAppearance()
+        appearence.configureWithOpaqueBackground()
+        appearence.backgroundColor = UIColor(JHColor.white)
+        UINavigationBar.appearance().standardAppearance = appearence
     }
 }

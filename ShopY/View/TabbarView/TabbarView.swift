@@ -16,8 +16,6 @@ struct TabbarView: View {
     
     @EnvironmentObject var navigationManager: RootViewModel
     
-    
-    
     var body: some View {
         TabView {
             SearchView()
