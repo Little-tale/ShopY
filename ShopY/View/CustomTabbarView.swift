@@ -40,9 +40,6 @@ struct CustomTabbarView: View {
     @State private var selectedTab = 0
     @EnvironmentObject var navigationManager: RootViewModel
     
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -59,14 +56,16 @@ struct CustomTabbarView: View {
                     .tag(TabbedItems.profile.rawValue)
             }
             .ignoresSafeArea(edges: .bottom)
+            
             if !navigationManager.stateModel.tabbarisHidden {
                 customTabBar
+                    .offset(y: 10)
             }
         }
     }
     
     private var customTabBar: some View {
-        HStack {
+        HStack(spacing: 0) {
             ForEach(TabbedItems.allCases, id: \.self) { item in
                 Button(action: {
                     selectedTab = item.rawValue
@@ -112,7 +111,7 @@ extension CustomTabbarView {
                 Spacer()
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 46)
             .background(isActive ? JHColor.likeColor.opacity(0.8) : .clear)
             .modifier(cornerRadiusVersion(cornerRadius: 24))
         }

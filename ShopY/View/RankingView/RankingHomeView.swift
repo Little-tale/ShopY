@@ -23,7 +23,6 @@ struct RankingHomeView: View {
         .onAppear {
             viewModel.send(action: .onAppear)
         }
-        
     }
 }
 
@@ -52,7 +51,7 @@ extension RankingHomeView {
     
     var contentView: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 ForEach(RankingViewModel.HomeCategorySection.allCases, id: \.self) { section in
                     RankingSectionView(
                         image: section.imageName,
@@ -61,9 +60,11 @@ extension RankingHomeView {
                     )
                 }
             }
-            .padding()
             .navigationTitle("실시간 랭킹")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            UITabBar.appearance().isHidden = false
         }
     }
 }
@@ -75,16 +76,17 @@ struct RankingSectionView: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            HStack(alignment: .center, content: {
+            HStack(alignment: .center, spacing: 0){
                 Image(image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40, height: 50)
-                    
+                    .padding(.leading, 8)
+                
                 Text(title)
                     .font(.system(size: 30,weight: .bold, design: .default))
                     .padding(.leading, 10)
-            })
+            }
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
@@ -102,10 +104,4 @@ struct RankingSectionView: View {
             }
         }
     }
-}
-
-
-
-#Preview {
-    RankingHomeView()
 }

@@ -27,6 +27,7 @@ struct SearchView: View {
          
     }
     
+    
     @available(iOS 16, *)
     private var iOS16OverView: some View {
         NavigationStack {
@@ -36,6 +37,7 @@ struct SearchView: View {
                 }
         }
         .onAppear {
+            UITabBar.appearance().isHidden = true
             viewModel.send(action: .viewOnAppear)
         }
         .onChange(of: navigationIsPresented) { newValue in

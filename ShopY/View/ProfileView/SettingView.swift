@@ -116,6 +116,7 @@ extension SettingView {
                 LikesView()
             }
             .onAppear {
+                UITabBar.appearance().isHidden = true
                 navigationManager.send(action: .showTabbar)
             }
             .onChange(of: viewModel.stateModel.moveToModifyView) { newValue in

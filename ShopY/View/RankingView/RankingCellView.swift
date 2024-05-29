@@ -61,9 +61,9 @@ extension RankingCellView {
                     .modifier(pointModifier(padding: 30))
             }
             .padding(.top, 10)
-            .modifier(ShadowModifier())
+            .frame(width: size.width)
             .foregroundStyle(JHColor.white)
-            
+            .modifier(ShadowModifier())
             // V
         } // Z
     }
