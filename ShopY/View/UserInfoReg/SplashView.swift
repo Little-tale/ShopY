@@ -76,11 +76,11 @@ extension splashView {
                 .padding(.vertical, 40)
         
             Text(Const.AppText.appName)
-                .font(.system(size: 40, weight: .bold, design: .default))
+                .font(JHFont.appNameFont)
             
             
             Text(Const.AppText.appIntroduce)
-                .font(.title3)
+                .font(JHFont.appIntroduceFont)
             
             Spacer()
             

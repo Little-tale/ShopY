@@ -257,6 +257,11 @@ extension UserInfoRegViewModel {
             return
         }
         
+        if case .localUrl(let url) = imagePickerState {
+            modifyModel(user, url: url.absoluteString)
+            return
+        }
+        
         if case .success(let image) = imagePickerState {
             let result = ImageFileManager.shared.saveImage(
                 image: image,
@@ -266,6 +271,7 @@ extension UserInfoRegViewModel {
             
             switch result {
             case .success(let url):
+                print("왜죠: \(url)")
                 modifyModel(user, url: url.absoluteString)
             case .failure(let error):
                 stateModel.currentError = .imageError(error)
@@ -299,6 +305,7 @@ extension UserInfoRegViewModel {
             stateModel.phoneNumber = user.phoneNumber
             stateModel.introduce = user.introduce
             if let userImageUrl = URL(string: user.userImageUrl) {
+                print("왜죠: \(userImageUrl)")
                 imagePickerState = .localUrl(userImageUrl)
             }
             stateModel.userImageUrl = user.userImageUrl

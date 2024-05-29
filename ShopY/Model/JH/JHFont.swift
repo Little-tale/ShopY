@@ -13,11 +13,7 @@ extension JHFont {
     
    
     static var startFont: Font {
-        if #available(iOS 16.0, *) {
-            return .system(.callout, design: .rounded, weight: .regular)
-        } else {
-            return .system(size: 16, weight: .regular, design: .rounded)
-        }
+        return .system(size: 19, weight: .regular, design: .rounded)
     }
     
     static var profileNameFont: Font {
@@ -36,5 +32,13 @@ extension JHFont {
         }
     }
     
+    
+    static var appNameFont: Font {
+        return .system(size: 60, weight: .bold, design: .default)
+    }
+    
+    static var appIntroduceFont: Font {
+        return .system(size: 20, weight: .medium, design: .default)
+    }
 }
 

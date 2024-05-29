@@ -27,6 +27,7 @@ struct WKWebRepresentView: UIViewRepresentable {
             print("init URL ISSUE: FOR MAKE updateUIView")
             return
         }
+        print("요청중")
         wkView.load(URLRequest(url: url))
     }
     

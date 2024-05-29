@@ -267,13 +267,6 @@
 			path = Const;
 			sourceTree = "<group>";
 		};
-		7B3874602C06321600C24827 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		7B4F90722BEFAB9A00B191F2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +390,6 @@
 		7BC21A072BECCBA5003BE504 /* NaverShopping */ = {
 			isa = PBXGroup;
 			children = (
-				7B3874602C06321600C24827 /* Helper */,
 				7B37990D2BFF646F002033A9 /* Extention */,
 				7BC21A442BED2BAB003BE504 /* Model */,
 				7BC21A3C2BED2072003BE504 /* Secret */,
