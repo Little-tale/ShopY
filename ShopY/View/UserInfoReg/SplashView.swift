@@ -69,16 +69,17 @@ extension splashView {
     private
     var contentView: some View {
         VStack(spacing: 10) {
-            Image(systemName: "star")
+            Image(Const.appLogo)
                 .resizable()
+                .modifier(cornerRadiusVersion(cornerRadius: 14))
                 .modifier(SplashImageModifier())
-                .padding(.top, 40)
-            
-            Text("Speedy S")
+                .padding(.vertical, 40)
+        
+            Text(Const.AppText.appName)
                 .font(.system(size: 40, weight: .bold, design: .default))
             
             
-            Text("심플 쇼핑앱")
+            Text(Const.AppText.appIntroduce)
                 .font(.title3)
             
             Spacer()

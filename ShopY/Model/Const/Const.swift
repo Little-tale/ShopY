@@ -14,5 +14,9 @@ enum Const {
         static let display = 30
         
     }
-    
+    enum AppText {
+        static let appName = "ShopY"
+        static let appIntroduce = "심플하게 쇼핑하자"
+    }
+    static let appLogo = "ShopyLogo"
 }
