@@ -13,7 +13,7 @@ struct ShopEntityMapper {
         
         let entity = ShopEntityModel(
             productId: dto.productId,
-            title: dto.title.rmHTMLBold,
+            title: dto.title.rmHTMLTag,
             link: shoppingURLProcess(
                 productID: dto.productId
             ),
