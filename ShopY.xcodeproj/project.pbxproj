@@ -58,6 +58,7 @@
 		7B90C1BE2C0728FA0031D28D /* RankingHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1BD2C0728FA0031D28D /* RankingHomeView.swift */; };
 		7B90C1C12C0738790031D28D /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C02C0738790031D28D /* RankingViewModel.swift */; };
 		7B90C1C32C0745B80031D28D /* RankingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C22C0745B80031D28D /* RankingCellView.swift */; };
+		7B90C1C52C07828B0031D28D /* InfiniteCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C42C07828B0031D28D /* InfiniteCarouselView.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -145,6 +146,7 @@
 		7B90C1BD2C0728FA0031D28D /* RankingHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHomeView.swift; sourceTree = "<group>"; };
 		7B90C1C02C0738790031D28D /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		7B90C1C22C0745B80031D28D /* RankingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCellView.swift; sourceTree = "<group>"; };
+		7B90C1C42C07828B0031D28D /* InfiniteCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteCarouselView.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				7B90C1BD2C0728FA0031D28D /* RankingHomeView.swift */,
 				7B90C1C02C0738790031D28D /* RankingViewModel.swift */,
 				7B90C1C22C0745B80031D28D /* RankingCellView.swift */,
+				7B90C1C42C07828B0031D28D /* InfiniteCarouselView.swift */,
 			);
 			path = RankingView;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				7BC21A462BED2BBA003BE504 /* ShopModel.swift in Sources */,
 				7BC21A192BECCBD8003BE504 /* HeartButton.swift in Sources */,
 				7B0B83DC2C0446CB00E376D8 /* WKWebRepresentView.swift in Sources */,
+				7B90C1C52C07828B0031D28D /* InfiniteCarouselView.swift in Sources */,
 				7BC21A302BECF928003BE504 /* NetworkError.swift in Sources */,
 				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,

@@ -19,6 +19,7 @@ final class RankingViewModel: MVIPatternType {
     var cancelable = Set<AnyCancellable> ()
     
     enum HomeCategorySection: String, CaseIterable {
+        
         // 검색 문자
         case shoes = "신발"
         case clothes = "옷"
@@ -29,13 +30,13 @@ final class RankingViewModel: MVIPatternType {
         var headerTitle: String {
              return switch self {
              case .shoes:
-                 "신발 랭킹 순위"
+                 "Shoes Rank"
              case .clothes:
-                 "옷 랭킹 순위"
+                 "Clothing Rank"
              case .electronicdevices:
-                 "전자 제품 순위"
+                 "Electronics Rank"
              case .office:
-                 "사무용품 순위"
+                 "Office Supplies"
              }
         }
         

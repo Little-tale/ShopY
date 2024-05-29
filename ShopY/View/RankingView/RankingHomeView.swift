@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RankingHomeView: View {
     
+    @State private var currentPage: String = ""
+    
+    
     @StateObject
     private var viewModel = RankingViewModel()
     
@@ -52,6 +55,7 @@ extension RankingHomeView {
     var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
+                
                 ForEach(RankingViewModel.HomeCategorySection.allCases, id: \.self) { section in
                     RankingSectionView(
                         image: section.imageName,
@@ -61,6 +65,17 @@ extension RankingHomeView {
                 }
             }
             .navigationTitle("실시간 랭킹")
+            .navigationBarItems(
+                leading: Text("ShopY")
+                    .font(.system(size: 25, weight: .black, design: .monospaced))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [JHColor.warningColor, JHColor.onlyDarkGray],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+            )
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
@@ -75,7 +90,7 @@ struct RankingSectionView: View {
     let items: [ShopEntityModel]
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack (alignment: .leading, spacing: 0) {
             HStack(alignment: .center, spacing: 0){
                 Image(image)
                     .resizable()
@@ -87,7 +102,7 @@ struct RankingSectionView: View {
                     .font(.system(size: 30,weight: .bold, design: .default))
                     .padding(.leading, 10)
             }
-            
+            .padding(.vertical, 3)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(Array(zip(items.indices, items)), id:\.1.productId) {

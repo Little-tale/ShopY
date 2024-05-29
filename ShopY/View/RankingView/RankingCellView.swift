@@ -58,7 +58,7 @@ extension RankingCellView {
                     .fontWeight(.medium)
                     .lineLimit(1)
                 Text(model.mallName)
-                    .modifier(pointModifier(padding: 30))
+                    .modifier(pointModifier(padding: 30, max: size.width))
             }
             .padding(.top, 10)
             .frame(width: size.width)
@@ -92,6 +92,7 @@ extension RankingCellView {
     struct pointModifier: ViewModifier {
         
         let padding: CGFloat
+        let max: CGFloat
         
         func body(content: Content) -> some View {
             content
@@ -103,6 +104,7 @@ extension RankingCellView {
                 .lineLimit(1)
                 .font(.system(size: 12, weight: .bold, design: .rounded))
                 .minimumScaleFactor(0.1)
+                .frame(maxWidth: max)
                 .fixedSize(horizontal: true, vertical: false)
         }
     }
