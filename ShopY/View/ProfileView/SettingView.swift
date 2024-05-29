@@ -96,12 +96,13 @@ extension SettingView {
                     }
                     .tint(JHColor.black)
                 }
-                .navigationDestination(isPresented: $viewModel.stateModel.moveToModifyView) {
-                    UserInfoRegView(
-                        viewType: .modify) {
-                            viewModel.send(action: .viewOnAppear)
-                        }
-                }
+                
+            }
+            .navigationDestination(isPresented: $viewModel.stateModel.moveToModifyView) {
+                UserInfoRegView(
+                    viewType: .modify) {
+                        viewModel.send(action: .viewOnAppear)
+                    }
             }
             .scrollContentBackground(.hidden)
             .scrollDisabled(true)
