@@ -114,7 +114,14 @@ extension SettingView {
             .navigationDestination(isPresented: $viewModel.stateModel.moveToLikes) {
                 LikesView()
             }
-            
+            .onAppear {
+                navigationManager.send(action: .showTabbar)
+            }
+            .onChange(of: viewModel.stateModel.moveToModifyView) { newValue in
+                if newValue {
+                    navigationManager.send(action: .hideTabbar)
+                }
+            }
         }
     }
     

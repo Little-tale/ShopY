@@ -22,12 +22,15 @@ final class RootViewModel: MVIPatternType{
     enum Intent {
         case viewOnAppear
         case ifUserInfoReg
+        case hideTabbar
+        case showTabbar
     }
     
     struct StateModel {
         var currentRoot: Roots = .splash
         var error = errorTypes.noneError
         var alertTrigger = false
+        var tabbarisHidden = false
     }
     
     enum Roots {
@@ -61,6 +64,11 @@ extension RootViewModel {
             transFormToViewOnApear()
         case .ifUserInfoReg:
             transFormToViewOnApear()
+        case .hideTabbar:
+            print("와이")
+            stateModel.tabbarisHidden = true
+        case .showTabbar:
+            stateModel.tabbarisHidden = false
         }
     }
 }

@@ -51,7 +51,12 @@ struct CustomTabbarView: View {
                     .tag(TabbedItems.profile.rawValue)
             }
             .ignoresSafeArea(edges: .bottom)
-            customTabBar
+            .onChange(of: navigationManager.stateModel.tabbarisHidden) { newValue in
+                print("와이",newValue)
+            }
+            if !navigationManager.stateModel.tabbarisHidden {
+                customTabBar
+            }
         }
     }
     
