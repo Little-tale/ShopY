@@ -111,7 +111,7 @@ struct StartButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundStyle(JHColor.white)
+            .foregroundStyle(JHColor.onlyWhite)
             .padding(.vertical, 7)
             .padding(.horizontal, 10)
             .background(
