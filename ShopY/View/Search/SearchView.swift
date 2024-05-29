@@ -120,6 +120,7 @@ struct SearchView: View {
                     viewModel.send(action: .deleteButtonTap(index))
                 }, tag: index)
             }
+            .tint(JHColor.black)
         }
         .listStyle(.plain)
     }
