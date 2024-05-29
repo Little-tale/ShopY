@@ -29,7 +29,18 @@ struct RankingCellView: View {
                 .offset(y: 20)
             contentView
             .frame(width: size.width, height: size.height)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(JHColor.white)
+                    .shadow(
+                        color: JHColor.darkGray.opacity(0.5),
+                        radius: 5,
+                        x: 0,
+                        y: 0
+                    )
+            )
         }
+        
         
     }
 }
@@ -39,6 +50,7 @@ extension RankingCellView {
     var contentView: some View {
         ZStack (alignment: .bottom) {
             DownSamplingImageView(url: URL(string: model.image), size: size)
+                .background(JHColor.white)
             
             VStack(spacing: 0) {
                 Text(model.title)

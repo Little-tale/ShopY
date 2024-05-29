@@ -38,6 +38,19 @@ final class RankingViewModel: MVIPatternType {
                  "사무용품 순위"
              }
         }
+        
+        var imageName: String {
+            return switch self {
+            case .shoes:
+                "Shose"
+            case .clothes:
+                "Shirts"
+            case .electronicdevices:
+                "Elec"
+            case .office:
+                "Items"
+            }
+        }
     }
     
     
