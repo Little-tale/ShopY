@@ -32,6 +32,11 @@ struct RootView: View {
             Text(viewModel.stateModel.error.message)
         }
     }
+    
+    init(){
+        navigationStyle()
+        navigationButtonStyle()
+    }
 }
 
 extension RootView {

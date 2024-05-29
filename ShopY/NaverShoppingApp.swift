@@ -13,12 +13,8 @@ struct NaverShoppingApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                
         }
     }
-    init(){
-        let appearence = UINavigationBarAppearance()
-        appearence.configureWithOpaqueBackground()
-        appearence.backgroundColor = UIColor(JHColor.white)
-        UINavigationBar.appearance().standardAppearance = appearence
-    }
+    
 }
