@@ -11,13 +11,14 @@ import Kingfisher
 struct DownSamplingImageView: View {
     
     let url: URL?
+    let size: CGSize
     
     var body: some View {
         KFImage(url)
             .resizable()
             .setProcessor(
                 DownsamplingImageProcessor(
-                    size: CGSize(width: 150, height: 150)
+                    size: size
                 )
             )
             .cacheOriginalImage()

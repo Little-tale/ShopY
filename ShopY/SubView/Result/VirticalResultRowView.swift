@@ -61,7 +61,7 @@ struct ResultImageView: View {
     let url: URL?
     
     var body: some View {
-        DownSamplingImageView(url: url)
+        DownSamplingImageView(url: url, size: CGSize(width: 150, height: 150))
             .aspectRatio(1, contentMode: .fit)
             .clipShape(.rect(cornerRadius: 12))
             .overlay {

@@ -9,11 +9,14 @@ import SwiftUI
 
 enum TabbedItems: Int, CaseIterable {
     case home = 0
+    case search
     case profile
     
     var title: String {
         switch self {
         case .home:
+            return "홈"
+        case .search:
             return "검색"
         case .profile:
             return "프로필"
@@ -23,6 +26,8 @@ enum TabbedItems: Int, CaseIterable {
     var iconName: String {
         switch self {
         case .home:
+            return "house"
+        case .search:
             return "magnifyingglass"
         case .profile:
             return "person"
@@ -43,8 +48,11 @@ struct CustomTabbarView: View {
         ZStack(alignment: .bottom) {
             
             TabView(selection: $selectedTab) {
-                SearchView()
+                RankingHomeView()
                     .tag(TabbedItems.home.rawValue)
+                
+                SearchView()
+                    .tag(TabbedItems.search.rawValue)
                 
                 SettingView()
                     .environmentObject(navigationManager)
