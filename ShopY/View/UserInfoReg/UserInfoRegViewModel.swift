@@ -257,7 +257,7 @@ extension UserInfoRegViewModel {
             return
         }
         
-        if case .localUrl(let url) = imagePickerState {
+        if case .localUrl(let url, let uuid) = imagePickerState {
             modifyModel(user, url: url.absoluteString)
             return
         }
@@ -306,7 +306,7 @@ extension UserInfoRegViewModel {
             stateModel.introduce = user.introduce
             if let userImageUrl = URL(string: user.userImageUrl) {
                 print("왜죠: \(userImageUrl)")
-                imagePickerState = .localUrl(userImageUrl)
+                imagePickerState = .localUrl(userImageUrl, UUID())
             }
             stateModel.userImageUrl = user.userImageUrl
             

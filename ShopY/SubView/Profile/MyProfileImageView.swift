@@ -13,7 +13,7 @@ enum ImagePickState {
     case empty
     case loading
     case success(UIImage)
-    case localUrl(URL)
+    case localUrl(URL, UUID)
     case failure(Error)
 }
 
@@ -38,7 +38,7 @@ struct MyProfileImageView: View {
             case .success(let image):
                 Image(uiImage: image)
                 .resizable()
-            case .localUrl(let url):
+            case .localUrl(let url, let uuid):
                 urlMode(url: url)
                     .foregroundStyle(.white)
             case .failure:

@@ -116,8 +116,8 @@ extension SettingViewModel {
                 stateModel.ifError = true
                 return
             }
-            let profileModel = makeProfileModel(model: model)
-            stateModel.profileModel = profileModel
+            makeProfileModel(model: model)
+            
             
         case .failure(let error):
             stateModel.errorCase = .realmError(error)
@@ -130,8 +130,7 @@ extension SettingViewModel {
     
     private func makeProfileModel(
         model: ProfileRealmModel
-    ) -> ProfileModel
-    {
+    ) {
         var phoneNumber = model.phoneNumber
         
         if phoneNumber == "" {
@@ -147,10 +146,13 @@ extension SettingViewModel {
        
         if let url = URL(string: model.userImageUrl) {
             print("에이~ \(url)")
-            profileModel.userProfileState = .localUrl(url)
+            profileModel.userProfileState = .loading
+            stateModel.profileModel = profileModel
+            profileModel.userProfileState = .localUrl(url, UUID())
+            stateModel.profileModel = profileModel
         }
         
-        return profileModel
+        stateModel.profileModel = profileModel
     }
     
     private func dataChanged(datas: [Data]) {
@@ -192,7 +194,7 @@ extension SettingViewModel {
                 return false
             }
             
-            stateModel.profileModel.userProfileState = .localUrl(url)
+            stateModel.profileModel.userProfileState = .localUrl(url, UUID())
             return true
         case .failure(let error):
             print("Error : \(error.message)")
