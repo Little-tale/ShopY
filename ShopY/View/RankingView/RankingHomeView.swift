@@ -26,9 +26,7 @@ struct RankingHomeView: View {
                 ios15
             }
         }
-        .onAppear {
-            viewModel.send(action: .onAppear)
-        }
+        
     }
 }
 
@@ -39,7 +37,6 @@ extension RankingHomeView {
         return NavigationStack {
             contentView
         }
-        
     }
 }
 extension RankingHomeView {
@@ -70,8 +67,7 @@ extension RankingHomeView {
                     RankingSectionView(
                         image: section.imageName,
                         title: section.headerTitle,
-                        items: viewModel.stateModel.items[section] ?? []
-                    )
+                        items: viewModel.stateModel.items[section] ?? [])
                 }
             }
             .navigationTitle("실시간 랭킹")
@@ -90,6 +86,7 @@ extension RankingHomeView {
         }
         .onAppear {
             UITabBar.appearance().isHidden = false
+            viewModel.send(action: .onAppear)
         }
     }
 }
@@ -144,13 +141,20 @@ struct RankingSectionView: View {
                 LazyHStack {
                     ForEach(Array(zip(items.indices, items)), id:\.1.productId) {
                         index, item in
-                        RankingCellView(
-                            ranking: (
-                                index + 1
-                            ),
-                            model: item
-                        )
+                        NavigationLink {
+                            ShopResultView(
+                                model: item
+                            )
+                        } label: {
+                            RankingCellView(
+                                ranking: (
+                                    index + 1
+                                ),
+                                model: item
+                            )
+                        }
                     }
+                    .foregroundStyle(.primary)
                 }
                 
             }

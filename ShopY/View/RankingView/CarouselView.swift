@@ -42,12 +42,17 @@ struct CarouselView: View {
             GeometryReader { geo in
                 TabView(selection: $currentIndex) {
                     ForEach(0..<items.count, id: \.self) { index in
-                        CaraouselItemView(item: items[index])
-                            .frame(
-                                width: geo.size.width,
-                                height: geo.size.height
-                            )
-                            .tag(index)
+                        NavigationLink {
+                            ShopResultView(model: items[index])
+                        } label: {
+                            CaraouselItemView(item: items[index])
+                                .frame(
+                                    width: geo.size.width,
+                                    height: geo.size.height
+                                )
+                                .tag(index)
+                        }
+                        .foregroundStyle(.primary)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
