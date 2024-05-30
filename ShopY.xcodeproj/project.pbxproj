@@ -44,7 +44,6 @@
 		7B52E5632BF4E93300977EC7 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */; };
 		7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB7C2BFCBE710040086A /* RootView .swift */; };
 		7B5DFB852BFCF3BB0040086A /* JHFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB842BFCF3BB0040086A /* JHFont.swift */; };
-		7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */; };
 		7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB892BFCFFDF0040086A /* TabbarView.swift */; };
 		7B5DFB8C2BFD03120040086A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB8B2BFD03120040086A /* SplashView.swift */; };
 		7B5DFB8F2BFD06DE0040086A /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DFB8E2BFD06DE0040086A /* NavigationManager.swift */; };
@@ -133,7 +132,6 @@
 		7B52E5622BF4E93300977EC7 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		7B5DFB7C2BFCBE710040086A /* RootView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView .swift"; sourceTree = "<group>"; };
 		7B5DFB842BFCF3BB0040086A /* JHFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHFont.swift; sourceTree = "<group>"; };
-		7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootManager.swift; sourceTree = "<group>"; };
 		7B5DFB892BFCFFDF0040086A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		7B5DFB8B2BFD03120040086A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7B5DFB8E2BFD06DE0040086A /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
@@ -505,7 +503,6 @@
 				7B2D776B2BF3BB7D00D51F49 /* RealmFolder */,
 				7BC21A5B2BEE6903003BE504 /* UserDefault */,
 				7BC21A282BECF0B5003BE504 /* Network */,
-				7B5DFB862BFCFE4F0040086A /* AppRootManager.swift */,
 				7B3799162BFF740A002033A9 /* NumberManager.swift */,
 			);
 			path = Manager;
@@ -723,7 +720,6 @@
 				7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */,
 				7B4F907D2BEFC9FF00B191F2 /* UserProfileImageView.swift in Sources */,
 				7B2D776F2BF3BCBA00D51F49 /* RealmError.swift in Sources */,
-				7B5DFB872BFCFE4F0040086A /* AppRootManager.swift in Sources */,
 				7B2E5BD72C011A570060847C /* SettingViewModel.swift in Sources */,
 				7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */,
 				7B5DFB7D2BFCBE710040086A /* RootView .swift in Sources */,
