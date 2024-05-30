@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum UserDefaultCase {
+    case none
+    case recentry
+}
+
 @propertyWrapper
 struct UserDefaultCodableWrapper<T: Codable> {
     
@@ -39,6 +44,8 @@ struct UserDefaultWrapper<T> {
     let key: String
     let placeValue: T
     
+    let ofCase: UserDefaultCase
+    
     private
     let US = UserDefaults.standard
     
@@ -47,7 +54,16 @@ struct UserDefaultWrapper<T> {
             US.object(forKey: key) as? T ?? placeValue
         }
         set {
-            US.setValue(newValue, forKey: key)
+            if case .recentry = ofCase {
+                guard let texts = newValue as? [String] else {
+                    return
+                }
+                let result = UserDefaultManager.removeDeplicate(texts)
+                print("해당 \(result)")
+                US.setValue(result, forKey: key)
+            } else {
+                US.setValue(newValue, forKey: key)
+            }
         }
     }
 }
