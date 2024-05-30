@@ -40,5 +40,10 @@ extension JHFont {
     static var appIntroduceFont: Font {
         return .system(size: 20, weight: .medium, design: .default)
     }
+    
+    static var largePrice: Font {
+        return .system(size: 28, weight: .bold, design: .serif)
+    }
+    
 }
 

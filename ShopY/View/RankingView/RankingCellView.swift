@@ -71,24 +71,6 @@ extension RankingCellView {
 
 extension RankingCellView {
     
-    struct ShadowModifier: ViewModifier {
-        func body(content: Content) -> some View {
-            content
-                .background(
-                    LinearGradient(
-                        colors: [
-                            JHColor.black.opacity(0),
-                            JHColor.black.opacity(0.5),
-                            JHColor.black.opacity(0.7),
-                            JHColor.black.opacity(0.9)
-                        ],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                )
-        }
-    }
-    
     struct pointModifier: ViewModifier {
         
         let padding: CGFloat

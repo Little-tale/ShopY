@@ -18,43 +18,6 @@ final class RankingViewModel: MVIPatternType {
     private
     var cancelable = Set<AnyCancellable> ()
     
-    enum HomeCategorySection: String, CaseIterable {
-        
-        // 검색 문자
-        case shoes = "신발"
-        case clothes = "옷"
-        case electronicdevices = "Apple"
-        case office = "사무용품"
-        
-        // 헤더 타이틀
-        var headerTitle: String {
-             return switch self {
-             case .shoes:
-                 "Shoes Rank"
-             case .clothes:
-                 "Clothing Rank"
-             case .electronicdevices:
-                 "Electronics Rank"
-             case .office:
-                 "Office Supplies"
-             }
-        }
-        
-        var imageName: String {
-            return switch self {
-            case .shoes:
-                "Shose"
-            case .clothes:
-                "Shirts"
-            case .electronicdevices:
-                "Elec"
-            case .office:
-                "Items"
-            }
-        }
-    }
-    
-    
     enum Intent {
         case onAppear
     }
@@ -62,7 +25,13 @@ final class RankingViewModel: MVIPatternType {
     struct StateModel {
         let sort: SortCase = .sim // 고정
         let next = 1 // 고정
-        var items: [HomeCategorySection: [ShopEntityModel]] = [:]
+        var items: [Const.RankingSection: [ShopEntityModel]] = [:]
+        var bannerItems: [ShopEntityModel] = []
+        var error: RankingError?
+    }
+    
+    enum RankingError {
+        case network(NetworkError)
     }
     
     @Published
@@ -80,6 +49,7 @@ extension RankingViewModel {
             
         case .onAppear:
             fetchAllSections()
+            fetchBannerData()
         }
     }
 }
@@ -87,7 +57,7 @@ extension RankingViewModel {
 extension RankingViewModel {
     
     private func fetchAllSections() {
-        let sectionPublish = HomeCategorySection.allCases.map { section in
+        let sectionPublish = Const.RankingSection.allCases.map { section in
             itemRepository.requestPost(
                 search: section.rawValue,
                 next: stateModel.next,
@@ -108,7 +78,7 @@ extension RankingViewModel {
                     break
                 }
             } receiveValue: { [weak self] result in
-                var items: [HomeCategorySection :  [ShopEntityModel] ] = [:]
+                var items: [Const.RankingSection :  [ShopEntityModel] ] = [:]
                 result.forEach { section, itemSection in
                     items[section] = itemSection
                 }
@@ -116,8 +86,28 @@ extension RankingViewModel {
 //                self?.objectWillChange.send()
             }
             .store(in: &cancelable)
-
+    }
+    
+    private func fetchBannerData() {
         
+        let result = itemRepository.requestPost(
+            search: Const.RankingToBanner.appleSale,
+            next: stateModel.next,
+            sort: stateModel.sort
+        )
+        
+        result
+            .map({ $0.models })
+            .catch {[weak self] error in
+                self?.stateModel.error = .network(error)
+                let empty = [ShopEntityModel] ()
+                return Just(empty)
+            }
+            .sink { [weak self] models in
+                print("데이터는 전달 받음 \(models)")
+                self?.stateModel.bannerItems = models
+            }
+            .store(in: &cancelable)
     }
 }
 

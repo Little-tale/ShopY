@@ -59,6 +59,8 @@
 		7B90C1C12C0738790031D28D /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C02C0738790031D28D /* RankingViewModel.swift */; };
 		7B90C1C32C0745B80031D28D /* RankingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C22C0745B80031D28D /* RankingCellView.swift */; };
 		7B90C1C52C07828B0031D28D /* InfiniteCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C42C07828B0031D28D /* InfiniteCarouselView.swift */; };
+		7B90C1C72C08429A0031D28D /* CaraouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C62C08429A0031D28D /* CaraouselItemView.swift */; };
+		7B90C1C92C0844600031D28D /* ShadowViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B90C1C82C0844600031D28D /* ShadowViewModifier.swift */; };
 		7BA919362BF0B2F300E31170 /* realPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */; };
 		7BA919382BF0DB9F00E31170 /* ApplePhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */; };
 		7BA9193A2BF0E3DA00E31170 /* UserProfileRegView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */; };
@@ -147,6 +149,8 @@
 		7B90C1C02C0738790031D28D /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		7B90C1C22C0745B80031D28D /* RankingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCellView.swift; sourceTree = "<group>"; };
 		7B90C1C42C07828B0031D28D /* InfiniteCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteCarouselView.swift; sourceTree = "<group>"; };
+		7B90C1C62C08429A0031D28D /* CaraouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaraouselItemView.swift; sourceTree = "<group>"; };
+		7B90C1C82C0844600031D28D /* ShadowViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowViewModifier.swift; sourceTree = "<group>"; };
 		7BA919352BF0B2F300E31170 /* realPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realPhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919372BF0DB9F00E31170 /* ApplePhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePhotoPicker.swift; sourceTree = "<group>"; };
 		7BA919392BF0E3DA00E31170 /* UserProfileRegView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRegView.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 				7B90C1C02C0738790031D28D /* RankingViewModel.swift */,
 				7B90C1C22C0745B80031D28D /* RankingCellView.swift */,
 				7B90C1C42C07828B0031D28D /* InfiniteCarouselView.swift */,
+				7B90C1C62C08429A0031D28D /* CaraouselItemView.swift */,
 			);
 			path = RankingView;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				7B4F90782BEFB08900B191F2 /* SplashImageModifier.swift */,
 				7B52E55F2BF4B47600977EC7 /* CircleProfileImage.swift */,
 				7B87BD0F2BF65004000F0F79 /* SaveButtonStyle.swift */,
+				7B90C1C82C0844600031D28D /* ShadowViewModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 				7B0B83DE2C04668C00E376D8 /* APIKeyRe.swift in Sources */,
 				7BC21A1C2BECCC23003BE504 /* SearchView.swift in Sources */,
 				7B3799092BFF5FDE002033A9 /* ShopEntityMapper.swift in Sources */,
+				7B90C1C72C08429A0031D28D /* CaraouselItemView.swift in Sources */,
 				7BC21A2E2BECF833003BE504 /* NaverRouter.swift in Sources */,
 				7BC21A232BECDFEF003BE504 /* SearchViewModel.swift in Sources */,
 				7BC21A1E2BECCEEB003BE504 /* ButtonWrapper.swift in Sources */,
@@ -753,6 +760,7 @@
 				7B4F90802BEFD15600B191F2 /* PhotoViewExameple.swift in Sources */,
 				7B3799042BFF45FD002033A9 /* ShopDTOModlel.swift in Sources */,
 				7B5DFB8A2BFCFFDF0040086A /* TabbarView.swift in Sources */,
+				7B90C1C92C0844600031D28D /* ShadowViewModifier.swift in Sources */,
 				7B52E55B2BF4906500977EC7 /* ImageFileManager.swift in Sources */,
 				7BC21A5A2BEE332B003BE504 /* DownSamplingImageView.swift in Sources */,
 				7B3799172BFF740A002033A9 /* NumberManager.swift in Sources */,

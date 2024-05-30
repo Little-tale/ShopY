@@ -39,4 +39,42 @@ enum Const {
         static let modifySuccess = "수정 성공!"
     }
     static let appLogo = "ShopyLogo"
+    
+    enum RankingSection: String, CaseIterable {
+        
+        // 검색 문자
+        case shoes = "신발"
+        case clothes = "옷"
+        case office = "사무용품"
+        
+        // 헤더 타이틀
+        var headerTitle: String {
+             return switch self {
+             case .shoes:
+                 "Shoes Rank"
+             case .clothes:
+                 "Clothing Rank"
+             case .office:
+                 "Office Supplies"
+             }
+        }
+        
+        var imageName: String {
+            return switch self {
+            case .shoes:
+                "Shose"
+            case .clothes:
+                "Shirts"
+            case .office:
+                "Items"
+            }
+        }
+    }
+    
+    
+    enum RankingToBanner {
+        static let appleSale = "Apple"
+        static let headerText = "애플 특가전"
+        
+    }
 }

@@ -55,8 +55,12 @@ extension RankingHomeView {
     var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                
-                ForEach(RankingViewModel.HomeCategorySection.allCases, id: \.self) { section in
+                InfiniteCarouselView(
+                    headerTitle: Const.RankingToBanner.headerText,
+                    items: viewModel.stateModel.bannerItems
+                )
+                .frame(height: 300)
+                ForEach(Const.RankingSection.allCases, id: \.self) { section in
                     RankingSectionView(
                         image: section.imageName,
                         title: section.headerTitle,
