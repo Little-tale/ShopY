@@ -12,7 +12,7 @@ struct splashView: View {
     @State
     var isNextBool = false
     
-    @EnvironmentObject var navigationManager: RootViewModel
+    @EnvironmentObject var navigationManager: NavigationManager
     
     var body: some View {
         if #available(iOS 16, *){

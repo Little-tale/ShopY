@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class RootViewModel: MVIPatternType{
+final class NavigationManager: MVIPatternType{
     
     private
     let realmRepository = RealmRepository()
@@ -58,7 +58,7 @@ final class RootViewModel: MVIPatternType{
 }
 
 
-extension RootViewModel {
+extension NavigationManager {
     
     func send(action: Intent){
         switch action {
@@ -78,7 +78,7 @@ extension RootViewModel {
     }
 }
 
-extension RootViewModel {
+extension NavigationManager {
     func transFormToViewOnApear() {
         let result = realmRepository.fetchAll(type: ProfileRealmModel.self)
         

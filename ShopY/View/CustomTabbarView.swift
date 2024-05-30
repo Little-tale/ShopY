@@ -38,34 +38,38 @@ enum TabbedItems: Int, CaseIterable {
 struct CustomTabbarView: View {
     
     @State private var selectedTab = 0
-    @EnvironmentObject var navigationManager: RootViewModel
+    @EnvironmentObject var navigationManager: NavigationManager
     
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            
-            TabView(selection: $selectedTab) {
-                RankingHomeView()
-                    .environmentObject(navigationManager)
-                    .tag(TabbedItems.home.rawValue)
+            VStack (spacing: 0) {
+                TabView(selection: $selectedTab) {
+                    RankingHomeView()
+                        .environmentObject(navigationManager)
+                        .tag(TabbedItems.home.rawValue)
+                        
+                    SearchView()
+                        .environmentObject(navigationManager)
+                        .tag(TabbedItems.search.rawValue)
                     
-                SearchView()
-                    .tag(TabbedItems.search.rawValue)
-                
-                SettingView()
-                    .environmentObject(navigationManager)
-                    .tag(TabbedItems.profile.rawValue)
+                    SettingView()
+                        .environmentObject(navigationManager)
+                        .tag(TabbedItems.profile.rawValue)
+                }
+                .onChange(of: navigationManager.stateModel.gosearchView) {
+                    value in
+                    selectedTab = 1
+                }
+                if !navigationManager.stateModel.tabbarisHidden {
+                    customTabBar
+                        .ignoresSafeArea(edges: .bottom)
+                }
             }
-            .ignoresSafeArea(edges: .bottom)
-            .onChange(of: navigationManager.stateModel.gosearchView) {
-                value in
-                selectedTab = 1
-            }
-            if !navigationManager.stateModel.tabbarisHidden {
-                customTabBar
-                    .offset(y: 10)
-            }
-        }
+        } // ZStack
     }
     
     private var customTabBar: some View {
@@ -84,7 +88,7 @@ struct CustomTabbarView: View {
             }
         }
         .padding(6)
-        .frame(height: 60)
+        .frame(height: 70)
         .background(JHColor.likeColor.opacity(0.7))
         .modifier(cornerRadiusVersion(cornerRadius: 24))
         .padding(.horizontal, 26)

@@ -16,6 +16,8 @@ struct ShopResultView: View {
     
     var changeedModel: ((ShopEntityModel) -> Void)?
     
+    @EnvironmentObject var navigationManager: NavigationManager
+    
     var body: some View {
         VStack {
             WKWebRepresentView(url: model.link)
@@ -31,6 +33,7 @@ struct ShopResultView: View {
             }
         }
         .onAppear{
+            navigationManager.send(action: .hideTabbar)
             viewModel.send(.startModel(model))
         }
         .navigationTitle(viewModel.stateModel.navTititle)
@@ -38,6 +41,7 @@ struct ShopResultView: View {
             if let model = viewModel.stateModel.currentModel {
                 changeedModel?(model)
             }
+            navigationManager.send(action: .showTabbar)
         }
     }
 }

@@ -14,7 +14,7 @@ import SwiftUI
 
 struct TabbarView: View {
     
-    @EnvironmentObject var navigationManager: RootViewModel
+    @EnvironmentObject var navigationManager: NavigationManager
     
     var body: some View {
         TabView {

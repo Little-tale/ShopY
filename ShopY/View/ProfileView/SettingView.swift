@@ -20,7 +20,7 @@ struct SettingView: View {
     private var viewModel = SettingViewModel()
     
     @EnvironmentObject
-    var navigationManager: RootViewModel
+    var navigationManager: NavigationManager
     
     var body: some View {
         Group {

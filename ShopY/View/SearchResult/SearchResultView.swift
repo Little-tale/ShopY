@@ -23,6 +23,8 @@ struct SearchResultView: View {
     @State
     var likeState = true
     
+    @EnvironmentObject var navigationManager: NavigationManager
+    
     init(searchText: String) {
         self.searchText = searchText
         
@@ -81,6 +83,7 @@ struct SearchResultView: View {
                     ShopResultView(model: model.0) { after in
                         viewModel.send(.likeOnlyChanged(after, model.1))
                     }
+                    .environmentObject(navigationManager)
                 }
             } label: {
                 EmptyView()

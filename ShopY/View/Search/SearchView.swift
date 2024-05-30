@@ -15,6 +15,8 @@ struct SearchView: View {
     @State 
     var navigationIsPresented = false
     
+    @EnvironmentObject var navigationManager: NavigationManager
+    
     var body: some View {
         Group {
             if #available(iOS 16.0, *) {
@@ -34,6 +36,7 @@ struct SearchView: View {
             mainContent
                 .navigationDestination(isPresented: $navigationIsPresented) {
                     SearchResultView(searchText: viewModel.stateModel.searchText)
+                        .environmentObject(navigationManager)
                 }
         }
         .onAppear {

@@ -16,7 +16,7 @@ struct RankingHomeView: View {
     private var viewModel = RankingViewModel()
     
     @EnvironmentObject
-    private var navigationManager: RootViewModel
+    private var navigationManager: NavigationManager
     
     var body: some View {
         VStack(spacing: 0) {
@@ -68,6 +68,7 @@ extension RankingHomeView {
                         image: section.imageName,
                         title: section.headerTitle,
                         items: viewModel.stateModel.items[section] ?? [])
+                    .environmentObject(navigationManager)
                 }
             }
             .navigationTitle("실시간 랭킹")
@@ -123,6 +124,9 @@ struct RankingSectionView: View {
     let title: String
     let items: [ShopEntityModel]
     
+    @EnvironmentObject
+    private var navigationManager: NavigationManager
+    
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
             HStack(alignment: .center, spacing: 0){
@@ -145,6 +149,7 @@ struct RankingSectionView: View {
                             ShopResultView(
                                 model: item
                             )
+                            .environmentObject(navigationManager)
                         } label: {
                             RankingCellView(
                                 ranking: (

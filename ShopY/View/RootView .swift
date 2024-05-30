@@ -10,7 +10,7 @@ import SwiftUI
 struct RootView: View {
     
     @StateObject // iOS 14
-    private var viewModel = RootViewModel()
+    private var viewModel = NavigationManager()
     
     
     var body: some View {
