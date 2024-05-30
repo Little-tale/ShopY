@@ -24,6 +24,7 @@ final class RootViewModel: MVIPatternType{
         case ifUserInfoReg
         case hideTabbar
         case showTabbar
+        case showSearchView
     }
     
     struct StateModel {
@@ -31,6 +32,7 @@ final class RootViewModel: MVIPatternType{
         var error = errorTypes.noneError
         var alertTrigger = false
         var tabbarisHidden = false
+        var gosearchView = false
     }
     
     enum Roots {
@@ -70,6 +72,8 @@ extension RootViewModel {
         case .showTabbar:
             print("Tabbar Show Acting")
             stateModel.tabbarisHidden = false
+        case .showSearchView:
+            stateModel.gosearchView.toggle()
         }
     }
 }

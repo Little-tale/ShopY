@@ -15,6 +15,9 @@ struct RankingHomeView: View {
     @StateObject
     private var viewModel = RankingViewModel()
     
+    @EnvironmentObject
+    private var navigationManager: RootViewModel
+    
     var body: some View {
         VStack(spacing: 0) {
             if #available(iOS 16, *) {
@@ -54,9 +57,12 @@ extension RankingHomeView {
     
     var contentView: some View {
         ScrollView {
+            fakeSearchView
+            
             VStack(alignment: .leading, spacing: 0) {
-                InfiniteCarouselView(
+                CarouselView(
                     headerTitle: Const.RankingToBanner.headerText,
+                    imageName: Const.RankingToBanner.appleImageName,
                     items: viewModel.stateModel.bannerItems
                 )
                 .frame(height: 300)
@@ -84,6 +90,33 @@ extension RankingHomeView {
         }
         .onAppear {
             UITabBar.appearance().isHidden = false
+        }
+    }
+}
+
+extension RankingHomeView {
+    var fakeSearchView: some View {
+        VStack {
+            HStack(alignment: .center) {
+                Image(systemName: Const.searchImage)
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                Text(Const.searchMent)
+                    .padding(.trailing,8)
+                Spacer()
+            }
+            .background(
+                RoundedRectangle(cornerRadius: 8, style: .circular)
+                    .stroke(Color.black, lineWidth: 2)
+            )
+            .asButton {
+                print("선택됨")
+                navigationManager.send(action: .showSearchView)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.all)
         }
     }
 }

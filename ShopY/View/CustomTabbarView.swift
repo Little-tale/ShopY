@@ -46,8 +46,9 @@ struct CustomTabbarView: View {
             
             TabView(selection: $selectedTab) {
                 RankingHomeView()
+                    .environmentObject(navigationManager)
                     .tag(TabbedItems.home.rawValue)
-                
+                    
                 SearchView()
                     .tag(TabbedItems.search.rawValue)
                 
@@ -56,7 +57,10 @@ struct CustomTabbarView: View {
                     .tag(TabbedItems.profile.rawValue)
             }
             .ignoresSafeArea(edges: .bottom)
-            
+            .onChange(of: navigationManager.stateModel.gosearchView) {
+                value in
+                selectedTab = 1
+            }
             if !navigationManager.stateModel.tabbarisHidden {
                 customTabBar
                     .offset(y: 10)

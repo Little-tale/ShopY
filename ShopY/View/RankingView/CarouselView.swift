@@ -12,9 +12,10 @@ import SwiftUI
  .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
  */
 
-struct InfiniteCarouselView: View {
+struct CarouselView: View {
     
     let headerTitle: String
+    let imageName: String?
     let items: [ShopEntityModel]
     
     @State private var currentIndex: Int = 0
@@ -27,9 +28,17 @@ struct InfiniteCarouselView: View {
     
     var body: some View {
         VStack {
-            Text(headerTitle)
-                .font(.system(size: 30, weight: .bold))
-                .padding(.vertical, 4)
+            HStack {
+                if let imageName {
+                    Image(imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                }
+                Text(headerTitle)
+                    .font(.system(size: 30, weight: .bold))
+                    .padding(.vertical, 4)
+            }
             GeometryReader { geo in
                 TabView(selection: $currentIndex) {
                     ForEach(0..<items.count, id: \.self) { index in

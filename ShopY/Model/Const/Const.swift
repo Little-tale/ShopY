@@ -12,8 +12,8 @@ enum Const {
     
     enum NaverAPi {
         static let display = 30
-        
     }
+    
     enum AppText {
         static let appName = "ShopY"
         static let appIntroduce = "심플하게 쇼핑하자"
@@ -75,6 +75,9 @@ enum Const {
     enum RankingToBanner {
         static let appleSale = "Apple"
         static let headerText = "애플 특가전"
-        
+        static let appleImageName = "AppleLogo"
     }
+    
+    static let searchImage = "magnifyingglass"
+    static let searchMent = "상품을 검색해 보세요"
 }
