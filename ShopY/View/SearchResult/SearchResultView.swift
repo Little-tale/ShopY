@@ -43,6 +43,9 @@ struct SearchResultView: View {
                 iOS15View
             }
         }
+        .modifier(ignoreViewModifier(
+            ifIgnoreView: navigationManager.stateModel.tabbarisHidden)
+        )
         .onAppear {
             viewModel.stateModel.goWebViewModel = nil
         }
@@ -60,9 +63,6 @@ struct SearchResultView: View {
                     }
                 }
         }
-        .task {
-            viewModel.send(.searchText(searchText))
-        }
         .alert(isPresented: $viewModel.stateModel.isError) {
             Alert(
                 title: Text("에러"),
@@ -71,6 +71,9 @@ struct SearchResultView: View {
                 secondaryButton: .cancel()
             )
         }
+         .onAppear {
+             viewModel.send(.searchText(searchText))
+         }
         .navigationTitle(searchText)
     }
     
@@ -89,9 +92,6 @@ struct SearchResultView: View {
                 EmptyView()
             }
         }
-        .task {
-            viewModel.send(.searchText(searchText))
-        }
         .alert(isPresented: $viewModel.stateModel.isError) {
             Alert(
                 title: Text("에러"),
@@ -101,7 +101,6 @@ struct SearchResultView: View {
             )
         }
         .navigationTitle(searchText)
-        
     }
     
     

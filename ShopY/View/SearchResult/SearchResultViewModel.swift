@@ -18,6 +18,12 @@ final class SearchResultViewModel: MVIPatternType {
     private
     let repository = ShopItemsRepository()
     
+    private
+    var currentSortTrigger = SortCase.dsc
+    
+    private
+    var currentAtTrigger = 0
+    
     enum Intent {
         case searchText(String)
         case inputSort(SortCase)
@@ -93,6 +99,11 @@ extension SearchResultViewModel {
     
     private func requestModel() {
         if stateModel.searchText == "" { return }
+        
+        if currentSortTrigger == stateModel.currentSort && currentAtTrigger == stateModel.currentAt {
+            return
+        }
+
         repository.requestPost(
             search: stateModel.searchText,
             next: stateModel.currentAt,
@@ -118,6 +129,9 @@ extension SearchResultViewModel {
             stateModel.total = result.total
             
             stateModel.isLoading = false
+            
+            currentAtTrigger = stateModel.currentAt
+            currentSortTrigger = stateModel.currentSort
         })
         .store(in: &cancellabel)
     }

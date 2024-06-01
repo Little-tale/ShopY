@@ -19,29 +19,28 @@ struct ShopResultView: View {
     @EnvironmentObject var navigationManager: NavigationManager
     
     var body: some View {
-        VStack {
-            WKWebRepresentView(url: model.link)
-        }
-        .navigationTitle(model.title)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                HeartButton(
-                    isSelected: $viewModel.stateModel.likeState, tag: nil, clear: true) {
-                        viewModel.send(.changedState)
-                    }
-                    
+        
+        WKWebRepresentView(url: model.link)
+            .ignoresSafeArea()
+            .navigationTitle(model.title)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    HeartButton(
+                        isSelected: $viewModel.stateModel.likeState, tag: nil, clear: true) {
+                            viewModel.send(.changedState)
+                        }
+                }
             }
-        }
-        .onAppear{
-            navigationManager.send(action: .hideTabbar)
-            viewModel.send(.startModel(model))
-        }
-        .navigationTitle(viewModel.stateModel.navTititle)
-        .onDisappear {
-            if let model = viewModel.stateModel.currentModel {
-                changeedModel?(model)
+            .onAppear{
+                navigationManager.send(action: .hideTabbar)
+                viewModel.send(.startModel(model))
             }
-            navigationManager.send(action: .showTabbar)
-        }
+            .navigationTitle(viewModel.stateModel.navTititle)
+            .onDisappear {
+                if let model = viewModel.stateModel.currentModel {
+                    changeedModel?(model)
+                }
+                navigationManager.send(action: .showTabbar)
+            }
     }
 }

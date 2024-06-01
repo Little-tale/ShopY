@@ -45,31 +45,30 @@ struct CustomTabbarView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack (spacing: 0) {
-                TabView(selection: $selectedTab) {
-                    RankingHomeView()
-                        .environmentObject(navigationManager)
-                        .tag(TabbedItems.home.rawValue)
-                        
-                    SearchView()
-                        .environmentObject(navigationManager)
-                        .tag(TabbedItems.search.rawValue)
-                    
-                    SettingView()
-                        .environmentObject(navigationManager)
-                        .tag(TabbedItems.profile.rawValue)
-                }
-                .onChange(of: navigationManager.stateModel.gosearchView) {
-                    value in
-                    selectedTab = 1
-                }
-                if !navigationManager.stateModel.tabbarisHidden {
-                    customTabBar
-                        .ignoresSafeArea(edges: .bottom)
-                }
+        
+        VStack (spacing: 0) {
+            TabView(selection: $selectedTab) {
+                RankingHomeView()
+                    .environmentObject(navigationManager)
+                    .tag(TabbedItems.home.rawValue)
+                
+                SearchView()
+                    .environmentObject(navigationManager)
+                    .tag(TabbedItems.search.rawValue)
+        
+                SettingView()
+                    .environmentObject(navigationManager)
+                    .tag(TabbedItems.profile.rawValue)
             }
-        } // ZStack
+            .onChange(of: navigationManager.stateModel.gosearchView) {
+                value in
+                selectedTab = 1
+            }
+            if !navigationManager.stateModel.tabbarisHidden {
+                ShopYCustomTabbarView(selectedTab: $selectedTab)
+                    .environmentObject(navigationManager)
+            }
+        }
     }
     
     private var customTabBar: some View {
@@ -92,6 +91,24 @@ struct CustomTabbarView: View {
         .background(JHColor.likeColor.opacity(0.7))
         .modifier(cornerRadiusVersion(cornerRadius: 24))
         .padding(.horizontal, 26)
+    }
+    
+    
+}
+
+struct ignoreViewModifier: ViewModifier {
+
+    var ifIgnoreView: Bool
+    
+    func body(content: Content) -> some View {
+        Group {
+            if ifIgnoreView {
+                content
+                    .ignoresSafeArea(edges: .bottom)
+            } else {
+                content
+            }
+        }
     }
 }
 

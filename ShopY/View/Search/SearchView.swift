@@ -25,6 +25,9 @@ struct SearchView: View {
                 iOS15View
             }
         }
+        .onAppear {
+            viewModel.send(action: .viewOnAppear)
+        }
         .tint(.black)
          
     }
@@ -38,10 +41,6 @@ struct SearchView: View {
                     SearchResultView(searchText: viewModel.stateModel.searchText)
                         .environmentObject(navigationManager)
                 }
-        }
-        .onAppear {
-            UITabBar.appearance().isHidden = true
-            viewModel.send(action: .viewOnAppear)
         }
         .onChange(of: navigationIsPresented) { newValue in
             if !newValue {
@@ -61,9 +60,6 @@ struct SearchView: View {
                         label: { EmptyView() }
                     )
                 )
-        }
-        .onAppear {
-            viewModel.send(action: .viewOnAppear)
         }
         .onChange(of: navigationIsPresented) { newValue in
             if !newValue {
