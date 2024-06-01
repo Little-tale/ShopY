@@ -11,12 +11,16 @@ struct RankingHomeView: View {
     
     @State private var currentPage: String = ""
     
+    @State private var tabbarHiddenTrigger = false
     
     @StateObject
     private var viewModel = RankingViewModel()
     
     @EnvironmentObject
     private var navigationManager: NavigationManager
+    
+    @State private var selectedModel: ShopEntityModel?
+    @State private var isLinkActive = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -67,7 +71,10 @@ extension RankingHomeView {
                     RankingSectionView(
                         image: section.imageName,
                         title: section.headerTitle,
-                        items: viewModel.stateModel.items[section] ?? [])
+                        items: viewModel.stateModel.items[section] ?? [],
+                        selectedModel: $selectedModel,
+                        isLinkActive: $isLinkActive
+                    )
                     .environmentObject(navigationManager)
                 }
             }
@@ -89,6 +96,15 @@ extension RankingHomeView {
             UITabBar.appearance().isHidden = false
             viewModel.send(action: .onAppear)
         }
+        .background(
+            NavigationLink(
+                destination: selectedModel.map { ShopResultView(model: $0)
+                        .environmentObject(navigationManager)
+                },
+                isActive: $isLinkActive,
+                label: { EmptyView() }
+            )
+        )
     }
 }
 
@@ -124,6 +140,11 @@ struct RankingSectionView: View {
     let title: String
     let items: [ShopEntityModel]
     
+    @Binding
+    var selectedModel: ShopEntityModel?
+    @Binding
+    var isLinkActive: Bool
+    
     @EnvironmentObject
     private var navigationManager: NavigationManager
     
@@ -143,25 +164,22 @@ struct RankingSectionView: View {
             .padding(.vertical, 3)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(Array(zip(items.indices, items)), id:\.1.productId) {
-                        index, item in
-                        NavigationLink {
-                            ShopResultView(
-                                model: item
-                            )
-                            .environmentObject(navigationManager)
-                        } label: {
-                            RankingCellView(
-                                ranking: (
-                                    index + 1
-                                ),
-                                model: item
-                            )
+                    ForEach(Array(zip(items.indices, items)), id: \.1.productId) { index, item in
+                        RankingCellView(
+                            ranking: index + 1,
+                            model: item
+                        )
+                        .asButton {
+                            print("@@@ 작동.!")
+                            navigationManager.send(action: .hideTabbar)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                                selectedModel = item
+                                isLinkActive = true
+                            }
                         }
                     }
                     .foregroundStyle(.primary)
                 }
-                
             }
         }
     }

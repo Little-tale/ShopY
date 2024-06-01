@@ -32,7 +32,6 @@ struct ShopResultView: View {
                 }
             }
             .onAppear{
-//                navigationManager.send(action: .hideTabbar)
                 viewModel.send(.startModel(model))
             }
             .navigationTitle(viewModel.stateModel.navTititle)
