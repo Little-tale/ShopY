@@ -32,11 +32,12 @@ struct ShopResultView: View {
                 }
             }
             .onAppear{
-                navigationManager.send(action: .hideTabbar)
+//                navigationManager.send(action: .hideTabbar)
                 viewModel.send(.startModel(model))
             }
             .navigationTitle(viewModel.stateModel.navTititle)
             .onDisappear {
+                print("@@ 왜죠...")
                 if let model = viewModel.stateModel.currentModel {
                     changeedModel?(model)
                 }

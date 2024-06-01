@@ -67,6 +67,7 @@ struct CustomTabbarView: View {
             if !navigationManager.stateModel.tabbarisHidden {
                 ShopYCustomTabbarView(selectedTab: $selectedTab)
                     .environmentObject(navigationManager)
+                
             }
         }
     }

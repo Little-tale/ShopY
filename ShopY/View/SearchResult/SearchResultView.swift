@@ -27,12 +27,6 @@ struct SearchResultView: View {
     
     init(searchText: String) {
         self.searchText = searchText
-        
-        if #available(iOS 16, *) {
-            
-        } else {
-            UINavigationBar.appearance().tintColor = UIColor(JHColor.black)
-        }
     }
     
     var body: some View {
@@ -43,12 +37,16 @@ struct SearchResultView: View {
                 iOS15View
             }
         }
-        .modifier(ignoreViewModifier(
-            ifIgnoreView: navigationManager.stateModel.tabbarisHidden)
-        )
         .onAppear {
             viewModel.stateModel.goWebViewModel = nil
+            print("@@??")
             viewModel.send(.searchText(searchText))
+        }
+        .onChange(of: viewModel.stateModel.gotoWebView) {
+            newValue in
+            if newValue {
+                navigationManager.send(action: .hideTabbar)
+            }
         }
     }
     
