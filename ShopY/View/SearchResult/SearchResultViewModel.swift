@@ -56,7 +56,9 @@ final class SearchResultViewModel: MVIPatternType {
             return String(total) + "개의 검색 결과"
         }
     }
-    
+    init() {
+        print("@@ 검색 뷰모델 실행")
+    }
 }
 
 extension SearchResultViewModel {
@@ -98,9 +100,13 @@ extension SearchResultViewModel {
 extension SearchResultViewModel {
     
     private func requestModel() {
-        if stateModel.searchText == "" { return }
+        if stateModel.searchText == "" {
+            print("@@ 검색어 없음")
+            return
+        }
         
         if currentSortTrigger == stateModel.currentSort && currentAtTrigger == stateModel.currentAt {
+            print("@@ 중복 처리")
             return
         }
 

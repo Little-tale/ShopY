@@ -48,6 +48,7 @@ struct SearchResultView: View {
         )
         .onAppear {
             viewModel.stateModel.goWebViewModel = nil
+            viewModel.send(.searchText(searchText))
         }
     }
     
@@ -71,9 +72,6 @@ struct SearchResultView: View {
                 secondaryButton: .cancel()
             )
         }
-         .onAppear {
-             viewModel.send(.searchText(searchText))
-         }
         .navigationTitle(searchText)
     }
     
