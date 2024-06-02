@@ -7,9 +7,7 @@
 
 import SwiftUI
 import Kingfisher
-/*
- Invalid frame dimension (negative or non-finite).
- */
+
 
 struct VirticalResultRowView: View {
     
@@ -64,9 +62,14 @@ struct ResultImageView: View {
         DownSamplingImageView(url: url, size: CGSize(width: 150, height: 150))
             .aspectRatio(1, contentMode: .fit)
             .clipShape(.rect(cornerRadius: 12))
-            .overlay {
+            .background {
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(.black, lineWidth: 1)
+                    .shadow(
+                        color: JHColor.black.opacity(0.3),
+                        radius: 4,
+                        x: 0.0,
+                        y: 0.0
+                    )
             }
     }
 }
