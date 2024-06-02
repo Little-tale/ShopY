@@ -59,18 +59,18 @@ struct ResultImageView: View {
     let url: URL?
     
     var body: some View {
+        
+        RoundedRectangle(cornerRadius: 12)
+            .shadow(
+                color: JHColor.black.opacity(0.3),
+                radius: 5,
+                x: 0.0,
+                y: 0.0
+            )
+        
         DownSamplingImageView(url: url, size: CGSize(width: 150, height: 150))
             .aspectRatio(1, contentMode: .fit)
             .clipShape(.rect(cornerRadius: 12))
-            .background {
-                RoundedRectangle(cornerRadius: 12)
-                    .shadow(
-                        color: JHColor.black.opacity(0.3),
-                        radius: 4,
-                        x: 0.0,
-                        y: 0.0
-                    )
-            }
     }
 }
 
