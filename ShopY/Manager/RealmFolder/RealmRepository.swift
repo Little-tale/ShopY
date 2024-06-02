@@ -27,16 +27,7 @@ protocol RealmFindType {
     var id: ID { get set }
     
 }
-/* 트러블 이슈 발생
- iOS 15 로 실행시 Realm Swift 뻗는 현상 발생 ->
- Thread 1: EXC_BAD_ACCESS (code=1, address=0x0)
- 
- 1. Realm Swift 지원 버전 확인 하였으나 문제 없음
- 2. Realm Swift 버전을 변경
-    2.1) 10.46.0 -> X
-    2.2) 10.48.0 -> X
- 3. 문제가 발생
- */
+
 
 final class RealmRepository: RealmRepositoryType {
    

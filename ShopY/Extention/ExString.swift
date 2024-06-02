@@ -7,21 +7,6 @@
 
 import Foundation
 
-/*
- 회고 직접 지워줄 필요가 없다.
- 
-  -> 이전
- var rmHTMLBold: String {
-     
-     let first = self.replacingOccurrences(of: "<b>", with: "")
-     let results = first.replacingOccurrences(of: "</b>", with: "")
-     return results
- }
- 
-  -> 후
- 
- */
-
 extension String {
     
     typealias ReadingOption = NSAttributedString.DocumentReadingOptionKey

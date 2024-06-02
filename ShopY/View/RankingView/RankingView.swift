@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RankingHomeView: View {
+struct RankingView: View {
     
     @State private var currentPage: String = ""
     
@@ -35,7 +35,7 @@ struct RankingHomeView: View {
 }
 
 @available(iOS 16.0, *)
-extension RankingHomeView {
+extension RankingView {
     
     var ios16: some View {
         return NavigationStack {
@@ -43,7 +43,7 @@ extension RankingHomeView {
         }
     }
 }
-extension RankingHomeView {
+extension RankingView {
     
     var ios15: some View {
         NavigationView {
@@ -54,7 +54,7 @@ extension RankingHomeView {
 }
 
 // Main
-extension RankingHomeView {
+extension RankingView {
     
     var contentView: some View {
         ScrollView {
@@ -108,7 +108,7 @@ extension RankingHomeView {
     }
 }
 
-extension RankingHomeView {
+extension RankingView {
     var fakeSearchView: some View {
         VStack {
             HStack(alignment: .center) {

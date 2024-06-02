@@ -48,7 +48,7 @@ struct CustomTabbarView: View {
         
         VStack (spacing: 0) {
             TabView(selection: $selectedTab) {
-                RankingHomeView()
+                RankingView()
                     .environmentObject(navigationManager)
                     .tag(TabbedItems.home.rawValue)
                 
