@@ -3,7 +3,7 @@
 # 📷 ShopY 프로젝트 소개
 
 <picture>
-    <img src = "https://github.com/Little-tale/ShopY/assets/116441522/cd05bc66-bbcd-429b-b81b-cbdb40245262">
+    <img src = "https://github.com/Little-tale/ShopY/assets/116441522/d1df7884-df39-488a-b73f-2c6b5c47c87b">
 </picture>
 
 ## ShopY app은 Swift UI 기반 mini Shopping APP 입니다.
