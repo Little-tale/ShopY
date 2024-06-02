@@ -60,14 +60,12 @@ struct CustomTabbarView: View {
                     .environmentObject(navigationManager)
                     .tag(TabbedItems.profile.rawValue)
             }
-            .onChange(of: navigationManager.stateModel.gosearchView) {
-                value in
+            .onChange(of: navigationManager.stateModel.gosearchView) { value in
                 selectedTab = 1
             }
             if !navigationManager.stateModel.tabbarisHidden {
-                ShopYCustomTabbarView(selectedTab: $selectedTab)
+                customTabBar
                     .environmentObject(navigationManager)
-                
             }
         }
     }
@@ -80,47 +78,26 @@ struct CustomTabbarView: View {
                     title: item.title,
                     isActive: (selectedTab == item.rawValue)
                 )
+                .frame(maxWidth: .infinity)
                 .asButton {
                     selectedTab = item.rawValue
                 }
-                .buttonStyle(PlainButtonStyle())
             }
         }
         .padding(6)
         .frame(height: 70)
         .background(JHColor.likeColor.opacity(0.7))
-        .modifier(cornerRadiusVersion(cornerRadius: 24))
-        .padding(.horizontal, 26)
+        .modifier(cornerRadiusVersion(cornerRadius: 28))
+        .padding(.horizontal, 14)
     }
     
-    
-}
-
-struct ignoreViewModifier: ViewModifier {
-
-    var ifIgnoreView: Bool
-    
-    func body(content: Content) -> some View {
-        Group {
-            if ifIgnoreView {
-                content
-                    .ignoresSafeArea(edges: .bottom)
-            } else {
-                content
-            }
-        }
-    }
-}
-
-extension CustomTabbarView {
-    
-    func CustomTabItem(
+    private func CustomTabItem(
         imageName: String,
         title: String,
         isActive: Bool
     ) -> some View {
         VStack {
-            HStack(spacing: 10) {
+            HStack (spacing: 0) {
                 Spacer()
                 Image(systemName: imageName)
                     .resizable()
@@ -132,13 +109,15 @@ extension CustomTabbarView {
                     Text(title)
                         .font(.system(size: 14))
                         .foregroundColor(isActive ? JHColor.onlyWhite : JHColor.gray)
+                        .padding(.horizontal, 4)
                 }
                 Spacer()
             }
+            .padding(.vertical, 10)
             .frame(maxWidth: .infinity)
             .frame(height: 46)
             .background(isActive ? JHColor.likeColor.opacity(0.8) : .clear)
-            .modifier(cornerRadiusVersion(cornerRadius: 24))
+            .modifier(cornerRadiusVersion(cornerRadius: 16))
         }
     }
 }
@@ -156,6 +135,22 @@ struct cornerRadiusVersion: ViewModifier {
         } else {
             content
                 .cornerRadius(cornerRadius)
+        }
+    }
+}
+
+struct ignoreViewModifier: ViewModifier {
+
+    var ifIgnoreView: Bool
+    
+    func body(content: Content) -> some View {
+        Group {
+            if ifIgnoreView {
+                content
+                    .ignoresSafeArea(edges: .bottom)
+            } else {
+                content
+            }
         }
     }
 }
