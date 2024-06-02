@@ -14,6 +14,9 @@ final class NavigationManager: MVIPatternType{
     let realmRepository = RealmRepository()
     
     private
+    let networkMonitor = NetworkMonitorManager.shared
+    
+    private
     let cancelable = Set<AnyCancellable> ()
     
     @Published
@@ -55,6 +58,26 @@ final class NavigationManager: MVIPatternType{
         }
     }
     
+    init() {
+        networkMonitor.currentNetworkType
+            .sink { type in
+                switch type {
+                case .startAndWait:
+                    <#code#>
+                case .cellular:
+                    <#code#>
+                case .ethernet:
+                    <#code#>
+                case .unknown:
+                    <#code#>
+                case .wifi:
+                    <#code#>
+                }
+                <#code#>
+            }
+            .store(in: &cancelable)
+    }
+    
 }
 
 
@@ -64,6 +87,7 @@ extension NavigationManager {
         switch action {
         case .viewOnAppear:
             transFormToViewOnApear()
+            networkMonitor.startMonitor()
         case .ifUserInfoReg:
             transFormToViewOnApear()
         case .hideTabbar:

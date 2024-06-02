@@ -19,14 +19,21 @@ final class NetworkMonitorManager {
         case wifi
     }
     
+    enum NetworkState {
+        case connected
+        case deConnected
+        case unknown
+    }
+    
     static let shared = NetworkMonitorManager()
     
     private let monitor: NWPathMonitor
     
     private let queue: DispatchQueue
     
-    let currentNetworkState = CurrentValueSubject<NetworkMonitorManager.ConnectionType, Never> (.startAndWait)
+    let currentNetworkType = CurrentValueSubject<NetworkMonitorManager.ConnectionType, Never> (.startAndWait)
     
+    let currentNetworkState = CurrentValueSubject<NetworkState, Never> (.connected)
     
     init() {
         self.monitor = NWPathMonitor()
@@ -40,20 +47,46 @@ extension NetworkMonitorManager {
     func startMonitor() {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [unowned self] nwpath in
-            if nwpath.usesInterfaceType(.wifi){
-                currentNetworkState.send(.wifi)
-            } else if nwpath.usesInterfaceType(.cellular){
-                currentNetworkState.send(.cellular)
-            } else if nwpath.usesInterfaceType(.wiredEthernet){
-                currentNetworkState.send(.ethernet)
-            } else {
-                currentNetworkState.send(.unknown)
-            }
+            
+            checkNetworkStatus(path: nwpath.status)
+            
+            checkNetworkType(nwPath: nwpath)
         }
     }
     
     func stopMonitor() {
         monitor.cancel()
-        currentNetworkState.send(.startAndWait)
+        currentNetworkType.send(.startAndWait)
+    }
+}
+
+
+extension NetworkMonitorManager {
+    
+    private func checkNetworkStatus(path: NWPath.Status) {
+        
+        switch path {
+        case .satisfied:
+            currentNetworkState.send(.connected)
+            
+        case .unsatisfied, .requiresConnection:
+            currentNetworkState.send(.deConnected)
+            
+        @unknown default:
+            currentNetworkState.send(.unknown)
+        }
+    }
+    
+    private func checkNetworkType(nwPath: NWPath) {
+        
+        if nwPath.usesInterfaceType(.wifi){
+            currentNetworkType.send(.wifi)
+        } else if nwPath.usesInterfaceType(.cellular){
+            currentNetworkType.send(.cellular)
+        } else if nwPath.usesInterfaceType(.wiredEthernet){
+            currentNetworkType.send(.ethernet)
+        } else {
+            currentNetworkType.send(.unknown)
+        }
     }
 }
