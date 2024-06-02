@@ -26,11 +26,12 @@ struct RootView: View {
                     .environmentObject(viewModel)
             }
         }
-        .alert("Error",  // iOS 15.0
-               isPresented: $viewModel.stateModel.alertTrigger)
-        {
+        .alert("에러 발생", isPresented: $viewModel.stateModel.alertTrigger) {
+            Text("확인")
+        } message: {
             Text(viewModel.stateModel.error.message)
         }
+
     }
     
     init(){

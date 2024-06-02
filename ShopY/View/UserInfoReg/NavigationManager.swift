@@ -17,7 +17,7 @@ final class NavigationManager: MVIPatternType{
     let networkMonitor = NetworkMonitorManager.shared
     
     private
-    let cancelable = Set<AnyCancellable> ()
+    var cancelable = Set<AnyCancellable> ()
     
     @Published
     var stateModel = StateModel()
@@ -47,6 +47,8 @@ final class NavigationManager: MVIPatternType{
     enum errorTypes: ErrorMessageType {
         case noneError
         case realmError(RealmError)
+        case retainCycleError
+        case networkStatusError
         
         var message: String {
             return switch self {
@@ -54,26 +56,30 @@ final class NavigationManager: MVIPatternType{
                 ""
             case .realmError(let realmError):
                 realmError.message
+            case .retainCycleError:
+                "내부의 치명적인 이슈가 발생했습니다."
+            case .networkStatusError:
+                "사용자의 네트워크 상태를 확인하여 주세요"
             }
         }
     }
     
     init() {
-        networkMonitor.currentNetworkType
-            .sink { type in
-                switch type {
-                case .startAndWait:
-                    <#code#>
-                case .cellular:
-                    <#code#>
-                case .ethernet:
-                    <#code#>
-                case .unknown:
-                    <#code#>
-                case .wifi:
-                    <#code#>
+        networkMonitor.currentNetworkState
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] type in
+                guard let weakSelf = self else {
+                    self?.stateModel.error = .retainCycleError
+                    self?.stateModel.alertTrigger = true
+                    return
                 }
-                <#code#>
+                switch type {
+                case .connected:
+                    break
+                case .deConnected, .unknown:
+                    weakSelf.stateModel.error = .networkStatusError
+                    weakSelf.stateModel.alertTrigger = true
+                }
             }
             .store(in: &cancelable)
     }

@@ -47,9 +47,7 @@ extension NetworkMonitorManager {
     func startMonitor() {
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { [unowned self] nwpath in
-            
             checkNetworkStatus(path: nwpath.status)
-            
             checkNetworkType(nwPath: nwpath)
         }
     }
