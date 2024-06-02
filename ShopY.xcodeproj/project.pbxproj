@@ -14,6 +14,7 @@
 		7B0B83E52C04A5AF00E376D8 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B83E42C04A5AF00E376D8 /* LikesView.swift */; };
 		7B0B83E72C04A75700E376D8 /* LikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B83E62C04A75700E376D8 /* LikeViewModel.swift */; };
 		7B268A1F2C09A960002690BE /* ShopYCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B268A1E2C09A960002690BE /* ShopYCustomTabBarView.swift */; };
+		7B268A3C2C0C63B3002690BE /* NetworkMonitorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B268A3B2C0C63B3002690BE /* NetworkMonitorManager.swift */; };
 		7B2D77682BF3B52600D51F49 /* LikePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77672BF3B52600D51F49 /* LikePostModel.swift */; };
 		7B2D776A2BF3BAB100D51F49 /* ProfileRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */; };
 		7B2D776D2BF3BB8800D51F49 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */; };
@@ -105,6 +106,7 @@
 		7B0B83E42C04A5AF00E376D8 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
 		7B0B83E62C04A75700E376D8 /* LikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewModel.swift; sourceTree = "<group>"; };
 		7B268A1E2C09A960002690BE /* ShopYCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopYCustomTabBarView.swift; sourceTree = "<group>"; };
+		7B268A3B2C0C63B3002690BE /* NetworkMonitorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorManager.swift; sourceTree = "<group>"; };
 		7B2D77672BF3B52600D51F49 /* LikePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostModel.swift; sourceTree = "<group>"; };
 		7B2D77692BF3BAB100D51F49 /* ProfileRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRealmModel.swift; sourceTree = "<group>"; };
 		7B2D776C2BF3BB8800D51F49 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				7BC21A2D2BECF833003BE504 /* NaverRouter.swift */,
 				7BC21A2F2BECF928003BE504 /* NetworkError.swift */,
 				7BC21A472BED2ED5003BE504 /* ImageLoader.swift */,
+				7B268A3B2C0C63B3002690BE /* NetworkMonitorManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				7B4F90792BEFB08900B191F2 /* SplashImageModifier.swift in Sources */,
 				7BC21A372BECFD28003BE504 /* SearchQueryItems.swift in Sources */,
 				7B5DFB8C2BFD03120040086A /* SplashView.swift in Sources */,
+				7B268A3C2C0C63B3002690BE /* NetworkMonitorManager.swift in Sources */,
 				7B37990F2BFF6479002033A9 /* ExString.swift in Sources */,
 				7B52E55E2BF4B3D700977EC7 /* MyProfileImageView.swift in Sources */,
 				7BC21A2C2BECF2C6003BE504 /* HTTPMethod.swift in Sources */,
