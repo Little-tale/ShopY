@@ -88,12 +88,12 @@ extension SettingView {
                 .padding(.all, 10)
             List {
                 ForEach(SettingViewModel.SettingSeciton.allCases, id: \.self) { at in
-                    Button {
-                        viewModel.send(.selectedCase(at))
-                    } label: {
-                        Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
-                            .listRowBackground(JHColor.white)
-                    }
+                    
+                    Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
+                        .listRowBackground(JHColor.white)
+                        .asButton {
+                            viewModel.send(.selectedCase(at))
+                        }
                     .tint(JHColor.black)
                 }
                 
@@ -134,12 +134,11 @@ extension SettingView {
                     .padding(.all, 10)
                 List {
                     ForEach(SettingViewModel.SettingSeciton.allCases, id: \.self) { at in
-                        Button {
-                            viewModel.send(.selectedCase(at))
-                        } label: {
-                            Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
-                                .listRowBackground(JHColor.white)
-                        }
+                        Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
+                            .listRowBackground(JHColor.white)
+                            .asButton {
+                                viewModel.send(.selectedCase(at))
+                            }
                         .tint(JHColor.black)
                     }
                 }

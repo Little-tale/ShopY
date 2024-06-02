@@ -75,14 +75,13 @@ struct CustomTabbarView: View {
     private var customTabBar: some View {
         HStack(spacing: 0) {
             ForEach(TabbedItems.allCases, id: \.self) { item in
-                Button(action: {
+                CustomTabItem(
+                    imageName: item.iconName,
+                    title: item.title,
+                    isActive: (selectedTab == item.rawValue)
+                )
+                .asButton {
                     selectedTab = item.rawValue
-                }) {
-                    CustomTabItem(
-                        imageName: item.iconName,
-                        title: item.title,
-                        isActive: (selectedTab == item.rawValue)
-                    )
                 }
                 .buttonStyle(PlainButtonStyle())
             }

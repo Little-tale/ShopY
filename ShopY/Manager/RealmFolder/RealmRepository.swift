@@ -68,7 +68,6 @@ final class RealmRepository: RealmRepositoryType {
             print("렘 자체 문제 ")
             realm = nil
         }
-//        realm = try! Realm()
     }
     
     func fetchAll<M>(type modelType: M.Type) -> Result<RealmSwift.Results<M>, RealmError> where M : Object {

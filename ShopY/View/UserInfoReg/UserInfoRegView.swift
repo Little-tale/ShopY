@@ -125,19 +125,19 @@ struct UserInfoRegView: View {
                     Text(viewModel.stateModel.currentError?.message ?? "ERROR")
                 }
                 .alert(Const.AppText.regSuccess, isPresented: $viewModel.stateModel.successTrigger) {
-                    Button(action: {
-                        ifNeedTrigger?()
-                    }, label: {
-                        Text(Const.AppText.checkMent)
-                    })
+
+                    Text(Const.AppText.checkMent)
+                        .asButton {
+                            ifNeedTrigger?()
+                        }
                 }
                 .alert(Const.AppText.modifySuccess, isPresented: $viewModel.stateModel.modifySuccess) {
-                    Button {
-                        dismiss()
-                        ifNeedTrigger?()
-                    } label: {
-                        Text(Const.AppText.checkMent)
-                    }
+    
+                    Text(Const.AppText.checkMent)
+                        .asButton {
+                            dismiss()
+                            ifNeedTrigger?()
+                        }
                 }
                 .onAppear {
                     viewModel.send(
