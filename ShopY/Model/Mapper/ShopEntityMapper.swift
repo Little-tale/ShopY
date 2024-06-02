@@ -18,7 +18,10 @@ struct ShopEntityMapper {
                 productID: dto.productId
             ),
             image: dto.image,
-            lprice: NumberManager.shared.getTextToMoney(text: dto.lprice),
+            lprice: NumberManager.shared.getTextToDecimal(
+                unitCase: .money,
+                text: dto.lprice
+            ),
             hprice: dto.hprice,
             mallName: mallNameProcess(name: dto.mallName)
         )

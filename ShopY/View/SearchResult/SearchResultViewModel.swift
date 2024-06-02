@@ -53,7 +53,11 @@ final class SearchResultViewModel: MVIPatternType {
         var gotoWebView: Bool = false
     
         var totalConfig: String {
-            return String(total) + "개의 검색 결과"
+            
+            return NumberManager.shared.getTextToDecimal(
+                unitCase: .total,
+                text: String(total)
+            )
         }
     }
     init() {
