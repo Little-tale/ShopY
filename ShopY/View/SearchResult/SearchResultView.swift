@@ -45,7 +45,7 @@ struct SearchResultView: View {
         .onChange(of: viewModel.stateModel.gotoWebView) {
             newValue in
             if newValue {
-                navigationManager.send(action: .hideTabbar)
+                navigationManager.send(.hideTabbar)
             }
         }
     }

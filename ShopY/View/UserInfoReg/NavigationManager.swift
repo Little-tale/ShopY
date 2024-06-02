@@ -89,7 +89,7 @@ final class NavigationManager: MVIPatternType{
 
 extension NavigationManager {
     
-    func send(action: Intent){
+    func send(_ action: Intent) {
         switch action {
         case .viewOnAppear:
             transFormToViewOnApear()

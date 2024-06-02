@@ -28,13 +28,13 @@ struct SettingView: View {
                 iOS16View
                     .onAppear {
                         
-                        viewModel.send(action: .viewOnAppear)
+                        viewModel.send(.viewOnAppear)
                     }
             } else {
                 iOS15View
                     .onAppear {
                         
-                        viewModel.send(action: .viewOnAppear)
+                        viewModel.send(.viewOnAppear)
                     }
             }
         }
@@ -49,7 +49,7 @@ struct SettingView: View {
             CustomPhotoPicker(
                 isPresented: $imageTrigger,
                 selelectedDataForPNG: { datas in
-                    viewModel.send(action: .imageChanged(datas))
+                    viewModel.send(.imageChanged(datas))
                 },
                 selectedLimit: 1,
                 filter: .images
@@ -57,7 +57,7 @@ struct SettingView: View {
         }
         .onChange(of: viewModel.stateModel.moveToRootView) {  newValue in
             if newValue == true {
-                navigationManager.send(action: .ifUserInfoReg)
+                navigationManager.send(.ifUserInfoReg)
             }
         }
     }
@@ -89,7 +89,7 @@ extension SettingView {
             List {
                 ForEach(SettingViewModel.SettingSeciton.allCases, id: \.self) { at in
                     Button {
-                        viewModel.send(action: .selectedCase(at))
+                        viewModel.send(.selectedCase(at))
                     } label: {
                         Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
                             .listRowBackground(JHColor.white)
@@ -101,7 +101,7 @@ extension SettingView {
             .navigationDestination(isPresented: $viewModel.stateModel.moveToModifyView) {
                 UserInfoRegView(
                     viewType: .modify) {
-                        viewModel.send(action: .viewOnAppear)
+                        viewModel.send(.viewOnAppear)
                     }
             }
             .scrollContentBackground(.hidden)
@@ -117,11 +117,11 @@ extension SettingView {
             }
             .onAppear {
                 UITabBar.appearance().isHidden = true
-                navigationManager.send(action: .showTabbar)
+                navigationManager.send(.showTabbar)
             }
             .onChange(of: viewModel.stateModel.moveToModifyView) { newValue in
                 if newValue {
-                    navigationManager.send(action: .hideTabbar)
+                    navigationManager.send(.hideTabbar)
                 }
             }
         }
@@ -135,7 +135,7 @@ extension SettingView {
                 List {
                     ForEach(SettingViewModel.SettingSeciton.allCases, id: \.self) { at in
                         Button {
-                            viewModel.send(action: .selectedCase(at))
+                            viewModel.send(.selectedCase(at))
                         } label: {
                             Text(SettingViewModel.SettingSeciton.allCases[at.rawValue].title)
                                 .listRowBackground(JHColor.white)
@@ -156,7 +156,7 @@ extension SettingView {
                 }
                 NavigationLink(isActive: $viewModel.stateModel.moveToModifyView) {
                     UserInfoRegView(viewType: .modify) {
-                        viewModel.send(action: .viewOnAppear)
+                        viewModel.send(.viewOnAppear)
                     }
                 } label: {
                     EmptyView()

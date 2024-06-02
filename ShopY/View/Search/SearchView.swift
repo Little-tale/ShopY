@@ -26,7 +26,7 @@ struct SearchView: View {
             }
         }
         .onAppear {
-            viewModel.send(action: .viewOnAppear)
+            viewModel.send(.viewOnAppear)
         }
         .tint(.black)
          
@@ -44,7 +44,7 @@ struct SearchView: View {
         }
         .onChange(of: navigationIsPresented) { newValue in
             if !newValue {
-                viewModel.send(action: .viewOnAppear)
+                viewModel.send(.viewOnAppear)
             }
         }
     }
@@ -63,7 +63,7 @@ struct SearchView: View {
         }
         .onChange(of: navigationIsPresented) { newValue in
             if !newValue {
-                viewModel.send(action: .viewOnAppear)
+                viewModel.send(.viewOnAppear)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -82,12 +82,12 @@ struct SearchView: View {
             text: Binding(get: {
                 viewModel.stateModel.searchText
             }, set: { text in
-                viewModel.send(action: .currnetText(text))
+                viewModel.send(.currnetText(text))
             }),
             placement: .automatic
         )
         .onSubmit(of: .search) {
-            viewModel.send(action: .searchButtonTap)
+            viewModel.send(.searchButtonTap)
             navigationIsPresented = true
         }
         .onAppear {
@@ -103,7 +103,7 @@ struct SearchView: View {
                 .bold()
             Spacer()
             Button("모두 지우기") {
-                viewModel.send(action: .allDeleteButtonTap)
+                viewModel.send(.allDeleteButtonTap)
             }
             .font(.system(size: 18, weight: .bold))
             .foregroundColor(.green)
@@ -118,7 +118,7 @@ struct SearchView: View {
                 navigationIsPresented = true
             }) {
                 SearchListHView(text: viewModel.stateModel.searchList[index], xButtonTap: {
-                    viewModel.send(action: .deleteButtonTap(index))
+                    viewModel.send(.deleteButtonTap(index))
                 }, tag: index)
             }
             .tint(JHColor.black)

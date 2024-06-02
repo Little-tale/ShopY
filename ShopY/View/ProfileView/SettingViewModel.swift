@@ -87,7 +87,7 @@ final class SettingViewModel: MVIPatternType {
 // Intent Action
 extension SettingViewModel {
     
-    func send(action: Intent) {
+    func send(_ action: Intent) {
         switch action {
         case .viewOnAppear:
             findProfile()

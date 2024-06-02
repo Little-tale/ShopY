@@ -94,7 +94,7 @@ extension RankingHomeView {
         }
         .onAppear {
             UITabBar.appearance().isHidden = false
-            viewModel.send(action: .onAppear)
+            viewModel.send(.onAppear)
         }
         .background(
             NavigationLink(
@@ -127,7 +127,7 @@ extension RankingHomeView {
             )
             .asButton {
                 print("선택됨")
-                navigationManager.send(action: .showSearchView)
+                navigationManager.send(.showSearchView)
             }
             .buttonStyle(PlainButtonStyle())
             .padding(.all)
@@ -171,7 +171,7 @@ struct RankingSectionView: View {
                         )
                         .asButton {
                             print("@@@ 작동.!")
-                            navigationManager.send(action: .hideTabbar)
+                            navigationManager.send( .hideTabbar)
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                                 selectedModel = item
                                 isLinkActive = true

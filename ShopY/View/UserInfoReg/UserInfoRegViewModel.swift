@@ -93,7 +93,7 @@ final class UserInfoRegViewModel: MVIPatternType {
 // MARK: Intent Handle
 extension UserInfoRegViewModel {
     
-    func handle(intent: Intent) {
+    func send(_ intent: Intent) {
         switch intent {
         case .inputViewType(let viewType) :
             stateModel.viewType = viewType

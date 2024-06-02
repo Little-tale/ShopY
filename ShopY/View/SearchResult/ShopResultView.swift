@@ -40,7 +40,7 @@ struct ShopResultView: View {
                 if let model = viewModel.stateModel.currentModel {
                     changeedModel?(model)
                 }
-                navigationManager.send(action: .showTabbar)
+                navigationManager.send(.showTabbar)
             }
     }
 }

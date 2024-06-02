@@ -61,7 +61,7 @@ struct UserInfoRegView: View {
                 ProfileTextField(headLine: Const.AppText.profileHead, placeHolder: Const.AppText.nameInfoMent,
                                  text: Binding(
                                     get: { viewModel.stateModel.nameText},
-                                    set: { viewModel.handle(intent: .nameText($0))}
+                                    set: { viewModel.send(.nameText($0))}
                                  ),
                                  state: viewModel.stateModel.nameTextValid
                 )
@@ -77,7 +77,7 @@ struct UserInfoRegView: View {
                 
                 ProfileTextField(headLine: Const.AppText.introduceHead, placeHolder: Const.AppText.introduceMent, text: Binding(
                     get: { viewModel.stateModel.introduce},
-                    set: { viewModel.handle(intent: .introduce($0))}),
+                    set: { viewModel.send(.introduce($0))}),
                                  state: nil
                 )
                 .padding(.horizontal, 40)
@@ -87,7 +87,7 @@ struct UserInfoRegView: View {
                 ProfileTextField(headLine: Const.AppText.phoneNumberHead, placeHolder: Const.AppText.phoneNumberInfoMent,
                                  text: Binding(
                                     get: { viewModel.stateModel.phoneNumber},
-                                    set: { viewModel.handle(intent: .phoneNumber($0))}
+                                    set: { viewModel.send(.phoneNumber($0))}
                                  ),
                                  state: viewModel.stateModel.phoneNumberValid
                 )
@@ -107,7 +107,7 @@ struct UserInfoRegView: View {
                     .bold()
                     .frame(width: 200, height: 15)
                     .asButton {
-                        viewModel.handle(intent: .saveButtonTap(()))
+                        viewModel.send(.saveButtonTap(()))
                     }
                     .buttonStyle(SaveButtonStyle(
                         buttonState: viewModel.stateModel.saveButtonEnabled
@@ -140,8 +140,8 @@ struct UserInfoRegView: View {
                     }
                 }
                 .onAppear {
-                    viewModel.handle(
-                        intent: .inputViewType(viewType)
+                    viewModel.send(
+                        .inputViewType(viewType)
                     )
                 }
                 .navigationTitle(viewModel.stateModel.viewType.navigationTitle)
@@ -170,7 +170,7 @@ extension UserInfoRegView {
                 CustomPhotoPicker(
                     isPresented: $goGallery,
                     selectedImages: { images in
-                        viewModel.handle(intent: .selectImages(images))
+                        viewModel.send(.selectImages(images))
                     },
                     selectedLimit: 1,
                     filter: .images

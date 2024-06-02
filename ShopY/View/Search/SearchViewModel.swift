@@ -36,7 +36,7 @@ final class SearchViewModel: MVIPatternType {
 // User Action Send
 extension SearchViewModel {
     
-    func send(action: Intent) {
+    func send(_ action: Intent) {
         switch action{
         case .viewOnAppear:
             stateModel.searchList = UserDefaultManager.searchHistory

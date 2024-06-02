@@ -52,7 +52,7 @@ extension RootView {
             Spacer()
         }
         .onAppear { // iOS 13
-            viewModel.send(action: .viewOnAppear)
+            viewModel.send(.viewOnAppear)
         }
     }
 }

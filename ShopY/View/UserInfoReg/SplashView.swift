@@ -40,7 +40,7 @@ extension splashView {
                 isPresented: $isNextBool
             ) {
                 UserInfoRegView(viewType: .first) {
-                    navigationManager.send(action: .viewOnAppear)
+                    navigationManager.send(.viewOnAppear)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -52,7 +52,7 @@ extension splashView {
             VStack {
                 contentView
                 NavigationLink(destination: UserInfoRegView(viewType: .first, ifNeedTrigger: {
-                    navigationManager.send(action: .viewOnAppear)
+                    navigationManager.send(.viewOnAppear)
                 }), isActive: $isNextBool) {
                     EmptyView()
                 }

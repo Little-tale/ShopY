@@ -44,7 +44,7 @@ final class RankingViewModel: MVIPatternType {
 
 extension RankingViewModel {
         
-    func send(action: Intent) {
+    func send(_ action: Intent) {
         switch action {
             
         case .onAppear:

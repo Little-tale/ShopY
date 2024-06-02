@@ -8,9 +8,12 @@
 import Combine
 
 protocol MVIPatternType: ObservableObject {
+    
     associatedtype Intent
     
     associatedtype StateModel
     
     var stateModel: StateModel { get }
+    
+    func send(_ action: Intent)
 }
