@@ -64,7 +64,7 @@ protocol MVIPatternType: ObservableObject {
     func send(_ action: Intent)
 }
 ```
-
+### 회고정리 : Swift UI + MVVM 과연 맞을까? https://velog.io/@little_tail/9ps8g62w
 ---
 
 ## DTO - Entity
